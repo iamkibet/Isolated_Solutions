@@ -16,14 +16,22 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('home');
+
+Route::get('/', function () {
+    return Inertia::render('Landing');
+})->name('landing');
+
+Route::get('/contact-us', function () {
+    return Inertia::render('Landing');
+})->name('contact-us');
 
 Route::get('/home', function () {
     return Inertia::render('Home');
