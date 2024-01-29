@@ -61,7 +61,7 @@ export default function Slide() {
                 </div>
             </SwiperSlide>
             </Swiper>
-            <style global>
+            <style>
                 {`
                 .swiper-pagination-bullet {background-color: white;}
                 .swiper-pagination-bullet-active {background-color: red;}

@@ -23,7 +23,7 @@ export default function Guest({ children }: PropsWithChildren) {
                 <div className="flex gap-x-5 place-items-center w-full relative">
                     <div className="container mx-auto flex gap-x-6 lg:gap-x-14 px-4 items-center w-full justify-between">
                         <Link href="/">
-                            <ApplicationLogo className="w-12 h-12 fill-current text-red-500" />
+                            <ApplicationLogo />
                         </Link>
                         <p className="text-[11px] xl:text-base hidden lg:block w-44">
                             Tech Solutions for your business.
