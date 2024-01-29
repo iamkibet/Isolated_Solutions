@@ -21,7 +21,7 @@ export default function Guest({ children }: PropsWithChildren) {
         <div className="relative flex flex-col sm:justify-center items-center bg-gray-100 dark:bg-gray-900">
             <div id="header" className="w-full z-10 sticky top-0 bg-white text-[#14151b] py-4">
                 <div className="flex gap-x-5 place-items-center w-full relative">
-                    <div className="container mx-auto flex gap-x-6 lg:gap-x-14 px-4 items-center w-full justify-between">
+                    <div className="container mx-auto flex gap-x-6 xl:justify-between px-4 items-center w-full justify-between">
                         <Link href="/">
                             <ApplicationLogo />
                         </Link>
@@ -29,7 +29,7 @@ export default function Guest({ children }: PropsWithChildren) {
                             Tech Solutions for your business.
                         </p>
 
-                        <div className="hidden md:flex flex-col md:flex-row gap-y-4 md:gap-x-6 lg:gap-x-14 font-medium text-xs xl:text-base items-center">
+                        <div className="hidden md:flex flex-col md:flex-row gap-y-4 md:gap-x-6 xl:gap-x-14 font-medium text-xs xl:text-base items-center">
                             <div className="relative hover:cursor-pointer"
                             onMouseEnter={()=>{setShowServices(true )}}
                             onMouseLeave={()=>{setShowServices(false )}}
@@ -80,7 +80,7 @@ export default function Guest({ children }: PropsWithChildren) {
                             onMouseEnter={()=>{setShowAbout(true )}}
                             onMouseLeave={()=>{setShowAbout(false )}}
                             >
-                                Who we Are
+                                About
                                 <div className={`${showAbout ? "block" :"hidden"} absolute grid min-w-max p-4 bg-white`}>
                                     <div className="grid mx-auto">
                                         <AboutLinks />
@@ -90,7 +90,7 @@ export default function Guest({ children }: PropsWithChildren) {
                         </div>
 
                         <Link href={route('contact-us')}
-                              className={`ms-4 hidden md:block py-1 px-3 border-[1.5px] border-red-500 rounded-md text-red-500 font-medium hover:text-slate-100 hover:bg-red-500 transition-all duration-300 ease-in-out`}
+                              className={`ms-4 hidden md:block py-1 px-3 border-[1.5px] border-red-500 rounded-md text-red-500 text-sm xl:text-base font-medium hover:text-slate-100 hover:bg-red-500 transition-all duration-300 ease-in-out`}
                         >
                             Contact Us
                         </Link>

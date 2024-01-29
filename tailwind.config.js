@@ -18,6 +18,11 @@ export default {
             colors: {
                 cardul: "rgba(20, 21, 27, 0.98)",
             },
+            screens: {
+                xl: "1500px",
+                "2xl": "1600px",
+                "3xl": "1800px",
+            },
         },
     },
 

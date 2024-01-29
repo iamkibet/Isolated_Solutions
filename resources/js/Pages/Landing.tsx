@@ -14,12 +14,12 @@ export default function Landing({auth}: PageProps)
 
     return (
         <GuestLayout>
-            <Head title="Landing Page" />
+            <Head title="Isolated Solutions" />
             <div className="min-h-[400px] md:min-h-[710px] pb-8 lg:pt-16 lg:px-8 bg-black bg-center bg-cover bg-no-repeat bg-opacity-80" style={bgImg}>
                 <div className="container mx-auto grid md:grid-cols-4 py-10 px-4 bg-black bg-opacity-70 md:bg-none md:bg-opacity-0">
                     <div className="flex flex-col pb-8 gap-y-2 md:col-span-2">
                         <span className={`h-1 w-16 bg-white`}></span>
-                        <h1 className="mt-1 py-2 text-4xl font-poppins lg:text-7xl font-extrabold text-red-600">
+                        <h1 className="mt-1 py-2 text-4xl lg:text-5xl xl:text-7xl font-extrabold text-red-600">
                             We Ideate, Innovate, & Create <span className="text-slate-50 md:text-3xl lg:text-5xl">Technology Solutions</span>
                         </h1>
 
@@ -30,11 +30,11 @@ export default function Landing({auth}: PageProps)
                     </div>
 
                     <div className="hidden md:flex md:col-span-2 text-slate-100">
-                        <div className="p-3 lg:p-10 lg:py-16 md:grid md:grid-cols-4">
-                            <div className="hidden md:block col-span-4 min-h-32"></div>
-                            <div className="hidden md:block col-span-2 min-h-32"></div>
+                        <div className="p-3 lg:p-10 lg:py-16 md:grid md:grid-cols-5">
+                            <div className="hidden md:block col-span-5 min-h-32"></div>
+                            <div className="hidden md:block col-span-3 xl:col-span-2 min-h-32"></div>
 
-                            <div className="md:col-span-2 text-sm md:px-6">
+                            <div className="md:col-span-2 text-sm md:pt-4">
                                 <h3 className="py-1.5 col-span-2 font-semibold xl:text-lg">
                                     Insights To the Innovation
                                 </h3>
