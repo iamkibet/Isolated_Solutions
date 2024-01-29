@@ -18,21 +18,27 @@ const CardWrap: React.FC<CardWrapProps> = ({ title, content, image, list, isPotr
       <div className="relative">
         {image}
         {isPotrait && (
-          <div
-            className={`absolute inset-0 w-full h-full flex flex-col justify-between p-6 text-left transition-opacity ${
-              isHovered ? 'opacity-90' : 'opacity-0'
-            } bg-cardul z-10`}
+          <div className="absolute inset-0 w-full h-full flex flex-col justify-between p-6 text-left bg-cardul z-10"
+            style={{
+              transform: `translateX(${isHovered ? 0 : '-100%'})`, // Slide in from left if hovered, otherwise hide off-screen to the left
+              transition: 'transform 0.3s ease-in-out', // Apply transition to transform property
+              visibility: isHovered ? 'visible' : 'hidden', // Show/hide the element based on hover state
+            }}
           >
-            <ul className='max-w-md space-y-1 text-white hover:text-gray-500 w-fit'>
+            <ul className='max-w-md space-y-1 text-white hover:text-gray-500'>
               {list.map((item, index) => (
                 <li key={index} className='group relative overflow-hidden'>
                   <span className='group-hover:text-white text-lg mr-2'>▪ </span>
                   {typeof item === 'string' ? (
                     item
                   ) : (
-                    <BorderHover defBorderColor="bg-gray-700" hovBorderColor='bg-white'>
+                    <BorderHover 
+                      defBorderColor="bg-gray-700" 
+                      hovBorderColor='bg-white'
+                      className={isHovered ? 'visible' : 'hidden'} // Apply visibility class based on hover state
+                      >
                       <a href={item.link} className="hover:text-white relative overflow-hidden">
-                      {item.text}
+                        {item.text}
                       </a>
                     </BorderHover>
                   )}

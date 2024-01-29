@@ -55,6 +55,11 @@ const PotraitCard: React.FC<CardWrapProps> = ({ title, content, image, list, isP
           className={`absolute inset-0 justify-between p-4 text-left transition-opacity ${
             isHovered ? 'opacity-90' : 'opacity-0'
           } bg-cardul z-10`}
+          style={{
+              transform: `translate(${isHovered ? 0 : '90%'}, ${isHovered ? 0 : '-90%'})`, // Slide in from right and top if hovered, otherwise hide off-screen
+              transition: 'transform 0.3s ease-in-out', // Apply transition to transform property
+              visibility: isHovered ? 'visible' : 'hidden', // Show/hide the element based on hover state
+            }}
         >
           <ul className='max-w-md space-y-1 text-white hover:text-gray-500 w-fit'>
             {list.map((item, index) => (
