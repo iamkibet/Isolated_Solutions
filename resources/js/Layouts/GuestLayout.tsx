@@ -7,6 +7,7 @@ import AboutLinks from '@/Components/NavAboutUsLinks';
 import TechnologiesLinks from '@/Components/NavTechnologiesLinks';
 import WorkLinks from '@/Components/NavWorkLinks';
 import IndustriesLinks from '@/Components/NavIndustriesLinks';
+import BorderHover from '@/Components/BorderHover';
 
 export default function Guest({ children }: PropsWithChildren) {
     // show drop-down menus
@@ -29,12 +30,12 @@ export default function Guest({ children }: PropsWithChildren) {
                             Tech Solutions for your business.
                         </p>
 
-                        <div className="hidden md:flex flex-col md:flex-row gap-y-4 md:gap-x-6 xl:gap-x-14 font-medium text-xs xl:text-base items-center">
+                        <div className="hidden md:flex flex-col md:flex-row gap-y-4 md:gap-x-6 xl:gap-x-14 font-medium text-xs xl:text-base items-center text-black hover:text-gray-400">
                             <div className="relative hover:cursor-pointer"
                             onMouseEnter={()=>{setShowServices(true )}}
                             onMouseLeave={()=>{setShowServices(false )}}
                             >
-                                Services
+                                <BorderHover defBorderColor="bg-white" hovBorderColor="bg-black" ><span className='hover:text-black'>Services</span></BorderHover>
                                 <div className={`${showServices ? "block" :"hidden"} absolute -left-40 grid min-w-max p-4 bg-white`}>
                                     <div className="grid mx-auto">
                                         <ServicesLinks />
@@ -45,7 +46,7 @@ export default function Guest({ children }: PropsWithChildren) {
                             onMouseEnter={()=>{setShowTechnologies(true )}}
                             onMouseLeave={()=>{setShowTechnologies(false )}}
                             >
-                                Technologies
+                                <BorderHover defBorderColor="bg-white" hovBorderColor="bg-black" ><span className='hover:text-black'>Technologies</span></BorderHover>
                                 <div className={`${showTechnologies ? "block" :"hidden"} absolute -left-40 grid min-w-max p-4 bg-white`}>
                                     <div className="grid mx-auto">
                                         <TechnologiesLinks />
@@ -56,7 +57,7 @@ export default function Guest({ children }: PropsWithChildren) {
                             onMouseEnter={()=>{setShowIndustries(true )}}
                             onMouseLeave={()=>{setShowIndustries(false )}}
                             >
-                                Industries
+                                <BorderHover defBorderColor="bg-white" hovBorderColor="bg-black" ><span className='hover:text-black'>Industries</span></BorderHover>
                                 <div className={`${showIndustries ? "block" :"hidden"} absolute grid min-w-max p-4 bg-white`}
                                 >
                                     <div className="grid mx-auto">
@@ -68,7 +69,7 @@ export default function Guest({ children }: PropsWithChildren) {
                             onMouseEnter={()=>{setShowWork(true )}}
                             onMouseLeave={()=>{setShowWork(false )}}
                             >
-                                Work
+                                <BorderHover defBorderColor="bg-white" hovBorderColor="bg-black" ><span className='hover:text-black'>Work</span></BorderHover>
 
                                 <div className={`${showWork ? "block" :"hidden"} absolute grid min-w-max bg-white`}>
                                     <div className="grid mx-auto">
@@ -80,7 +81,7 @@ export default function Guest({ children }: PropsWithChildren) {
                             onMouseEnter={()=>{setShowAbout(true )}}
                             onMouseLeave={()=>{setShowAbout(false )}}
                             >
-                                About
+                                <BorderHover defBorderColor="bg-white" hovBorderColor="bg-black" ><span className='hover:text-black'>About</span></BorderHover>
                                 <div className={`${showAbout ? "block" :"hidden"} absolute grid min-w-max p-4 bg-white`}>
                                     <div className="grid mx-auto">
                                         <AboutLinks />
