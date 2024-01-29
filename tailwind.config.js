@@ -13,7 +13,7 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ["Poppins', 'Figtree", ...defaultTheme.fontFamily.sans],
+                sans: ["Poppins", ...defaultTheme.fontFamily.sans],
             },
             colors: {
                 cardul: "rgba(20, 21, 27, 0.98)",
@@ -22,5 +22,5 @@ export default {
     },
 
     plugins: [forms],
-    darkMode: 'class'
+    darkMode: "class",
 };

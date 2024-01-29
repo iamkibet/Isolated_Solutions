@@ -18,3 +18,8 @@ export interface CardWrapProps {
   isPotrait?: boolean;
   mobileImage?: string;
 }
+
+export interface FooterProps {
+  title: string;
+  children?: JSX.Element[] | JSX.Element;
+}

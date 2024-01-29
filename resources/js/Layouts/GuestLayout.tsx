@@ -21,15 +21,15 @@ export default function Guest({ children }: PropsWithChildren) {
         <div className="relative flex flex-col sm:justify-center items-center bg-gray-100 dark:bg-gray-900">
             <div id="header" className="w-full z-10 sticky top-0 bg-white text-[#14151b] py-4">
                 <div className="flex gap-x-5 place-items-center w-full relative">
-                    <div className="mx-auto flex gap-x-6 lg:gap-x-14 px-4 items-center w-full justify-between">
+                    <div className="container mx-auto flex gap-x-6 lg:gap-x-14 px-4 items-center w-full justify-between">
                         <Link href="/">
                             <ApplicationLogo className="w-12 h-12 fill-current text-red-500" />
                         </Link>
-                        <p className="text-[11px] hidden lg:block w-44">
+                        <p className="text-[11px] xl:text-base hidden lg:block w-44">
                             Tech Solutions for your business.
                         </p>
 
-                        <div className="hidden md:flex flex-col md:flex-row gap-y-4 md:gap-x-6 lg:gap-x-14 font-medium text-xs items-center">
+                        <div className="hidden md:flex flex-col md:flex-row gap-y-4 md:gap-x-6 lg:gap-x-14 font-medium text-xs xl:text-base items-center">
                             <div className="relative hover:cursor-pointer"
                             onMouseEnter={()=>{setShowServices(true )}}
                             onMouseLeave={()=>{setShowServices(false )}}

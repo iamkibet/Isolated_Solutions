@@ -35,7 +35,7 @@ Route::get('/contact-us', function () {
 
 Route::get('/home', function () {
     return Inertia::render('Home');
-});
+})->name('home');
 
 Route::get('/playground', function () {
     return Inertia::render('Playground');

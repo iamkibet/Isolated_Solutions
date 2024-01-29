@@ -4,8 +4,8 @@ import FutechWrap from "./FutechWrap";
 const Futech: React.FC = () => {
     return ( 
         <div className="mb-8 border-b-2 border-black p-4">
-            <h3 className="text-2xl md:text-4xl font-extrabold mb-2">
-                The Stakeholders of Futuristic Technology Solutions
+            <h3 className="text-2xl md:text-4xl font-extrabold mb-2 md:leading-normal">
+                The Stakeholders of <span className="text-red-500">Futuristic Technology Solutions</span>
             </h3>
             <span className="text-sm md:text-lg">
                 Your Ideas, Our Expertise = Maximum Customer Success

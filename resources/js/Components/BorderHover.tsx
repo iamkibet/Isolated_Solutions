@@ -6,7 +6,7 @@ interface BorderHoverProps {
     hovBorderColor?: string;
 }
 
-const BorderHover: React.FC<BorderHoverProps> = ({children,defBorderColor=`bg-gray-100`, hovBorderColor=`bg-slate-800`}: BorderHoverProps) => {
+const BorderHover: React.FC<BorderHoverProps> = ({children,defBorderColor=`bg-gray-300`, hovBorderColor=`bg-slate-800`}: BorderHoverProps) => {
     const [hoverColor, setHoverColor] = useState(hovBorderColor);
     const [defaultColor, setDefaultColor] = useState(defBorderColor);
 

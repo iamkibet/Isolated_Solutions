@@ -23,7 +23,7 @@ export default function Slide() {
                 className="mySwiper"
             >
             <SwiperSlide>
-                <div className="mt-1 py-2 px-1 h-24 text-xs font-light text-slate-200">
+                <div className="mt-1 py-2 px-1 h-24 text-xs xl:text-sm font-light text-slate-200">
                     <p className="py-1">
                         Create and Deploy your business technology.
                     </p>
@@ -31,7 +31,7 @@ export default function Slide() {
             </SwiperSlide>
 
             <SwiperSlide>
-                <div className="mt-1 py-2 px-1 h-24 text-xs font-light text-slate-200">
+                <div className="mt-1 py-2 px-1 h-24 text-xs xl:text-sm font-light text-slate-200">
                     <p className="py-1">
                         How eCommerce solutions redefines your business.
                     </p>
@@ -39,7 +39,7 @@ export default function Slide() {
             </SwiperSlide>
 
             <SwiperSlide>
-                <div className="mt-1 py-2 px-1 h-24 text-xs font-light text-slate-200">
+                <div className="mt-1 py-2 px-1 h-24 text-xs xl:text-sm font-light text-slate-200">
                     <p className="py-1">
                         The only place with intuitive and feature-packed MVPs.
                     </p>
@@ -47,14 +47,14 @@ export default function Slide() {
             </SwiperSlide>
 
             <SwiperSlide>
-                <div className="mt-1 py-2 px-1 h-24 text-xs font-light text-slate-200">
+                <div className="mt-1 py-2 px-1 h-24 text-xs xl:text-sm font-light text-slate-200">
                     <p className="py-1">
                         Fast-paced web and mobile developments.
                     </p>
                 </div>
             </SwiperSlide>
             <SwiperSlide>
-                <div className="mt-1 py-2 px-1 h-24 text-xs font-light text-slate-200">
+                <div className="mt-1 py-2 px-1 h-24 text-xs xl:text-sm font-light text-slate-200">
                     <p className="py-1">
                         Monitor sales and purchases; generate reports for data-driven planning.
                     </p>
@@ -63,9 +63,9 @@ export default function Slide() {
             </Swiper>
             <style global>
                 {`
-                .swiper-pagination:{text-align: left;}
                 .swiper-pagination-bullet {background-color: white;}
                 .swiper-pagination-bullet-active {background-color: red;}
+                .swiper-pagination:{text-align: left;}
                 `}
             </style>
         </>
