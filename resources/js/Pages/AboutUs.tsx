@@ -3,6 +3,7 @@ import GuestLayout from "@/Layouts/GuestLayout";
 import Footer from "@/Components/Footer";
 import AboutHero from "@/Components/AboutHero";
 import GrowBusiness from "@/Components/GrowBusiness";
+import { Head } from "@inertiajs/react";
 
 const AboutUs = () => {
 
@@ -13,6 +14,7 @@ const AboutUs = () => {
 
     return ( 
         <GuestLayout>
+            <Head title="About Us" />
             <div className="min-h-[200px] md:min-h-[200px] pb-8 lg:pt-16 lg:px-8 bg-black bg-center bg-cover bg-no-repeat bg-opacity-80" style={bgImg}>
                 <div className="container mx-auto grid md:grid-cols-4 py-10 px-4 bg-black bg-opacity-70 md:bg-none md:bg-opacity-0">
                     <div className="flex flex-col pb-8 gap-y-2 md:col-span-2">
