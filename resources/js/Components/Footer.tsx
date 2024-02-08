@@ -57,7 +57,7 @@ const Footer = () => {
                             <ul className="font-medium text-sm text-black hover:text-gray-400">
                                 <li className="mb-4 hover:text-black">
                                     <BorderHover>
-                                        <a href="#">About Us</a>
+                                        <a href="/about">About Us</a>
                                     </BorderHover>
                                 </li>
                                 <li className="mb-4 hover:text-black">

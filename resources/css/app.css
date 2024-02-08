@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@keyframes shake {
+  0% { transform: translateX(-50px); } /* Start from left */
+  100% { transform: translateX(50px); } /* End at right */
+}

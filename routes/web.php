@@ -37,8 +37,8 @@ Route::get('/home', function () {
     return Inertia::render('Home');
 })->name('home');
 
-Route::get('/mpesa', function () {
-    return Inertia::render('Mpesa');
+Route::get('/about', function () {
+    return Inertia::render('AboutUs');
 });
 
 Route::get('/dashboard', function () {

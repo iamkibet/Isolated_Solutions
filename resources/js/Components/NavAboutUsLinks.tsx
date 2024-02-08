@@ -12,7 +12,7 @@ function AboutLinks({children}: AboutLinksProps) {
             <NavCard>
                 <div className="min-w-full flex flex-col gap-y-4 text-black hover:text-slate-400">
                     <BorderHover defBorderColor='bg-slate-200' hovBorderColor='bg-black'>
-                        <a href="#" className="py-1 hover:text-black">About Us</a>
+                        <a href="/about" className="py-1 hover:text-black">About Us</a>
                     </BorderHover>
                     <BorderHover defBorderColor='bg-slate-200' hovBorderColor='bg-black'>
                         <a href="#" className="py-1 hover:text-black">Blog</a>
