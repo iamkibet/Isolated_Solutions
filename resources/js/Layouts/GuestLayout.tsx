@@ -8,6 +8,7 @@ import TechnologiesLinks from '@/Components/NavTechnologiesLinks';
 import WorkLinks from '@/Components/NavWorkLinks';
 import IndustriesLinks from '@/Components/NavIndustriesLinks';
 import BorderHover from '@/Components/BorderHover';
+import Footer from '@/Components/Footer';
 
 export default function Guest({ children }: PropsWithChildren) {
     // show drop-down menus

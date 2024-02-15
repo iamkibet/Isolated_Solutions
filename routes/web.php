@@ -33,13 +33,13 @@ Route::get('/contact-us', function () {
     return Inertia::render('Landing');
 })->name('contact-us');
 
-Route::get('/home', function () {
-    return Inertia::render('Home');
-})->name('home');
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
+})->name('contact');
 
 Route::get('/about', function () {
     return Inertia::render('AboutUs');
-});
+})->name('about-us');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
