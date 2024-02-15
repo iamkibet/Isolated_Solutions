@@ -29,10 +29,6 @@ Route::get('/', function () {
     return Inertia::render('Landing');
 })->name('landing');
 
-Route::get('/contact-us', function () {
-    return Inertia::render('Landing');
-})->name('contact-us');
-
 Route::get('/contact', function () {
     return Inertia::render('Contact');
 })->name('contact');
