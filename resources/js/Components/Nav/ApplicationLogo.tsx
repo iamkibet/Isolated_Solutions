@@ -1,5 +1,5 @@
 
-import LogoICon from "../assets/images/LogoIcon.png";
+import LogoICon from "../../assets/images/LogoIcon.png";
 
 const ApplicationLogo = () => {
     return (

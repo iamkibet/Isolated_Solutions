@@ -1,14 +1,14 @@
-import ApplicationLogo from "@/Components/ApplicationLogo";
+import ApplicationLogo from "@/Components/Nav/ApplicationLogo";
 import { Link } from "@inertiajs/react";
 import { PropsWithChildren, useState } from "react";
 import { IoIosMenu, IoIosArrowForward, IoMdClose } from "react-icons/io";
-import ServicesLinks from "@/Components/NavServicesLinks";
-import AboutLinks from "@/Components/NavAboutUsLinks";
-import TechnologiesLinks from "@/Components/NavTechnologiesLinks";
-import WorkLinks from "@/Components/NavWorkLinks";
-import IndustriesLinks from "@/Components/NavIndustriesLinks";
-import BorderHover from "@/Components/BorderHover";
-import Footer from "@/Components/Footer";
+import ServicesLinks from "@/Components/Nav/NavServicesLinks";
+import AboutLinks from "@/Components/Nav/NavAboutUsLinks";
+import TechnologiesLinks from "@/Components/Nav/NavTechnologiesLinks";
+import WorkLinks from "@/Components/Nav/NavWorkLinks";
+import IndustriesLinks from "@/Components/Nav/NavIndustriesLinks";
+import BorderHover from "@/Components/Hover/BorderHover";
+import Footer from "@/Components/Footer/Footer";
 
 export default function Guest({ children }: PropsWithChildren) {
     // show drop-down menus

@@ -2,7 +2,7 @@ import GuestLayout from "@/Layouts/GuestLayout";
 import React from 'react';
 import { Head } from "@inertiajs/react";
 import { PageProps } from "@/types";
-import Slide from "@/Components/Slide";
+import Slide from "@/Components/Slider/Slide";
 import Home from "./Home";
 
 export default function Landing({auth}: PageProps)

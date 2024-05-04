@@ -1,7 +1,7 @@
 import React from "react";
-import profilePic from "../assets/images/Profilepic.jpg";
-import BorderHover from "../BorderHover";
-import kenyaFlag from "../assets/images/kenya.png";
+import profilePic from "../../assets/images/Profilepic.jpg";
+import BorderHover from "../Hover/BorderHover";
+import kenyaFlag from "../../assets/images/kenya.png";
 
 const ContactBottom = () => {
     return (

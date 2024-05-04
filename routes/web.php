@@ -1,10 +1,14 @@
 <?php
 
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PostsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +42,12 @@ Route::get('/about', function () {
     return Inertia::render('AboutUs');
 })->name('about-us');
 
-Route::get('/blog', [PostController::class, 'index'])->name('blog.index');
+Route::get('/posts', [PostsController::class, 'index']);
+
+Route::get('/posts/{slug}', [PostsController::class, 'show']);
+
+
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

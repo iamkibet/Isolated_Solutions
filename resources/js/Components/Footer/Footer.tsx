@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import BorderHover from "../BorderHover";
+import BorderHover from "../Hover/BorderHover";
 import classnames from "classnames";
 import { FooterProps } from "@/types/CardWrap";
 

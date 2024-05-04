@@ -1,12 +1,11 @@
 <?php
 
 namespace Database\Factories;
-
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Posts>
  */
 class PostFactory extends Factory
 {
@@ -17,13 +16,12 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
-        $title = $this->faker->sentence(6); // This is the title
-        $slug = Str::slug($title); // this-is-the-title
         return [
-            'title' => $title,
-            'slug' => $slug,
-            'excerpt' => $this->faker->paragraph(4),
-            'content' => $this->faker->paragraphs(5, true),
+            'title' => $this->faker->sentence(),
+            'body' => implode("\n\n", $this->faker->paragraphs(10)),
+            'excerpt' => $this->faker->paragraph(),
+            'slug' => \Illuminate\Support\Str::slug($this->faker->sentence(), '-'),
+            'status' => 'published',
         ];
     }
 }

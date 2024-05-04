@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import NavCard from "./NavCard";
-import BorderHover from "../BorderHover";
+import BorderHover from "../Hover/BorderHover";
 
 interface IndustriesLinksProps {
     children?: ReactNode;

@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import NavCard from "./NavCard";
-import BorderHover from "../BorderHover";
+import BorderHover from "../Hover/BorderHover";
 
 interface TechnologiesLinksProps {
     children?: ReactNode;
@@ -194,7 +194,7 @@ function TechnologiesLinks({ children }: TechnologiesLinksProps) {
                             hovBorderColor="bg-black"
                         >
                             <a href="#" className="py-1 hover:text-black">
-                                MERN Stack
+                                MEAN Stack
                             </a>
                         </BorderHover>
                     </div>
