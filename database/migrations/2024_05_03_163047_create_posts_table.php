@@ -15,11 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('body');
-            $table->foreignIdFor(\App\Models\User::class)->default(1)->nullable();
             $table->text('excerpt');
             $table->string('slug')->unique();
-            $table->foreignIdFor(\App\Models\Category::class)->default(1)->nullable()->onDelete('cascade');
-            $table->foreignIdFor(\App\Models\Author::class)->default(1)->nullable();
+            $table->foreignIdFor(\App\Models\Category::class)->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('user_id')->nullable();
             $table->string('status')->default('draft');
             $table->timestamps();
         });

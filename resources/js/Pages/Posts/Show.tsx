@@ -11,10 +11,9 @@ type Post = {
         title: string;
         href: string;
     };
-    author: {
+    user: {
         name: string;
-        href: string;
-        imageUrl: string;
+        profile_img: string;
     };
 };
 
@@ -54,19 +53,19 @@ const Show: React.FC<Props> = ({ post }) => {
                             {post.title}
                         </h2>
                         <div className="flex items-center mt-3">
-                            <a href={post.author.href}>
+                            <a href={post.user.profile_img}>
                                 <img
-                                    src={post.author.imageUrl}
+                                    src={post.user.profile_img}
                                     alt="avatar"
                                     className="w-5 h-5 rounded-full"
                                 />
                             </a>
                             <div className="ml-3">
                                 <a
-                                    href={post.author.href}
+                                    href="#"
                                     className="font-semibold text-xs text-gray-500 hover:underline"
                                 >
-                                    {post.author.name}
+                                    {post.user.name}
                                 </a>
                             </div>
                         </div>
@@ -118,7 +117,6 @@ const Show: React.FC<Props> = ({ post }) => {
             </div> */}
 
             <NewsLetter />
-            <Footer />
         </GuestLayout>
     );
 };

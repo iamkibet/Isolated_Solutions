@@ -7,7 +7,7 @@ const MobileFooterAccordion: React.FC<FooterProps> = ({ title, children }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border-b pb-2 mb-2 last:border-0 last:pb-0">
+        <div className=" border-b pb-2 mb-2 last:border-0 last:pb-0">
             <button
                 type="button"
                 onClick={() => setIsOpen((prevValue) => !prevValue)}
@@ -48,7 +48,7 @@ const MobileFooterAccordion: React.FC<FooterProps> = ({ title, children }) => {
 
 const Footer = () => {
     return (
-        <footer className=" text-[#14151b] transition-transform border-t border-[#14151b] pt-6">
+        <footer className="flex container mx-auto p-3 text-[#14151b] transition-transform border-t border-[#14151b] pt-6">
             <div className="mx-auto w-full hidden md:block">
                 <div className="grid grid-cols-2 gap-8 lg:py-8 md:grid-cols-4 border-b-2 border-black">
                     <div className="col-span-1">

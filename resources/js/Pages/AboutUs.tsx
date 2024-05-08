@@ -374,9 +374,6 @@ const AboutUs = () => {
             </section>
             <AboutHero />
             <GrowBusiness />
-            <div className="container mx-auto p-3">
-                <Footer />
-            </div>
         </GuestLayout>
     );
 };

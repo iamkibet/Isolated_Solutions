@@ -1,6 +1,10 @@
 <?php
 
 namespace Database\Factories;
+
+use App\Models\Post;
+use App\Models\User;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -16,12 +20,15 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
+        $title = $this->faker->sentence();
         return [
-            'title' => $this->faker->sentence(),
-            'body' => implode("\n\n", $this->faker->paragraphs(10)),
+            'title' => $title,
+            'body' => $this->faker->paragraphs(10, true),
             'excerpt' => $this->faker->paragraph(),
-            'slug' => \Illuminate\Support\Str::slug($this->faker->sentence(), '-'),
+            'slug' => \Illuminate\Support\Str::slug($title),
             'status' => 'published',
+            'user_id' => User::factory()->create()->id,
+            'category_id' => Category::factory()->create()->id
         ];
     }
 }

@@ -5,7 +5,7 @@ type Props = {};
 
 const NewsLetter = (props: Props) => {
     return (
-        <div className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
+        <div className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32 mt-6">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
                     <div className="max-w-xl lg:max-w-lg">
@@ -13,7 +13,9 @@ const NewsLetter = (props: Props) => {
                             Subscribe to our newsletter.
                         </h2>
                         <p className="mt-4 text-lg leading-8 text-gray-300">
-                            Isolated Solutions news letter gets you the most amaizing tips and tricks to help you grow your business and boost your knowledge in general.
+                            Isolated Solutions news letter gets you the most
+                            amaizing tips and tricks to help you grow your
+                            business and boost your knowledge in general.
                         </p>
                         <div className="mt-6 flex max-w-md gap-x-4">
                             <label htmlFor="email-address" className="sr-only">
@@ -48,7 +50,9 @@ const NewsLetter = (props: Props) => {
                                 Weekly articles
                             </dt>
                             <dd className="mt-2 leading-7 text-gray-400">
-                                Subscribe and get articles as soon as they are published. No need to check the website every time.
+                                Subscribe and get articles as soon as they are
+                                published. No need to check the website every
+                                time.
                             </dd>
                         </div>
                         <div className="flex flex-col items-start">
@@ -62,7 +66,8 @@ const NewsLetter = (props: Props) => {
                                 No spam
                             </dt>
                             <dd className="mt-2 leading-7 text-gray-400">
-                               No spam, no ads, no promotions. Just the articles you love and need.
+                                No spam, no ads, no promotions. Just the
+                                articles you love and need.
                             </dd>
                         </div>
                     </dl>

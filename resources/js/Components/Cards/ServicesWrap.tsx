@@ -26,9 +26,7 @@ const Services = () => {
             <div className="relative">
                 <Testimonials />
             </div>
-            <div className="">
-                <Footer />
-            </div>
+            
         </div>
     );
 };

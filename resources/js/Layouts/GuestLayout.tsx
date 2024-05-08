@@ -20,7 +20,7 @@ export default function Guest({ children }: PropsWithChildren) {
     let [showMobileNav, setShowMobileNav] = useState(false);
 
     return (
-        <div className="relative flex flex-col sm:justify-center items-center bg-gray-100 dark:bg-gray-900">
+        <div className="relative flex flex-col sm:justify-center items-center bg-gray-100 dark:bg-gray-900  mx-auto">
             <div
                 id="header"
                 className="w-full z-10 sticky top-0 bg-white text-[#14151b] py-4"
@@ -289,6 +289,7 @@ export default function Guest({ children }: PropsWithChildren) {
             <div className="w-full overflow-hidden min-h-screen">
                 {children}
             </div>
+            <Footer />
         </div>
     );
 }

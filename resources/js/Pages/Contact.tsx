@@ -13,7 +13,6 @@ const Contact = () => {
             <div className="container mx-auto p-3">
                 <ContactForm />
                 <ContactBottom />
-                <Footer />
             </div>
         </GuestLayout>
     );
