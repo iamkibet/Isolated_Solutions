@@ -1,73 +1,68 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import '../../../css/app.css';
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Autoplay, Pagination } from "swiper/modules";
+
+const slidesData = [
+    { text: "Create and Deploy your business technology." },
+    { text: "How eCommerce solutions redefine your business." },
+    { text: "The only place with intuitive and feature-packed MVPs." },
+    { text: "Fast-paced web and mobile developments." },
+    {
+        text: "Monitor sales and purchases; generate reports for data-driven planning.",
+    },
+];
 
 export default function Slide() {
+    if (!slidesData || slidesData.length === 0) {
+        return (
+            <div className="flex items-center justify-center h-32 text-white">
+                <p>No slides available.</p>
+            </div>
+        );
+    }
+
     return (
-        <>
+        <div className="w-full">
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
                 autoplay={{
-                  delay: 2000,
-                  disableOnInteraction: false,
+                    delay: 3000,
+                    disableOnInteraction: false,
                 }}
                 pagination={{
-                  clickable: true,
-                  dynamicBullets: false,
+                    clickable: true,
+                    dynamicBullets: true,
                 }}
-                modules={[Autoplay, Pagination, Navigation]}
-                className="mySwiper"
+                modules={[Autoplay, Pagination]}
+                className="swiper-container"
             >
-            <SwiperSlide>
-                <div className="mt-1 py-2 px-1 h-24 text-xs xl:text-sm font-light text-slate-200">
-                    <p className="py-1">
-                        Create and Deploy your business technology.
-                    </p>
-                </div>
-            </SwiperSlide>
-
-            <SwiperSlide>
-                <div className="mt-1 py-2 px-1 h-24 text-xs xl:text-sm font-light text-slate-200">
-                    <p className="py-1">
-                        How eCommerce solutions redefines your business.
-                    </p>
-                </div>
-            </SwiperSlide>
-
-            <SwiperSlide>
-                <div className="mt-1 py-2 px-1 h-24 text-xs xl:text-sm font-light text-slate-200">
-                    <p className="py-1">
-                        The only place with intuitive and feature-packed MVPs.
-                    </p>
-                </div>
-            </SwiperSlide>
-
-            <SwiperSlide>
-                <div className="mt-1 py-2 px-1 h-24 text-xs xl:text-sm font-light text-slate-200">
-                    <p className="py-1">
-                        Fast-paced web and mobile developments.
-                    </p>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide>
-                <div className="mt-1 py-2 px-1 h-24 text-xs xl:text-sm font-light text-slate-200">
-                    <p className="py-1">
-                        Monitor sales and purchases; generate reports for data-driven planning.
-                    </p>
-                </div>
-            </SwiperSlide>
+                {slidesData.map((slide, index) => (
+                    <SwiperSlide key={index}>
+                        <div className="flex items-center justify-center h-[9rem] p-4">
+                            <p className="text-center text-white/80 text-sm font-semibold md:text-lg">
+                                {slide.text}
+                            </p>
+                        </div>
+                    </SwiperSlide>
+                ))}
             </Swiper>
+
             <style>
                 {`
-                .swiper-pagination-bullet {background-color: white;}
-                .swiper-pagination-bullet-active {background-color: red;}
-                .swiper-pagination:{text-align: left;}
+                    .swiper-pagination-bullet {
+                        background-color: #ffff;
+                        transition: background-color 0.3s ease;
+                    }
+                    .swiper-pagination-bullet-active {
+                        background-color: #ff4757; /* Active bullet color */
+                    }
+                    .swiper-pagination {
+                        bottom: 10px; /* Adjust position of pagination */
+                    }
                 `}
             </style>
-        </>
+        </div>
     );
 }

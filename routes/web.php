@@ -42,17 +42,6 @@ Route::get('/about', function () {
     return Inertia::render('AboutUs');
 })->name('about-us');
 
-Route::get('/posts', [PostsController::class, 'index'])->name('posts.index');
-
-
-Route::middleware('auth')->group(function () {
-    Route::get('/posts/create', [PostsController::class, 'create'])->name('posts.create');
-    Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
-    Route::post('/posts', [PostsController::class, 'store'])->name('posts.store');
-});
-
-Route::get('/posts/{slug}', [PostsController::class, 'show']);
-
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
