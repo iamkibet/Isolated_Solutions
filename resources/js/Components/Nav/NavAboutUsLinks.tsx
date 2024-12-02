@@ -23,7 +23,7 @@ function AboutLinks({ children }: AboutLinksProps) {
                         defBorderColor="bg-slate-200"
                         hovBorderColor="bg-black"
                     >
-                        <a href="/blog" className="py-1 hover:text-black">
+                        <a href="/posts" className="py-1 hover:text-black">
                             Blog
                         </a>
                     </BorderHover>
