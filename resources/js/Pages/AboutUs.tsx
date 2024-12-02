@@ -4,6 +4,7 @@ import Footer from "@/Components/Footer/Footer";
 import AboutHero from "@/Components/About/AboutHero";
 import GrowBusiness from "@/Components/About/GrowBusiness";
 import { Head } from "@inertiajs/react";
+import MaxWidthWrapper from "../../ui/MaxWidthWrapper";
 
 const AboutUs = () => {
     const bgImg: React.CSSProperties = {
@@ -19,137 +20,149 @@ const AboutUs = () => {
                 className="min-h-[200px] md:min-h-[200px] pb-8 lg:pt-16 lg:px-8 bg-black bg-center bg-cover bg-no-repeat bg-opacity-80"
                 style={bgImg}
             >
-                <div className="container mx-auto grid md:grid-cols-4 py-10 px-4 bg-black bg-opacity-70 md:bg-none md:bg-opacity-0">
-                    <div className="flex flex-col pb-8 gap-y-2 md:col-span-2">
-                        <h1 className="mt-1 py-2 text-xl lg:text-2xl xl:text-3xl font-bold text-slate-50">
-                            Top Tier Digital Solutions Provider
-                        </h1>
-                        <span className={`h-1 w-16 bg-white`}></span>
-                        <div className="p-4">
-                            <h1 className="text-slate-50 font-extrabold py-2 text-2xl lg:text-3xl xl:text-5xl">
-                                About Us
+                <MaxWidthWrapper>
+                    <div className="py-10 px-4 bg-black bg-opacity-70 md:bg-none md:bg-opacity-0">
+                        <div className="flex flex-col pb-8 gap-y-2">
+                            <h1 className="mt-1 py-2 text-xl lg:text-2xl xl:text-3xl font-bold text-slate-50">
+                                Top Tier Digital Solutions Provider
                             </h1>
-                            <p className="mt-4 lg:mt-6 pb-5 text-base lg:text-sm xl:text-lg text-slate-300">
-                                Our state-of-the-art solutions make us your
-                                trusted technology partner. With a clientele
-                                across the globe, we tend to build futuristic
-                                Software products that help them overhaul their
-                                conventional & complex challenges.
-                            </p>
+                            <span className={`h-1 w-16 bg-white`}></span>
+                            <div className="p-4">
+                                <h1 className="text-slate-50 font-extrabold py-2 text-2xl lg:text-3xl xl:text-5xl">
+                                    About Us
+                                </h1>
+                                <p className="w-full lg:w-1/2 mt-4 lg:mt-6 pb-5 text-base lg:text-lg text-slate-300">
+                                    Our state-of-the-art solutions make us your
+                                    trusted technology partner. With a clientele
+                                    across the globe, we tend to build
+                                    futuristic Software products that help them
+                                    overhaul their conventional & complex
+                                    challenges.
+                                </p>
+                            </div>
+                            <span
+                                className={`md:hidden h-1 w-16 bg-white`}
+                            ></span>
                         </div>
-                        <span className={`md:hidden h-1 w-16 bg-white`}></span>
                     </div>
-                </div>
+                </MaxWidthWrapper>
             </div>
-            <section className="container mx-auto p-3">
-                <div className="mt-10 grid md:grid-cols-3 gap-x-3">
-                    <div className="grid-cols-1 flex flex-col">
-                        <div className="max-w-md flex-1 mb-7 rounded-lg shadow p-5 h-auto">
-                            <h1 className="text-2xl md:text-3xl lg:text-5xl font-extrabold my-2 md:my-5">
-                                Who Are We?
-                            </h1>
-                            <p className="text-sm md:text-lg font-normal">
-                                We are a Isolated Solutions Limited, ISO:9001,
-                                digital solutions provider serving for more than
-                                10 years. The company has been accredited
-                                several prestigious recognitions for its quality
-                                services in the IT-Software industry. Our wide
-                                range of services includes mobile and web app
-                                development using the latest technologies.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="grid-cols-1 flex flex-col">
-                        <div className="max-w-md flex-1 bg-white border border-gray-200 rounded-lg shadow">
-                            <a href="#">
+
+            <div className="bg-gradient-to-b from-gray-100 to-white min-h-screen">
+                <MaxWidthWrapper>
+                    <section className="py-16">
+                        <div className="grid md:grid-cols-2 gap-8">
+                            <div className="p-8">
+                                <h2 className="text-3xl font-bold mb-4 text-gray-800">
+                                    Who Are We?
+                                </h2>
+                                <p className="text-gray-600">
+                                    We are Isolated Solutions Limited, an
+                                    ISO:9001 certified digital solutions
+                                    provider with over 10 years of experience.
+                                    Our wide range of services includes mobile
+                                    and web app development using the latest
+                                    technologies.
+                                </p>
+                            </div>
+                            <div className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
                                 <img
-                                    className="rounded-t-lg"
                                     src="https://www.sparxitsolutions.com/assets-style/images/work-approach.jpg"
-                                    alt=""
+                                    alt="Work Approach"
+                                    className="w-full h-48 object-cover"
                                 />
-                            </a>
-                            <div className="p-5">
-                                <a href="#">
-                                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
+                                <div className="p-6">
+                                    <h3 className="text-xl font-semibold mb-2 text-gray-800">
                                         Our Work Approach
-                                    </h5>
-                                </a>
-                                <p className="text-sm mb-5 font-normal text-gray-700">
-                                    A sense of diligence for planning our
-                                    technology stack & defining project
-                                    management strategies enables us to increase
-                                    our productivity as a service provider.
-                                </p>
-                                <a
-                                    href="#"
-                                    className="relative group inline-flex items-center px-4 py-3 text-sm font-medium text-center text-black border border-[#02789e] hover:bg-[#02789e] hover:text-slate-50"
-                                >
-                                    Read Our Case Study
-                                    <svg
-                                        className="rtl:rotate-180 w-3.5 h-3.5 ms-2 transition-transform duration-500 ease-in-out transform translate-x-0 group-hover:translate-x-1"
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 14 10"
+                                    </h3>
+                                    <p className="text-gray-600 mb-4">
+                                        A sense of diligence for planning our
+                                        technology stack & defining project
+                                        management strategies enables us to
+                                        increase our productivity as a service
+                                        provider.
+                                    </p>
+                                    <a
+                                        href="#"
+                                        className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-300"
                                     >
-                                        <path
+                                        Read Our Case Study
+                                        <svg
+                                            className="w-4 h-4 ml-2"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
                                             stroke="currentColor"
+                                            strokeWidth="2"
                                             strokeLinecap="round"
                                             strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="M1 5h12m0 0L9 1m4 4L9 9"
-                                        />
-                                    </svg>
-                                </a>
+                                        >
+                                            <path d="M5 12h14M12 5l7 7-7 7" />
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="grid-cols-1 flex flex-col">
-                        <div className="max-w-md flex-1 bg-white border border-gray-200 rounded-lg shadow">
-                            <a href="#">
+                    </section>
+
+                    <section className="py-16 bg-gray-50">
+                        <div className="grid md:grid-cols-3 gap-8">
+                            <div className="bg-white rounded-lg shadow-md p-8 transition-all duration-300 hover:shadow-lg">
+                                <h2 className="text-3xl font-bold mb-4 text-gray-800">
+                                    Our Direction
+                                </h2>
+                                <p className="text-gray-600">
+                                    We bestow promising software solutions that
+                                    engage in subtle and effective service
+                                    delivery architecture. With our adequate
+                                    efficiency, we ensure to build a
+                                    constructive plan for deploying the
+                                    available technological resources.
+                                </p>
+                            </div>
+                            <div className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
                                 <img
-                                    className="rounded-t-lg"
-                                    src="https://www.sparxitsolutions.com/assets-style/images/our-people.jpg"
-                                    alt=""
+                                    src="https://www.sparxitsolutions.com/assets-style/images/core-values.jpg"
+                                    alt="Core Values"
+                                    className="w-full h-48 object-cover"
                                 />
-                            </a>
-                            <div className="p-5">
-                                <a href="#">
-                                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
-                                        Our People
-                                    </h5>
-                                </a>
-                                <p className="text-sm mb-5 font-normal text-gray-700">
-                                    We ensure a smart, collaborative and
-                                    systematic management of all human resources
-                                    working towards the common and ultimate goal
-                                    of our organization.
-                                </p>
-                                <a
-                                    href="#"
-                                    className="relative group inline-flex items-center px-4 py-3 text-sm font-medium text-center text-black border border-[#02789e] hover:bg-[#02789e] hover:text-slate-50"
-                                >
-                                    Talk to Us
-                                    <svg
-                                        className="rtl:rotate-180 w-3.5 h-3.5 ms-2 transition-transform duration-500 ease-in-out transform translate-x-0 group-hover:translate-x-1"
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 14 10"
-                                    >
-                                        <path
-                                            stroke="currentColor"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="M1 5h12m0 0L9 1m4 4L9 9"
-                                        />
-                                    </svg>
-                                </a>
+                                <div className="p-6">
+                                    <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                                        Core Values
+                                    </h3>
+                                    <p className="text-gray-600">
+                                        Ensuring committed deliveries of all
+                                        projects within dedicated timelines. Our
+                                        primary goal is to create value in terms
+                                        of more revenues and strengthened
+                                        technological backings.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+                                <img
+                                    src="https://www.sparxitsolutions.com/assets-style/images/progressive-solutions.jpg"
+                                    alt="Progressive Solutions"
+                                    className="w-full h-48 object-cover"
+                                />
+                                <div className="p-6">
+                                    <h3 className="text-xl font-semibold mb-2 text-gray-800">
+                                        Progressive Solutions
+                                    </h3>
+                                    <p className="text-gray-600">
+                                        Adapting dynamism as the fundamental
+                                        factor for building fast-moving digital
+                                        solutions. We aim to create
+                                        future-oriented solutions that assure
+                                        growth for our clients.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </section>
+                </MaxWidthWrapper>
+            </div>
+            <AboutHero />
+            <section>
                 <figure className="border-t-8 border-b-4 border-black mt-7">
                     <svg
                         className="w-8 h-8 bg-black text-white mb-4 p-1"
@@ -190,189 +203,7 @@ const AboutUs = () => {
                         </svg>
                     </div>
                 </figure>
-                <div className="mt-10 grid md:grid-cols-3 gap-x-3 mb-5">
-                    <div className="grid-cols-1 flex flex-col">
-                        <div className="max-w-md flex-1 bg-white border border-gray-200 rounded-lg shadow">
-                            <a href="#">
-                                <img
-                                    className="rounded-t-lg"
-                                    src="https://www.sparxitsolutions.com/assets-style/images/meet-customer.jpg"
-                                    alt="Core Values"
-                                />
-                            </a>
-                            <div className="p-5">
-                                <a href="#">
-                                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
-                                        Who Do We Serve?
-                                    </h5>
-                                </a>
-                                <p className="text-sm mb-5 font-normal text-gray-700">
-                                    Service is an opportunity to prove your
-                                    excellence. From startups to Fortune 500
-                                    companies that availed our services have
-                                    accredited us for our committed response to
-                                    their needs.
-                                </p>
-                                <a
-                                    href="#"
-                                    className="relative group inline-flex items-center px-4 py-3 text-sm md:text-base font-medium text-center hover:text-black border hover:border-[#02789e] bg-[#02789e] hover:bg-slate-50 text-slate-50 cursor-pointer rounded-lg"
-                                >
-                                    See Our Portfolio
-                                    <svg
-                                        className="rtl:rotate-180 w-3.5 h-3.5 ms-2 transition-transform duration-500 ease-in-out transform translate-x-0 group-hover:translate-x-1"
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 14 10"
-                                    >
-                                        <path
-                                            stroke="currentColor"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M1 5h12m0 0L9 1m4 4L9 9"
-                                        />
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="grid-cols-1 flex flex-col">
-                        <div className="max-w-md flex-1 bg-white border border-gray-200 rounded-lg shadow">
-                            <a href="#">
-                                <img
-                                    className="rounded-t-lg"
-                                    src="https://www.sparxitsolutions.com/assets-style/images/our-competency.jpg"
-                                    alt="Progressive Solutions"
-                                />
-                            </a>
-                            <div className="p-5">
-                                <a href="#">
-                                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
-                                        Our Competency
-                                    </h5>
-                                </a>
-                                <p className="text-sm mb-5 font-normal text-gray-700">
-                                    We deliver client-centric solutions that
-                                    bring maximum productivity with minimum
-                                    resources while upholding service delivery
-                                    principles. As our motto says, ‘Ideate,
-                                    Innovate, Create’, we aspire to bring in
-                                    result-oriented strategies to carve product
-                                    design and creation procedures. <br />{" "}
-                                    <br />
-                                    Our professionals contribute the best of
-                                    their skills to work on the ultimate mission
-                                    of establishing our identity as credible
-                                    technology leaders.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="grid-cols-1 flex flex-col">
-                        <div className="max-w-md flex-1 border border-gray-200 rounded-lg shadow p-5">
-                            <h1 className="text-2xl md:text-3xl lg:text-3xl xl:text-5xl font-extrabold my-2 md:my-5">
-                                Our Mission
-                            </h1>
-                            <p className="text-sm md:text-lg font-normal flex-1">
-                                We deliver client-centric solutions that bring
-                                maximum productivity with minimum resources
-                                while upholding service delivery principles. As
-                                our motto says, ‘Ideate, Innovate, Create’, we
-                                aspire to bring in result-oriented strategies to
-                                carve product design and creation procedures.{" "}
-                                <br /> <br /> Our professionals contribute the
-                                best of their skills to work on the ultimate
-                                mission of establishing our identity as credible
-                                technology leaders.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div className="mt-20 grid md:grid-cols-3 gap-x-3 mb-5">
-                    <div className="grid-cols-1 flex flex-col">
-                        <div className="max-w-md flex-1 border border-gray-200 rounded-lg shadow p-5">
-                            <h1 className="text-2xl md:text-3xl lg:text-3xl xl:text-5xl font-extrabold my-2 md:my-5">
-                                Our Direction
-                            </h1>
-                            <p className="text-sm md:text-lg font-normal flex-1">
-                                We bestow promising software solutions that
-                                engage in subtle and effective service delivery
-                                architecture. We have taken resultative
-                                decisions that allowed us to envision our
-                                clients’ objectives fast and simply. <br />{" "}
-                                <br />
-                                With our adequate efficiency, we ensure to build
-                                a constructive plan for deploying the available
-                                technological resources. With a well-versed team
-                                of technology professionals, we cater tailored
-                                software solutions for businesses of different
-                                scales and industry domains.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="grid-cols-1 flex flex-col">
-                        <div className="max-w-md flex-1 bg-white border border-gray-200 rounded-lg shadow">
-                            <a href="#">
-                                <img
-                                    className="rounded-t-lg"
-                                    src="https://www.sparxitsolutions.com/assets-style/images/core-values.jpg"
-                                    alt="Core Values"
-                                />
-                            </a>
-                            <div className="p-5">
-                                <a href="#">
-                                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
-                                        Core Values
-                                    </h5>
-                                </a>
-                                <p className="text-sm mb-5 font-normal text-gray-700">
-                                    Ensuring committed deliveries of all
-                                    projects within dedicated timelines. Our
-                                    primary goal while serving our customers is
-                                    to create value in terms of more revenues
-                                    and strengthened technological backings.{" "}
-                                    <br /> <br /> As a leading service provider,
-                                    we have attempted to create sustainable
-                                    solutions on the grounds of credibility,
-                                    quality, and a high-powered delivery
-                                    approach.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="grid-cols-1 flex flex-col">
-                        <div className="max-w-md flex-1 bg-white border border-gray-200 rounded-lg shadow">
-                            <a href="#">
-                                <img
-                                    className="rounded-t-lg"
-                                    src="https://www.sparxitsolutions.com/assets-style/images/progressive-solutions.jpg"
-                                    alt="Progressive Solutions"
-                                />
-                            </a>
-                            <div className="p-5">
-                                <a href="#">
-                                    <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900">
-                                        Progressive Solutions
-                                    </h5>
-                                </a>
-                                <p className="text-sm mb-5 font-normal text-gray-700">
-                                    Adapting dynamism as the fundamental factor
-                                    for building fast-moving digital solutions
-                                    makes us customers leverage competitive
-                                    products to favor their enterprise needs and
-                                    ambitions and grow. <br /> <br />
-                                    We aim to create future-oriented solutions
-                                    that would assure growth for our clients
-                                    seeking a technological transition in their
-                                    conventional business modules.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </section>
-            <AboutHero />
             <GrowBusiness />
         </GuestLayout>
     );

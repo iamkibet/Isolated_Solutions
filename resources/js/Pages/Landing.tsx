@@ -60,7 +60,7 @@ export default function Landing({ auth }: PageProps) {
                 </MaxWidthWrapper>
             </div>
 
-            <div className="w-full bg-white lg:py-5">
+            <div className=" bg-white lg:py-5">
                 <MaxWidthWrapper>
                     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 sm:gap-10">
                         <div className="w-full sm:w-auto">
@@ -104,9 +104,8 @@ export default function Landing({ auth }: PageProps) {
                 </MaxWidthWrapper>
             </div>
 
-            <div className="bg-white">
-                <Services />
-            </div>
+            <Services />
+
             <Futech />
             <Testimonials />
         </GuestLayout>

@@ -1,6 +1,6 @@
 import ApplicationLogo from "@/Components/Nav/ApplicationLogo";
 import { Link } from "@inertiajs/react";
-import { PropsWithChildren, useState } from "react";
+import { PropsWithChildren, useRef, useState } from "react";
 import { IoIosMenu, IoIosArrowForward, IoMdClose } from "react-icons/io";
 import ServicesLinks from "@/Components/Nav/NavServicesLinks";
 import AboutLinks from "@/Components/Nav/NavAboutUsLinks";
@@ -12,8 +12,6 @@ import Footer from "@/Components/Footer/Footer";
 import MaxWidthWrapper from "../../ui/MaxWidthWrapper";
 
 export default function Guest({ children }: PropsWithChildren) {
-
-    
     // show drop-down menus
     let [showServices, setShowServices] = useState(false);
     let [showTechnologies, setShowTechnologies] = useState(false);
@@ -21,10 +19,28 @@ export default function Guest({ children }: PropsWithChildren) {
     let [showIndustries, setShowIndustries] = useState(false);
     let [showWork, setShowWork] = useState(false);
     let [showMobileNav, setShowMobileNav] = useState(false);
+    let timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    const handleMouseEnter = (
+        setShow: React.Dispatch<React.SetStateAction<boolean>>
+    ) => {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+        }
+        setShow(true);
+    };
+
+    const handleMouseLeave = (
+        setShow: React.Dispatch<React.SetStateAction<boolean>>
+    ) => {
+        timeoutRef.current = setTimeout(() => {
+            setShow(false);
+        }, 10); // Adjust delay as needed
+    };
 
     return (
         <div className="relative flex flex-col bg-[#f5f5f5] overflow-x-hidden">
-            <MaxWidthWrapper className="">
+            <div className="mx-auto w-full max-w-screen-xl px-2.5 md:px-20">
                 <div id="header" className="top-0 text-[#14151b] py-4">
                     <div className="flex  w-full  justify-between">
                         <div className="flex items-center w-full justify-between">
@@ -36,12 +52,12 @@ export default function Guest({ children }: PropsWithChildren) {
                                 <div className="hidden md:flex flex-col md:flex-row gap-y-6 md:gap-x-6 xl:gap-x-14 font-medium text-sm xl:text-base items-center text-black hover:text-gray-400">
                                     <div
                                         className="relative hover:cursor-pointer"
-                                        onMouseEnter={() => {
-                                            setShowServices(true);
-                                        }}
-                                        onMouseLeave={() => {
-                                            setShowServices(false);
-                                        }}
+                                        onMouseEnter={() =>
+                                            handleMouseEnter(setShowServices)
+                                        }
+                                        onMouseLeave={() =>
+                                            handleMouseLeave(setShowServices)
+                                        }
                                     >
                                         <BorderHover>
                                             <span className="hover:text-black">
@@ -62,12 +78,16 @@ export default function Guest({ children }: PropsWithChildren) {
                                     </div>
                                     <div
                                         className="relative hover:cursor-pointer"
-                                        onMouseEnter={() => {
-                                            setShowTechnologies(true);
-                                        }}
-                                        onMouseLeave={() => {
-                                            setShowTechnologies(false);
-                                        }}
+                                        onMouseEnter={() =>
+                                            handleMouseEnter(
+                                                setShowTechnologies
+                                            )
+                                        }
+                                        onMouseLeave={() =>
+                                            handleMouseLeave(
+                                                setShowTechnologies
+                                            )
+                                        }
                                     >
                                         <BorderHover>
                                             <span className="hover:text-black">
@@ -88,12 +108,12 @@ export default function Guest({ children }: PropsWithChildren) {
                                     </div>
                                     <div
                                         className="relative hover:cursor-pointer"
-                                        onMouseEnter={() => {
-                                            setShowIndustries(true);
-                                        }}
-                                        onMouseLeave={() => {
-                                            setShowIndustries(false);
-                                        }}
+                                        onMouseEnter={() =>
+                                            handleMouseEnter(setShowIndustries)
+                                        }
+                                        onMouseLeave={() =>
+                                            handleMouseLeave(setShowIndustries)
+                                        }
                                     >
                                         <BorderHover>
                                             <span className="hover:text-black">
@@ -114,12 +134,12 @@ export default function Guest({ children }: PropsWithChildren) {
                                     </div>
                                     <div
                                         className="relative hover:cursor-pointer"
-                                        onMouseEnter={() => {
-                                            setShowWork(true);
-                                        }}
-                                        onMouseLeave={() => {
-                                            setShowWork(false);
-                                        }}
+                                        onMouseEnter={() =>
+                                            handleMouseEnter(setShowWork)
+                                        }
+                                        onMouseLeave={() =>
+                                            handleMouseLeave(setShowWork)
+                                        }
                                     >
                                         <BorderHover
                                             defBorderColor="bg-white"
@@ -142,12 +162,12 @@ export default function Guest({ children }: PropsWithChildren) {
                                     </div>
                                     <p
                                         className="relative hover:cursor-pointer"
-                                        onMouseEnter={() => {
-                                            setShowAbout(true);
-                                        }}
-                                        onMouseLeave={() => {
-                                            setShowAbout(false);
-                                        }}
+                                        onMouseEnter={() =>
+                                            handleMouseEnter(setShowAbout)
+                                        }
+                                        onMouseLeave={() =>
+                                            handleMouseLeave(setShowAbout)
+                                        }
                                     >
                                         <BorderHover>
                                             <span className="hover:text-black">
@@ -211,7 +231,7 @@ export default function Guest({ children }: PropsWithChildren) {
                             <div>
                                 <Link
                                     className={`p-4 flex justify-between`}
-                                    href={route("home")}
+                                    href={route("landing")}
                                 >
                                     <span className={`font-medium`}>
                                         Services
@@ -227,7 +247,7 @@ export default function Guest({ children }: PropsWithChildren) {
                             <div>
                                 <Link
                                     className={`p-4 flex justify-between`}
-                                    href={route("home")}
+                                    href={route("landing")}
                                 >
                                     <span className={`font-medium`}>
                                         Technologies
@@ -243,7 +263,7 @@ export default function Guest({ children }: PropsWithChildren) {
                             <div>
                                 <Link
                                     className={`p-4 flex justify-between`}
-                                    href={route("home")}
+                                    href={route("landing")}
                                 >
                                     <span className={`font-medium`}>
                                         Industries
@@ -259,7 +279,7 @@ export default function Guest({ children }: PropsWithChildren) {
                             <div>
                                 <Link
                                     className={`p-4 flex justify-between`}
-                                    href={route("home")}
+                                    href={route("landing")}
                                 >
                                     <span className={`font-medium`}>
                                         Our Work
@@ -291,7 +311,7 @@ export default function Guest({ children }: PropsWithChildren) {
                         </div>
                     </div>
                 </div>
-            </MaxWidthWrapper>
+            </div>
 
             <div className="bg-[#f5f5f5]">{children}</div>
 
