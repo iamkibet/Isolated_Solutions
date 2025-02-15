@@ -22,7 +22,7 @@ use Inertia\Inertia;
 // Public routes
 Route::get('/', function () {
     return Inertia::render('Landing');
-})->name('landing');
+})->name('home');
 
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
@@ -60,7 +60,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::patch('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
     Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
     Route::post('/tags/store', [TagController::class, 'store'])->name('tags.store');
-
 });
 
 require __DIR__ . '/auth.php';

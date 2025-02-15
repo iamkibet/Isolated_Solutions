@@ -1,6 +1,6 @@
 import ApplicationLogo from "@/Components/Nav/ApplicationLogo";
 import { Link } from "@inertiajs/react";
-import { PropsWithChildren, useRef, useState } from "react";
+import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import { IoIosMenu, IoIosArrowForward, IoMdClose } from "react-icons/io";
 import ServicesLinks from "@/Components/Nav/NavServicesLinks";
 import AboutLinks from "@/Components/Nav/NavAboutUsLinks";
@@ -21,6 +21,23 @@ export default function Guest({ children }: PropsWithChildren) {
     let [showMobileNav, setShowMobileNav] = useState(false);
     let timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const isScrolled = window.scrollY > 0;
+            if (isScrolled !== scrolled) {
+                setScrolled(isScrolled);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [scrolled]);
+
     const handleMouseEnter = (
         setShow: React.Dispatch<React.SetStateAction<boolean>>
     ) => {
@@ -40,8 +57,12 @@ export default function Guest({ children }: PropsWithChildren) {
 
     return (
         <div className="relative flex flex-col bg-[#f5f5f5] overflow-x-hidden">
-            <div className="mx-auto w-full max-w-screen-xl px-2.5 md:px-20">
-                <div id="header" className="top-0 text-[#14151b] py-4">
+            <div
+                className={`sticky top-0 mx-auto w-full max-w-screen-xl px-2.5 md:px-20 ${
+                    scrolled ? "bg-white" : "bg-transparent"
+                }`}
+            >
+                <div id="header" className=" text-[#14151b] py-4">
                     <div className="flex  w-full  justify-between">
                         <div className="flex items-center w-full justify-between">
                             <Link href="/">
@@ -231,7 +252,7 @@ export default function Guest({ children }: PropsWithChildren) {
                             <div>
                                 <Link
                                     className={`p-4 flex justify-between`}
-                                    href={route("landing")}
+                                    href={route("home")}
                                 >
                                     <span className={`font-medium`}>
                                         Services
@@ -247,7 +268,7 @@ export default function Guest({ children }: PropsWithChildren) {
                             <div>
                                 <Link
                                     className={`p-4 flex justify-between`}
-                                    href={route("landing")}
+                                    href={route("home")}
                                 >
                                     <span className={`font-medium`}>
                                         Technologies
@@ -263,7 +284,7 @@ export default function Guest({ children }: PropsWithChildren) {
                             <div>
                                 <Link
                                     className={`p-4 flex justify-between`}
-                                    href={route("landing")}
+                                    href={route("home")}
                                 >
                                     <span className={`font-medium`}>
                                         Industries
@@ -279,7 +300,7 @@ export default function Guest({ children }: PropsWithChildren) {
                             <div>
                                 <Link
                                     className={`p-4 flex justify-between`}
-                                    href={route("landing")}
+                                    href={route("home")}
                                 >
                                     <span className={`font-medium`}>
                                         Our Work
