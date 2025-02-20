@@ -1,261 +1,256 @@
 {
-  "node_modules/laravel-vite-plugin/inertia-helpers/index.js": [
-  ],
-  "node_modules/swiper/modules/pagination.css": [
-    "/build/assets/Landing-qqbhoTFk.js",
-    "/build/assets/Landing-p8vf1l_b.css",
-    "/build/assets/box1-R27ihw-5.svg",
-    "/build/assets/settings-A1-1-iMi.svg",
-    "/build/assets/ai-JGQ1txa2.svg",
-    "/build/assets/cloud-VCQwcRYm.svg"
-  ],
-  "node_modules/swiper/swiper.css": [
-    "/build/assets/Landing-qqbhoTFk.js",
-    "/build/assets/Landing-p8vf1l_b.css",
-    "/build/assets/box1-R27ihw-5.svg",
-    "/build/assets/settings-A1-1-iMi.svg",
-    "/build/assets/ai-JGQ1txa2.svg",
-    "/build/assets/cloud-VCQwcRYm.svg"
-  ],
+  "node_modules/laravel-vite-plugin/inertia-helpers/index.js": [],
   "resources/js/Components/About/AboutHero.tsx": [
-    "/build/assets/AboutUs-6OYo-c-r.js"
+    "/build/assets/AboutUs-WDDRXIKE.js"
   ],
   "resources/js/Components/About/GrowBusiness.tsx": [
-    "/build/assets/AboutUs-6OYo-c-r.js"
+    "/build/assets/AboutUs-WDDRXIKE.js"
   ],
   "resources/js/Components/Cards/HoverCard.tsx": [
-    "/build/assets/Landing-qqbhoTFk.js",
-    "/build/assets/Landing-p8vf1l_b.css",
-    "/build/assets/box1-R27ihw-5.svg",
-    "/build/assets/settings-A1-1-iMi.svg",
-    "/build/assets/ai-JGQ1txa2.svg",
-    "/build/assets/cloud-VCQwcRYm.svg"
+    "/build/assets/Landing-Bf0GWIqu.js",
+    "/build/assets/box1-BHbuKHD7.svg",
+    "/build/assets/settings-DX7X6IyL.svg",
+    "/build/assets/ai-kZDW3FrZ.svg",
+    "/build/assets/cloud-BUJDBxFi.svg"
   ],
   "resources/js/Components/Cards/ServicesWrap.tsx": [
-    "/build/assets/Landing-qqbhoTFk.js",
-    "/build/assets/Landing-p8vf1l_b.css",
-    "/build/assets/box1-R27ihw-5.svg",
-    "/build/assets/settings-A1-1-iMi.svg",
-    "/build/assets/ai-JGQ1txa2.svg",
-    "/build/assets/cloud-VCQwcRYm.svg"
+    "/build/assets/Landing-Bf0GWIqu.js",
+    "/build/assets/box1-BHbuKHD7.svg",
+    "/build/assets/settings-DX7X6IyL.svg",
+    "/build/assets/ai-kZDW3FrZ.svg",
+    "/build/assets/cloud-BUJDBxFi.svg"
   ],
   "resources/js/Components/Checkbox.tsx": [
-    "/build/assets/Login-MxuG05e0.js"
+    "/build/assets/Login-6TmUDnpT.js"
   ],
   "resources/js/Components/Contact/ContactBottom.tsx": [
-    "/build/assets/Contact-0PkgpTmw.js",
-    "/build/assets/Profilepic-1DtmbCXe.jpg",
-    "/build/assets/kenya-lndNGoQL.png"
+    "/build/assets/Contact-BG9DctSk.js",
+    "/build/assets/Profilepic-DUO2ZsJd.jpg",
+    "/build/assets/kenya-CWd00ahA.png"
   ],
   "resources/js/Components/Contact/ContactForm.tsx": [
-    "/build/assets/Contact-0PkgpTmw.js",
-    "/build/assets/Profilepic-1DtmbCXe.jpg",
-    "/build/assets/kenya-lndNGoQL.png"
+    "/build/assets/Contact-BG9DctSk.js",
+    "/build/assets/Profilepic-DUO2ZsJd.jpg",
+    "/build/assets/kenya-CWd00ahA.png"
   ],
   "resources/js/Components/DangerButton.tsx": [
-    "/build/assets/DeleteUserForm-0UV-108a.js"
+    "/build/assets/DeleteUserForm-C1GlQhz6.js"
   ],
   "resources/js/Components/Footer/Footer.tsx": [
-    "/build/assets/GuestLayout-PW0i3kW5.js"
+    "/build/assets/GuestLayout-vzg4B8BQ.js"
+  ],
+  "resources/js/Components/FormField.tsx": [
+    "/build/assets/Create-6t-ev2Qp.js"
   ],
   "resources/js/Components/Futech/FutTech.tsx": [
-    "/build/assets/Landing-qqbhoTFk.js",
-    "/build/assets/Landing-p8vf1l_b.css",
-    "/build/assets/box1-R27ihw-5.svg",
-    "/build/assets/settings-A1-1-iMi.svg",
-    "/build/assets/ai-JGQ1txa2.svg",
-    "/build/assets/cloud-VCQwcRYm.svg"
+    "/build/assets/Landing-Bf0GWIqu.js",
+    "/build/assets/box1-BHbuKHD7.svg",
+    "/build/assets/settings-DX7X6IyL.svg",
+    "/build/assets/ai-kZDW3FrZ.svg",
+    "/build/assets/cloud-BUJDBxFi.svg"
   ],
   "resources/js/Components/Futech/FutechWrap.tsx": [
-    "/build/assets/Landing-qqbhoTFk.js",
-    "/build/assets/Landing-p8vf1l_b.css",
-    "/build/assets/box1-R27ihw-5.svg",
-    "/build/assets/settings-A1-1-iMi.svg",
-    "/build/assets/ai-JGQ1txa2.svg",
-    "/build/assets/cloud-VCQwcRYm.svg"
+    "/build/assets/Landing-Bf0GWIqu.js",
+    "/build/assets/box1-BHbuKHD7.svg",
+    "/build/assets/settings-DX7X6IyL.svg",
+    "/build/assets/ai-kZDW3FrZ.svg",
+    "/build/assets/cloud-BUJDBxFi.svg"
+  ],
+  "resources/js/Components/Hero.tsx": [
+    "/build/assets/Landing-Bf0GWIqu.js",
+    "/build/assets/box1-BHbuKHD7.svg",
+    "/build/assets/settings-DX7X6IyL.svg",
+    "/build/assets/ai-kZDW3FrZ.svg",
+    "/build/assets/cloud-BUJDBxFi.svg"
   ],
   "resources/js/Components/Hover/BorderHover.tsx": [
-    "/build/assets/BorderHover-MTWmS5Yz.js"
+    "/build/assets/BorderHover-B9-ZQGRi.js"
   ],
   "resources/js/Components/InputError.tsx": [
-    "/build/assets/TextInput-SSg0EhkD.js"
+    "/build/assets/TextInput-DQL-42yE.js"
   ],
   "resources/js/Components/InputLabel.tsx": [
-    "/build/assets/InputLabel-10vbgp35.js"
+    "/build/assets/InputLabel-CaoVq05r.js"
+  ],
+  "resources/js/Components/MenuBar.tsx": [
+    "/build/assets/Create-6t-ev2Qp.js"
   ],
   "resources/js/Components/Modal.tsx": [
-    "/build/assets/DeleteUserForm-0UV-108a.js"
+    "/build/assets/DeleteUserForm-C1GlQhz6.js"
   ],
   "resources/js/Components/Nav/ApplicationLogo.tsx": [
-    "/build/assets/ApplicationLogo-RjVnOy0J.js",
-    "/build/assets/LogoIcon-KzfdGKwG.png"
+    "/build/assets/ApplicationLogo-BPuQqoMR.js",
+    "/build/assets/LogoIcon-rN90YrAa.png"
   ],
   "resources/js/Components/Nav/Dropdown.tsx": [
-    "/build/assets/AuthenticatedLayout-1jtyanhR.js"
+    "/build/assets/AuthenticatedLayout-B3jKi_l4.js"
   ],
   "resources/js/Components/Nav/NavAboutUsLinks.tsx": [
-    "/build/assets/GuestLayout-PW0i3kW5.js"
+    "/build/assets/MaxWidthWrapper-YqTwz5LP.js"
   ],
   "resources/js/Components/Nav/NavCard.tsx": [
-    "/build/assets/GuestLayout-PW0i3kW5.js"
+    "/build/assets/MaxWidthWrapper-YqTwz5LP.js"
   ],
   "resources/js/Components/Nav/NavIndustriesLinks.tsx": [
-    "/build/assets/GuestLayout-PW0i3kW5.js"
+    "/build/assets/MaxWidthWrapper-YqTwz5LP.js"
   ],
   "resources/js/Components/Nav/NavLink.tsx": [
-    "/build/assets/AuthenticatedLayout-1jtyanhR.js"
+    "/build/assets/AuthenticatedLayout-B3jKi_l4.js"
   ],
   "resources/js/Components/Nav/NavServicesLinks.tsx": [
-    "/build/assets/GuestLayout-PW0i3kW5.js"
+    "/build/assets/MaxWidthWrapper-YqTwz5LP.js"
   ],
   "resources/js/Components/Nav/NavTechnologiesLinks.tsx": [
-    "/build/assets/GuestLayout-PW0i3kW5.js"
+    "/build/assets/MaxWidthWrapper-YqTwz5LP.js"
   ],
   "resources/js/Components/Nav/NavWorkLinks.tsx": [
-    "/build/assets/GuestLayout-PW0i3kW5.js"
+    "/build/assets/MaxWidthWrapper-YqTwz5LP.js"
   ],
   "resources/js/Components/Nav/ResponsiveNavLink.tsx": [
-    "/build/assets/AuthenticatedLayout-1jtyanhR.js"
+    "/build/assets/AuthenticatedLayout-B3jKi_l4.js"
+  ],
+  "resources/js/Components/Navbar.tsx": [
+    "/build/assets/Landing-Bf0GWIqu.js",
+    "/build/assets/box1-BHbuKHD7.svg",
+    "/build/assets/settings-DX7X6IyL.svg",
+    "/build/assets/ai-kZDW3FrZ.svg",
+    "/build/assets/cloud-BUJDBxFi.svg"
+  ],
+  "resources/js/Components/Pagination.tsx": [
+    "/build/assets/Index-CXsBOWXI.js"
   ],
   "resources/js/Components/PrimaryButton.tsx": [
-    "/build/assets/PrimaryButton-Wfjn_o8I.js"
+    "/build/assets/PrimaryButton-C5ts3FGL.js"
+  ],
+  "resources/js/Components/RichTextEditor.tsx": [
+    "/build/assets/Create-6t-ev2Qp.js"
   ],
   "resources/js/Components/SecondaryButton.tsx": [
-    "/build/assets/DeleteUserForm-0UV-108a.js"
-  ],
-  "resources/js/Components/Slider/Slide.tsx": [
-    "/build/assets/Landing-qqbhoTFk.js",
-    "/build/assets/Landing-p8vf1l_b.css",
-    "/build/assets/box1-R27ihw-5.svg",
-    "/build/assets/settings-A1-1-iMi.svg",
-    "/build/assets/ai-JGQ1txa2.svg",
-    "/build/assets/cloud-VCQwcRYm.svg"
-  ],
-  "resources/js/Components/StyledText.tsx": [
-    "/build/assets/Landing-qqbhoTFk.js",
-    "/build/assets/Landing-p8vf1l_b.css",
-    "/build/assets/box1-R27ihw-5.svg",
-    "/build/assets/settings-A1-1-iMi.svg",
-    "/build/assets/ai-JGQ1txa2.svg",
-    "/build/assets/cloud-VCQwcRYm.svg"
+    "/build/assets/DeleteUserForm-C1GlQhz6.js"
   ],
   "resources/js/Components/Testimonials/Testimonials.tsx": [
-    "/build/assets/Landing-qqbhoTFk.js",
-    "/build/assets/Landing-p8vf1l_b.css",
-    "/build/assets/box1-R27ihw-5.svg",
-    "/build/assets/settings-A1-1-iMi.svg",
-    "/build/assets/ai-JGQ1txa2.svg",
-    "/build/assets/cloud-VCQwcRYm.svg"
+    "/build/assets/Landing-Bf0GWIqu.js",
+    "/build/assets/box1-BHbuKHD7.svg",
+    "/build/assets/settings-DX7X6IyL.svg",
+    "/build/assets/ai-kZDW3FrZ.svg",
+    "/build/assets/cloud-BUJDBxFi.svg"
   ],
   "resources/js/Components/TextInput.tsx": [
-    "/build/assets/TextInput-SSg0EhkD.js"
+    "/build/assets/TextInput-DQL-42yE.js"
+  ],
+  "resources/js/Layouts/AdminLayout.tsx": [
+    "/build/assets/AdminLayout-CdjPJ4Wl.js"
   ],
   "resources/js/Layouts/AuthenticatedLayout.tsx": [
-    "/build/assets/AuthenticatedLayout-1jtyanhR.js"
+    "/build/assets/AuthenticatedLayout-B3jKi_l4.js"
   ],
   "resources/js/Layouts/GuestLayout.tsx": [
-    "/build/assets/GuestLayout-PW0i3kW5.js"
+    "/build/assets/GuestLayout-vzg4B8BQ.js"
   ],
   "resources/js/Pages/AboutUs.tsx": [
-    "/build/assets/AboutUs-6OYo-c-r.js"
+    "/build/assets/AboutUs-WDDRXIKE.js"
+  ],
+  "resources/js/Pages/Admin/Posts/Index.tsx": [
+    "/build/assets/Index-DMbN_sHB.js"
   ],
   "resources/js/Pages/Auth/ConfirmPassword.tsx": [
-    "/build/assets/ConfirmPassword-ADTNFiw2.js"
+    "/build/assets/ConfirmPassword-Dexj-h0f.js"
   ],
   "resources/js/Pages/Auth/ForgotPassword.tsx": [
-    "/build/assets/ForgotPassword-6nmrWYmk.js"
+    "/build/assets/ForgotPassword-BOOUtV-C.js"
   ],
   "resources/js/Pages/Auth/Login.tsx": [
-    "/build/assets/Login-MxuG05e0.js"
+    "/build/assets/Login-6TmUDnpT.js"
   ],
   "resources/js/Pages/Auth/Register.tsx": [
-    "/build/assets/Register-3dyf1gy_.js"
+    "/build/assets/Register-D2QcpZ0z.js"
   ],
   "resources/js/Pages/Auth/ResetPassword.tsx": [
-    "/build/assets/ResetPassword-81q7orT3.js"
+    "/build/assets/ResetPassword-DleS6l8O.js"
   ],
   "resources/js/Pages/Auth/VerifyEmail.tsx": [
-    "/build/assets/VerifyEmail-l2u8VfW3.js"
+    "/build/assets/VerifyEmail-zJTntg0H.js"
   ],
   "resources/js/Pages/Contact.tsx": [
-    "/build/assets/Contact-0PkgpTmw.js",
-    "/build/assets/Profilepic-1DtmbCXe.jpg",
-    "/build/assets/kenya-lndNGoQL.png"
+    "/build/assets/Contact-BG9DctSk.js",
+    "/build/assets/Profilepic-DUO2ZsJd.jpg",
+    "/build/assets/kenya-CWd00ahA.png"
   ],
   "resources/js/Pages/Dashboard.tsx": [
-    "/build/assets/Dashboard-l_Hmrlfu.js"
+    "/build/assets/Dashboard-C5ayr_L9.js"
   ],
   "resources/js/Pages/Landing.tsx": [
-    "/build/assets/Landing-qqbhoTFk.js",
-    "/build/assets/Landing-p8vf1l_b.css",
-    "/build/assets/box1-R27ihw-5.svg",
-    "/build/assets/settings-A1-1-iMi.svg",
-    "/build/assets/ai-JGQ1txa2.svg",
-    "/build/assets/cloud-VCQwcRYm.svg"
+    "/build/assets/Landing-Bf0GWIqu.js",
+    "/build/assets/box1-BHbuKHD7.svg",
+    "/build/assets/settings-DX7X6IyL.svg",
+    "/build/assets/ai-kZDW3FrZ.svg",
+    "/build/assets/cloud-BUJDBxFi.svg"
+  ],
+  "resources/js/Pages/Posts/Create.tsx": [
+    "/build/assets/Create-6t-ev2Qp.js"
+  ],
+  "resources/js/Pages/Posts/Index.tsx": [
+    "/build/assets/Index-CXsBOWXI.js"
+  ],
+  "resources/js/Pages/Posts/Show.tsx": [
+    "/build/assets/Show-C7a5T5k7.js"
   ],
   "resources/js/Pages/Profile/Edit.tsx": [
-    "/build/assets/Edit-slpKAcEQ.js"
+    "/build/assets/Edit-C1NXqKUo.js"
   ],
   "resources/js/Pages/Profile/Partials/DeleteUserForm.tsx": [
-    "/build/assets/DeleteUserForm-0UV-108a.js"
+    "/build/assets/DeleteUserForm-C1GlQhz6.js"
   ],
   "resources/js/Pages/Profile/Partials/UpdatePasswordForm.tsx": [
-    "/build/assets/UpdatePasswordForm-uL9MWNAS.js"
+    "/build/assets/UpdatePasswordForm-C53DbxsD.js"
   ],
   "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.tsx": [
-    "/build/assets/UpdateProfileInformationForm-NPmT1LnO.js"
+    "/build/assets/UpdateProfileInformationForm-BLc6rV1x.js"
   ],
   "resources/js/assets/Svgs/ai.svg": [
-    "/build/assets/Landing-qqbhoTFk.js",
-    "/build/assets/Landing-p8vf1l_b.css",
-    "/build/assets/box1-R27ihw-5.svg",
-    "/build/assets/settings-A1-1-iMi.svg",
-    "/build/assets/ai-JGQ1txa2.svg",
-    "/build/assets/cloud-VCQwcRYm.svg"
+    "/build/assets/Landing-Bf0GWIqu.js",
+    "/build/assets/box1-BHbuKHD7.svg",
+    "/build/assets/settings-DX7X6IyL.svg",
+    "/build/assets/ai-kZDW3FrZ.svg",
+    "/build/assets/cloud-BUJDBxFi.svg"
   ],
   "resources/js/assets/Svgs/box1.svg": [
-    "/build/assets/Landing-qqbhoTFk.js",
-    "/build/assets/Landing-p8vf1l_b.css",
-    "/build/assets/box1-R27ihw-5.svg",
-    "/build/assets/settings-A1-1-iMi.svg",
-    "/build/assets/ai-JGQ1txa2.svg",
-    "/build/assets/cloud-VCQwcRYm.svg"
+    "/build/assets/Landing-Bf0GWIqu.js",
+    "/build/assets/box1-BHbuKHD7.svg",
+    "/build/assets/settings-DX7X6IyL.svg",
+    "/build/assets/ai-kZDW3FrZ.svg",
+    "/build/assets/cloud-BUJDBxFi.svg"
   ],
   "resources/js/assets/Svgs/cloud.svg": [
-    "/build/assets/Landing-qqbhoTFk.js",
-    "/build/assets/Landing-p8vf1l_b.css",
-    "/build/assets/box1-R27ihw-5.svg",
-    "/build/assets/settings-A1-1-iMi.svg",
-    "/build/assets/ai-JGQ1txa2.svg",
-    "/build/assets/cloud-VCQwcRYm.svg"
+    "/build/assets/Landing-Bf0GWIqu.js",
+    "/build/assets/box1-BHbuKHD7.svg",
+    "/build/assets/settings-DX7X6IyL.svg",
+    "/build/assets/ai-kZDW3FrZ.svg",
+    "/build/assets/cloud-BUJDBxFi.svg"
   ],
   "resources/js/assets/Svgs/settings.svg": [
-    "/build/assets/Landing-qqbhoTFk.js",
-    "/build/assets/Landing-p8vf1l_b.css",
-    "/build/assets/box1-R27ihw-5.svg",
-    "/build/assets/settings-A1-1-iMi.svg",
-    "/build/assets/ai-JGQ1txa2.svg",
-    "/build/assets/cloud-VCQwcRYm.svg"
+    "/build/assets/Landing-Bf0GWIqu.js",
+    "/build/assets/box1-BHbuKHD7.svg",
+    "/build/assets/settings-DX7X6IyL.svg",
+    "/build/assets/ai-kZDW3FrZ.svg",
+    "/build/assets/cloud-BUJDBxFi.svg"
   ],
   "resources/js/assets/images/LogoIcon.png": [
-    "/build/assets/ApplicationLogo-RjVnOy0J.js",
-    "/build/assets/LogoIcon-KzfdGKwG.png"
+    "/build/assets/ApplicationLogo-BPuQqoMR.js",
+    "/build/assets/LogoIcon-rN90YrAa.png"
   ],
   "resources/js/assets/images/Profilepic.jpg": [
-    "/build/assets/Contact-0PkgpTmw.js",
-    "/build/assets/Profilepic-1DtmbCXe.jpg",
-    "/build/assets/kenya-lndNGoQL.png"
+    "/build/assets/Contact-BG9DctSk.js",
+    "/build/assets/Profilepic-DUO2ZsJd.jpg",
+    "/build/assets/kenya-CWd00ahA.png"
   ],
   "resources/js/assets/images/kenya.png": [
-    "/build/assets/Contact-0PkgpTmw.js",
-    "/build/assets/Profilepic-1DtmbCXe.jpg",
-    "/build/assets/kenya-lndNGoQL.png"
+    "/build/assets/Contact-BG9DctSk.js",
+    "/build/assets/Profilepic-DUO2ZsJd.jpg",
+    "/build/assets/kenya-CWd00ahA.png"
   ],
-  "resources/js/ssr.tsx": [
-  ],
+  "resources/js/ssr.tsx": [],
   "resources/ui/MaxWidthWrapper.tsx": [
-    "/build/assets/GuestLayout-PW0i3kW5.js"
-  ],
-  "vendor/tightenco/ziggy/dist/index.m.js": [
+    "/build/assets/MaxWidthWrapper-YqTwz5LP.js"
   ]
 }

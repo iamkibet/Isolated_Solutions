@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface Post {
     id: number;
     title: string;
@@ -44,6 +46,19 @@ export interface PageProps {
             email: string;
         } | null;
     };
+}
+
+export interface FormFieldProps {
+    id?: string;
+    label: string;
+    value: string;
+    error?: string;
+    onValueChange: (value: string) => void;
+    required?: boolean;
+    className?: string;
+    as?: React.ElementType;
+    rows?: number;
+    [key: string]: any;
 }
 
 export interface Category {
