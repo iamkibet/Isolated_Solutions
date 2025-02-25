@@ -1,58 +1,104 @@
 import React from "react";
-import FutechWrap from "./FutechWrap";
 import MaxWidthWrapper from "../../../ui/MaxWidthWrapper";
 
+// ==================== Component Constants ====================
+const SOLUTIONS = [
+    {
+        title: "Blockchain Development",
+        content:
+            "Enhancing and securing the ways to store and modify data of transactions with Blockchain-powered solutions for banking, finance, healthcare, and other industries.",
+    },
+    {
+        title: "IoT",
+        content:
+            "Unfold the incredible abilities of the internet-of-things to transfer data without human intervention. A well-architectured IoT ecosystem transforms the business.",
+    },
+    {
+        title: "Augmented Reality",
+        content:
+            "Mingle technology and real-world with supreme Augmented reality solutions to increase the emotional interaction and appeal of your brand.",
+    },
+    {
+        title: "Data Intelligence",
+        content:
+            "Analyze your business roadmap and possible outcomes more sophisticatedly using the power of data.",
+    },
+    {
+        title: "Artificial Intelligence",
+        content:
+            "Automate your business operations and processes with AI-powered solutions to reduce human intervention and increase efficiency.",
+    },
+    {
+        title: "Virtual Reality",
+        content:
+            "Create your own world of possibilities using our advanced VR solutions focusing on varying enterprise needs.",
+    },
+];
+
+// ==================== Sub-Components ====================
+interface SolutionCardProps {
+    title: string;
+    content: string;
+}
+
+const SolutionCard: React.FC<SolutionCardProps> = ({ title, content }) => (
+    <div className="group p-6 hover:bg-red-50/50 transition-colors duration-300">
+        <div className="border-t-4 border-red-500 pt-6">
+            <h3 className="text-2xl font-bold mb-4 text-gray-900">{title}</h3>
+            <p className="text-gray-600 leading-relaxed">{content}</p>
+        </div>
+    </div>
+);
+
+const SectionHeader = () => (
+    <div className="text-center mb-12">
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            The Stakeholders of{" "}
+            <span className="text-red-500">
+                Futuristic Technology Solutions
+            </span>
+        </h2>
+        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Your Ideas, Our Expertise = Maximum Customer Success
+        </p>
+    </div>
+);
+
+const CtaButton = () => (
+    <div className="flex justify-center mt-12">
+        <button
+            type="button"
+            className="px-10 py-4 border-2 border-red-500 text-white bg-red-500 
+               rounded-lg font-medium hover:bg-white hover:text-red-500
+               transition-all duration-300 focus:outline-none focus:ring-2 
+               focus:ring-red-500 focus:ring-offset-2"
+            aria-label="Share your product idea with our team"
+        >
+            Share Your Product Idea
+        </button>
+    </div>
+);
+
+// ==================== Main Component ====================
 const Futech: React.FC = () => {
     return (
-        <div className="w-full mb-8 border-b-2 border-black ">
+        <section className="py-16 md:py-24 border-b border-gray-200">
             <MaxWidthWrapper>
-                <div className=" text-center">
-                    <h3 className="text-3xl md:text-5xl font-extrabold mb-4 relative inline-block">
-                        The Stakeholders of{" "}
-                        <span className="text-red-500">
-                            Futuristic Technology Solutions
-                        </span>
-                    </h3>
-                    <span className="text-lg md:text-xl text-gray-600">
-                        Your Ideas, Our Expertise = Maximum Customer Success
-                    </span>
+                <SectionHeader />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {SOLUTIONS.map((solution, index) => (
+                        <SolutionCard
+                            key={index}
+                            title={solution.title}
+                            content={solution.content}
+                        />
+                    ))}
                 </div>
-                <div className="pb-4 mt-3">
-                    <div className="flex flex-nowrap overflow-x-scroll md:overflow-x-hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-                        <FutechWrap
-                            title="Blockchain Development"
-                            content="Enhancing and securing the ways to store and modify data of transactions with Blockchain-powered solutions for banking, finance, healthcare, and other industries."
-                        />
-                        <FutechWrap
-                            title="IoT"
-                            content="Unfold the incredible abilities of the internet-of-things to transfer data without human intervention. A well-architectured IoT ecosystem transforms the business."
-                        />
-                        <FutechWrap
-                            title="Augmented Reality"
-                            content="Mingle technology and real-world with supreme Augmented reality solutions to increase the emotional interaction and appeal of your brand."
-                        />
-                        <FutechWrap
-                            title="Data Intelligence"
-                            content="Analyze your business roadmap and possible outcomes more sophisticatedly using the power of data."
-                        />
-                        <FutechWrap
-                            title="Artificial Intelligence"
-                            content="Automate your business operations and processes with AI-powered solutions to reduce human intervention and increase efficiency."
-                        />
-                        <FutechWrap
-                            title="Virtual reality"
-                            content="Create your own world of possibilities using our advanced VR solutions focusing on varying enterprise needs."
-                        />
-                    </div>
-                </div>
-                <button
-                    type="button"
-                    className="border-2 hover:border-[#02789e] px-8 py-5 font-medium text-white hover:text-[#14151b] bg-[#02789e] hover:bg-white rounded-lg text-center cursor-pointer mb-8"
-                >
-                    Share Your Product Idea
-                </button>
+
+                <CtaButton />
             </MaxWidthWrapper>
-        </div>
+        </section>
     );
 };
 

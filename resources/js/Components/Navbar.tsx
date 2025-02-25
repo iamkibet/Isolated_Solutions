@@ -85,12 +85,12 @@ export default function Navbar({ children }: PropsWithChildren) {
             <nav
                 className={`fixed top-0 w-full z-50 transition-all duration-300 ${
                     scrolled
-                        ? "bg-white shadow-md"
-                        : " text-white bg-transparent"
+                        ? "text-black bg-white shadow-md"
+                        : "bg-transparent"
                 }`}
             >
                 <MaxWidthWrapper>
-                    <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
+                    <div className="flex items-center justify-between h-16 ">
                         <Link href="/" className="flex-shrink-0">
                             <ApplicationLogo />
                         </Link>
@@ -110,6 +110,15 @@ export default function Navbar({ children }: PropsWithChildren) {
                                     <Component />
                                 </DropdownMenuItem>
                             ))}
+                            <Link
+                                href={route("products")}
+                                className="relative rounded-xl px-4 py-2 overflow-hidden group animate-pulse hover:animate-none"
+                            >
+                                Products
+                                <span className="absolute top-0 left-0 w-0.5 h-full bg-gradient-to-r from-red-500 to-purple-600 transform origin-top transition-transform duration-300 scale-y-100"></span>
+                                <span className="absolute top-0 right-0 w-0.5 h-full bg-gradient-to-r from-red-500 to-purple-600 transform origin-bottom transition-transform duration-300 scale-y-100"></span>
+                            </Link>
+
                             <Link
                                 href={route("contact")}
                                 className="px-5 py-2.5 bg-red-600 text-white rounded-md font-medium hover:bg-red-700 transition-colors duration-200"

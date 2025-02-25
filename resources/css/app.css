@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Smooth gradient transition between slides */
+.hero-slide {
+    isolation: isolate;
+}
+
+/* Improve image rendering */
+.hero-image {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+@keyframes pulse-slow {
+    0%,
+    100% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.15;
+    }
+}
+
+@keyframes icon-hover {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 6s infinite;
+}
+
+.animate-icon-hover {
+    animation: icon-hover 1.5s infinite;
+}

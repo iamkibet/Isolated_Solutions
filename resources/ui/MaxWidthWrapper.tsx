@@ -1,20 +1,9 @@
-import clsx from "clsx";
+import React from "react";
 import { ReactNode } from "react";
 
-const MaxWidthWrapper = ({
-    className,
-    children,
-}: {
-    className?: string;
-    children: ReactNode;
-}) => {
+const MaxWidthWrapper = ({ children }: { children: ReactNode }) => {
     return (
-        <div
-            className={clsx(
-                "mx-auto w-full max-w-screen-xl px-2.5 md:px-16",
-                className
-            )}
-        >
+        <div className="mx-auto w-full max-w-screen-xl px-3 md:px-8">
             {children}
         </div>
     );

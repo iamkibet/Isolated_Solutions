@@ -1,4 +1,3 @@
-// HoverCard.tsx
 import React from "react";
 import { motion } from "framer-motion";
 import BorderHover from "../Hover/BorderHover";
@@ -10,6 +9,8 @@ interface CardProps {
     hoverTitle: string;
     hoverContent: string[];
     p: string;
+    className?: string;
+    imageProps?: React.ImgHTMLAttributes<HTMLImageElement>;
 }
 
 const HoverCard: React.FC<CardProps> = ({
@@ -19,21 +20,28 @@ const HoverCard: React.FC<CardProps> = ({
     hoverContent,
     hoverTitle,
     p,
+    className,
+    imageProps = {},
 }) => {
     return (
         <motion.div
-            className="relative w-full lg:w-1/3 h-72  overflow-hidden border transition-all duration-300 ease-in-out hover:shadow-xl"
+            className={`relative w-full h-72 overflow-hidden border transition-all duration-300 ease-in-out hover:shadow-xl ${
+                className || ""
+            }`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
         >
             {/* Default Content */}
-            <div className="absolute  inset-0 bg-white p-6 flex flex-col justify-between">
+            <div className="absolute inset-0 bg-white p-6 flex flex-col justify-between">
                 <div className="flex flex-col items-center text-center">
                     <div className="w-12 h-12 my-6">
                         <img
+                            {...imageProps}
                             src={image}
-                            alt={title}
-                            className="object-contain"
+                            alt={imageProps.alt || title}
+                            className={`object-contain ${
+                                imageProps.className || ""
+                            }`}
                         />
                     </div>
                     <h3 className="text-lg font-bold text-gray-800 mb-2">
@@ -54,7 +62,7 @@ const HoverCard: React.FC<CardProps> = ({
                             <polyline
                                 fill="none"
                                 stroke="#ef4444"
-                                stroke-width="2"
+                                strokeWidth="2"
                                 points="7 2 17 12 7 22"
                             />
                         </svg>
@@ -76,7 +84,9 @@ const HoverCard: React.FC<CardProps> = ({
                                     href="#"
                                     className="hover:text-red-500 transition-colors duration-300"
                                 >
-                                    <BorderHover hovBorderColor = "bg-red-500">{item}</BorderHover>
+                                    <BorderHover hovBorderColor="bg-red-500">
+                                        {item}
+                                    </BorderHover>
                                 </a>
                             </li>
                         ))}

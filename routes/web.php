@@ -24,7 +24,8 @@ Route::get('/', function () {
     return Inertia::render('Landing');
 })->name('home');
 
-
+Route::get('/products', fn() => Inertia::render('Products'))->name('products');
+Route::get("/sokomagari", fn() => Inertia::render('SokoMagari'))->name('sokomagari');
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/contact', fn() => Inertia::render('Contact'))->name('contact');
