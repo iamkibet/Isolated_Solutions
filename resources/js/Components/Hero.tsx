@@ -11,7 +11,7 @@ type HeroImage = {
 
 const heroimages: HeroImage[] = [
     {
-        image: "https://www.sparxitsolutions.com/sites/images/legacy-banner.webp",
+        image: "/images/ai-banner.webp",
         tab: "Ai-First approach",
         title: "Shaping Futures With Our AI-first Approach",
         description:
@@ -19,7 +19,7 @@ const heroimages: HeroImage[] = [
         buttonText: "Learn More",
     },
     {
-        image: "https://www.sparxitsolutions.com/sites/images/data-engineering-banner.webp",
+        image: "/images/data_and_Cloud.webp",
         tab: "Data Engineering",
         title: "Engineer Data Into Actionable Decisions",
         description:
@@ -27,7 +27,7 @@ const heroimages: HeroImage[] = [
         buttonText: "Explore",
     },
     {
-        image: "https://www.sparxitsolutions.com/sites/images/data-engineering-banner.webp",
+        image: "/images/cyber_security.webp",
         tab: "Product Engineering",
         title: "Accelerate Time-To-Market with Product Engineering ",
         description:
@@ -35,7 +35,7 @@ const heroimages: HeroImage[] = [
         buttonText: "Discover",
     },
     {
-        image: "https://www.sparxitsolutions.com/sites/images/data-engineering-banner.webp",
+        image: "/images/Software_modernization.webp",
         tab: "Legacy Software",
         title: "Drive Agility Through Legacy System Modernization",
         description:

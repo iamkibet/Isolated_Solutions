@@ -54,7 +54,7 @@ export default function Navbar({ children }: PropsWithChildren) {
     useEffect(() => {
         const handleScroll = () => {
             const isScrolled = window.scrollY > 0;
-            setScrolled(isScrolled);
+            setScrolled(isScrolled);16
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -76,8 +76,9 @@ export default function Navbar({ children }: PropsWithChildren) {
     const mobileMenuItems = [
         { title: "Services", route: "home" },
         { title: "Technologies", route: "home" },
-        { title: "Industries", route: "home" },
-        { title: "Our Work", route: "home" },
+        { title: "Industries", route: "products" },
+        
+        { title: "Our Products", route: "products" },
     ];
 
     return (
@@ -171,7 +172,7 @@ export default function Navbar({ children }: PropsWithChildren) {
             </div>
 
             {/* Page Content */}
-            <div className="pt-16">{children}</div>
+            <div className="pt-6 md:pt-16">{children}</div>
         </div>
     );
 }

@@ -102,17 +102,17 @@ const SERVICES = [
 
 // ==================== Sub-Components ====================
 const SectionHeader = () => (
-    <header className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+    <header className="text-center mb-6">
+        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
             Reshaping Dynamics of{" "}
-            <span className="block mt-4 text-red-500 font-semibold text-3xl md:text-4xl">
+            <span className="block mt-4 text-red-500 font-semibold text-2xl md:text-4xl">
                 Modern~Age Business
             </span>
-            <span className="block mt-2 text-red-500 font-semibold text-3xl md:text-4xl">
+            <span className="block mt-2 text-red-500 font-semibold text-xl md:text-4xl">
                 with Our Tech Solutions
             </span>
         </h2>
-        <div className="w-16 h-1 bg-red-500 mx-auto mb-8" aria-hidden="true" />
+        <div className="w-16 h-1 bg-red-500 mx-auto mb-4" aria-hidden="true" />
         <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Your doorway to assured growth through our commitment to qualitative
             delivery
@@ -121,7 +121,7 @@ const SectionHeader = () => (
 );
 
 const ServicesGrid = () => (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-12">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-8 py-2 ">
         {SERVICES.map((service, index) => (
             <HoverCard
                 key={index}
@@ -141,7 +141,7 @@ const ServicesGrid = () => (
 const Services = () => {
     return (
         <section
-            className="py-20 bg-gradient-to-b from-white to-gray-50"
+            className="py-12 bg-gradient-to-b from-white to-gray-50"
             aria-labelledby="services-heading"
         >
             <MaxWidthWrapper>

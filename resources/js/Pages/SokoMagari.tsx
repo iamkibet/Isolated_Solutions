@@ -16,6 +16,10 @@ import {
     LucideIcon,
     Image,
     Check,
+    CloudLightning,
+    Database,
+    BadgeCheckIcon,
+    Clipboard,
 } from "lucide-react";
 
 type Feature = {
@@ -85,7 +89,7 @@ const SokoMagari = () => {
                         {/* Left Column - Technical Features */}
                         <div className="space-y-6">
                             <div className="inline-flex items-center gap-2 text-red-500 font-medium">
-                                <Zap className="w-5 h-5 animate-pulse" />
+                                <Zap className="w-5 h-5" />
                                 Performance Engineered
                             </div>
                             <h2 className="text-4xl font-bold text-gray-900">
@@ -103,7 +107,7 @@ const SokoMagari = () => {
                                         className="group p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all border border-transparent hover:border-red-100"
                                     >
                                         <div className="flex items-center gap-3">
-                                            <feature.icon className="w-6 h-6 text-red-500 animate-icon-hover" />
+                                            <feature.icon className="w-6 h-6 text-red-500 " />
                                             <div>
                                                 <h3 className="font-semibold text-gray-900">
                                                     {feature.title}
@@ -138,42 +142,124 @@ const SokoMagari = () => {
                                 </div>
                             </div>
 
-                            {/* Floating Code Preview */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent p-8 flex flex-col justify-between">
-                                <div className="bg-gray-800/90 backdrop-blur-sm rounded-lg p-4 shadow-lg max-w-[400px] transform hover:-translate-y-2 transition-transform">
-                                    <div className="font-mono text-sm text-gray-300">
-                                        <span className="text-red-400">$</span>{" "}
-                                        searchCars({"{"}
-                                        <br />
-                                        <span className="ml-4">
-                                            make: "Toyota",
-                                        </span>
-                                        <br />
-                                        <span className="ml-4">
-                                            cache: redis({'"'}ttl:300'"'),
-                                        </span>
-                                        <br />
-                                        <span className="ml-4">
-                                            imageQuality: '4k'
-                                        </span>
-                                        <br />
-                                        {"}"})
+                            {/* Technical Preview Panel */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/30 to-transparent p-6 flex flex-col justify-between backdrop-blur-sm">
+                                {/* Interactive Code Snippet */}
+                                <div className="group relative bg-gray-800/90 backdrop-blur-sm rounded-xl p-6 shadow-2xl max-w-[420px] transform transition-all duration-300 hover:-translate-y-1 hover:shadow-3xl">
+                                    <div className="absolute top-4 right-4 flex gap-2">
+                                        <div className="h-3 w-3 rounded-full bg-red-500" />
+                                        <div className="h-3 w-3 rounded-full bg-yellow-500" />
+                                        <div className="h-3 w-3 rounded-full bg-green-500" />
                                     </div>
+                                    <div className="font-mono text-sm">
+                                        <div className="flex items-center mb-4">
+                                            <span className="text-blue-400 mr-2">
+                                                const
+                                            </span>
+                                            <span className="text-purple-400">
+                                                searchCars
+                                            </span>
+                                            <span className="text-gray-400 mx-2">
+                                                =
+                                            </span>
+                                            <span className="text-green-400">
+                                                ({"{"}{" "}
+                                            </span>
+                                        </div>
+                                        <div className="ml-4">
+                                            <span className="text-yellow-400">
+                                                make
+                                            </span>
+                                            <span className="text-gray-400">
+                                                :{" "}
+                                            </span>
+                                            <span className="text-green-400">
+                                                "Toyota"
+                                            </span>
+                                            <span className="text-gray-400">
+                                                ,
+                                            </span>
+                                        </div>
+                                        <div className="ml-4">
+                                            <span className="text-yellow-400">
+                                                cache
+                                            </span>
+                                            <span className="text-gray-400">
+                                                :{" "}
+                                            </span>
+                                            <span className="text-blue-400">
+                                                redis
+                                            </span>
+                                            <span className="text-orange-400">
+                                                (
+                                            </span>
+                                            <span className="text-yellow-400">
+                                                'ttl'
+                                            </span>
+                                            <span className="text-gray-400">
+                                                :{" "}
+                                            </span>
+                                            <span className="text-green-400">
+                                                300
+                                            </span>
+                                            <span className="text-orange-400">
+                                                )
+                                            </span>
+                                            <span className="text-gray-400">
+                                                ,
+                                            </span>
+                                        </div>
+                                        <div className="ml-4">
+                                            <span className="text-yellow-400">
+                                                media
+                                            </span>
+                                            <span className="text-gray-400">
+                                                :{" "}
+                                            </span>
+                                            <span className="text-green-400">
+                                                '4k'
+                                            </span>
+                                        </div>
+                                        <div className="text-green-400">
+                                            {"})"}
+                                        </div>
+                                    </div>
+                                    <button className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 text-gray-400 hover:text-white text-xs">
+                                        <Clipboard className="w-4 h-4" />
+                                        Copy
+                                    </button>
                                 </div>
 
-                                {/* Performance Badge */}
-                                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-4 max-w-[300px] self-end transform hover:translate-x-2 transition-transform">
-                                    <div className="flex justify-between text-sm text-gray-300">
-                                        <span>Cache Efficiency:</span>
-                                        <span className="text-green-400">
-                                            99.2%
-                                        </span>
-                                    </div>
-                                    <div className="flex justify-between text-sm text-gray-300 mt-2">
-                                        <span>Image Load:</span>
-                                        <span className="text-blue-400">
-                                            0.42s
-                                        </span>
+                                {/* Performance Metrics */}
+                                <div className="bg-gradient-to-br from-gray-800/60 to-gray-900/40 backdrop-blur-md rounded-xl p-5 max-w-[320px] self-end shadow-xl border border-gray-700/30 transform transition-transform hover:translate-x-1">
+                                    <div className="space-y-3">
+                                        <div className="flex items-center justify-between">
+                                            <div className="flex items-center gap-2">
+                                                <Database className="w-5 h-5 text-green-400" />
+                                                <span className="text-sm text-gray-300">
+                                                    Cache Efficiency
+                                                </span>
+                                            </div>
+                                            <span className="font-mono text-green-400">
+                                                99.2%
+                                            </span>
+                                        </div>
+                                        <div className="flex items-center justify-between">
+                                            <div className="flex items-center gap-2">
+                                                <CloudLightning className="w-5 h-5 text-blue-400" />
+                                                <span className="text-sm text-gray-300">
+                                                    Media Load
+                                                </span>
+                                            </div>
+                                            <div className="flex items-center gap-2">
+                                                <span className="font-mono text-blue-400">
+                                                    0.42s
+                                                </span>
+                                                <div className="h-2 w-12 bg-gray-700 rounded-full">
+                                                    <div className="h-full w-3/4 bg-blue-500 rounded-full" />
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -211,7 +297,6 @@ const SokoMagari = () => {
                                         </p>
                                         <div className="flex flex-wrap gap-2 mt-3">
                                             {[
-                                                "NCAP Ratings",
                                                 "Airbag Systems",
                                                 "Climate Control",
                                                 "Ergonomic Seats",
@@ -229,7 +314,7 @@ const SokoMagari = () => {
 
                                 <div className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-gray-100">
                                     <div className="bg-red-100 p-3 rounded-lg">
-                                        <BadgeCheck className="w-6 h-6 text-red-600" />
+                                        <BadgeCheckIcon className="w-6 h-6 text-red-600" />
                                     </div>
                                     <div>
                                         <h3 className="text-xl font-semibold">

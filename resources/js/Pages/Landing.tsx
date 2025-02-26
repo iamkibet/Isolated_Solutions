@@ -39,14 +39,14 @@ export default function Landing({ auth }: PageProps) {
                 </div>
             </div>
 
-            <div className="w-full bg-white lg:py-8">
+            <div className="w-full bg-white">
                 <MaxWidthWrapper> 
                     <div className="flex flex-col sm:flex-row justify-between">
                         <div className="w-full md:w-1/4">
                             <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold lg:font-extrabold">
-                                Top Services
+                                Our Top Services
                             </h2>
-                            <p className="text-sm sm:text-base lg:text-lg text-slate-800 my-2">
+                            <p className="text-sm sm:text-base lg:text-lg text-slate-800 py-3">
                                 Top-Tier Digital Solutions
                             </p>
                         </div>

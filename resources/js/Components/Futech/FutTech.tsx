@@ -51,14 +51,14 @@ const SolutionCard: React.FC<SolutionCardProps> = ({ title, content }) => (
 );
 
 const SectionHeader = () => (
-    <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+    <div className="text-center mb-2 md:mb-6">
+        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">
             The Stakeholders of{" "}
-            <span className="text-red-500">
+            <span className="text-lg md:text-2xl text-red-500">
                 Futuristic Technology Solutions
             </span>
         </h2>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <p className="text-sm md:text-lg text-gray-600 max-w-2xl mx-auto">
             Your Ideas, Our Expertise = Maximum Customer Success
         </p>
     </div>
@@ -82,11 +82,11 @@ const CtaButton = () => (
 // ==================== Main Component ====================
 const Futech: React.FC = () => {
     return (
-        <section className="py-16 md:py-24 border-b border-gray-200">
+        <section className="py-12 md:py-16 border-b border-gray-200">
             <MaxWidthWrapper>
                 <SectionHeader />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-5 lg:gap-6">
                     {SOLUTIONS.map((solution, index) => (
                         <SolutionCard
                             key={index}
