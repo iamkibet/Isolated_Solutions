@@ -1,3 +1,5 @@
+/.phpunit.cache
+
 /node_modules
 /public/hot
 /public/storage
@@ -7,7 +9,6 @@
 .env.backup
 .env.production
 .phpunit.result.cache
-.phpunit.cache
 Homestead.json
 Homestead.yaml
 auth.json
@@ -18,26 +19,5 @@ yarn-error.log
 /.vscode
 /vendor
 
-# Laravel-Specific
-/storage/oauth-private.key
-/storage/oauth-public.key
-/storage/framework/*
-/storage/logs/*
-/bootstrap/cache/*
 
-# Frontend (React + Inertia)
-/public/mix-manifest.json
-/public/build
-/public/css
-/public/js
 
-# Cache & Debugging
-/.cache
-/.eslintcache
-/.nuxt
-/.next
-
-# System-Specific & IDE Files
-/.DS_Store
-/.editorconfig
-/.gitattributes
