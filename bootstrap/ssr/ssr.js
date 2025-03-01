@@ -13,7 +13,7 @@ async function resolvePageComponent(path, pages) {
   }
   throw new Error(`Page not found: ${path}`);
 }
-const appName = "Laravel";
+const appName = "Isolated Solutions";
 createServer(
   (page) => createInertiaApp({
     page,
