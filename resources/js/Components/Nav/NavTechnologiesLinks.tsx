@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import NavCard from "./NavCard";
 import BorderHover from "../Hover/BorderHover";
+import { Link } from "@inertiajs/react";
 
 interface TechnologiesLinksProps {
     children?: ReactNode;
@@ -16,33 +17,45 @@ function TechnologiesLinks({ children }: TechnologiesLinksProps) {
                             defBorderColor="bg-slate-300"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.mobile")}
+                                className="py-1 hover:text-black"
+                            >
                                 iOS App
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.mobile")}
+                                className="py-1 hover:text-black"
+                            >
                                 Android App
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.mobile")}
+                                className="py-1 hover:text-black"
+                            >
                                 React Native App
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.mobile")}
+                                className="py-1 hover:text-black"
+                            >
                                 Flutter App
-                            </a>
+                            </Link>
                         </BorderHover>
                     </div>
                 </NavCard>
@@ -53,25 +66,34 @@ function TechnologiesLinks({ children }: TechnologiesLinksProps) {
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.cloud")}
+                                className="py-1 hover:text-black"
+                            >
                                 AWS
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.cloud")}
+                                className="py-1 hover:text-black"
+                            >
                                 Azure
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.cloud")}
+                                className="py-1 hover:text-black"
+                            >
                                 Google (GCP)
-                            </a>
+                            </Link>
                         </BorderHover>
                     </div>
                 </NavCard>
@@ -82,25 +104,34 @@ function TechnologiesLinks({ children }: TechnologiesLinksProps) {
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.cms")}
+                                className="py-1 hover:text-black"
+                            >
                                 WordPress
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.cms")}
+                                className="py-1 hover:text-black"
+                            >
                                 Shopify
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.cms")}
+                                className="py-1 hover:text-black"
+                            >
                                 Drupal
-                            </a>
+                            </Link>
                         </BorderHover>
                     </div>
                 </NavCard>
@@ -111,33 +142,45 @@ function TechnologiesLinks({ children }: TechnologiesLinksProps) {
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.frontend")}
+                                className="py-1 hover:text-black"
+                            >
                                 React.js
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.frontend")}
+                                className="py-1 hover:text-black"
+                            >
                                 Vue.js
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.frontend")}
+                                className="py-1 hover:text-black"
+                            >
                                 Angular.js
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.frontend")}
+                                className="py-1 hover:text-black"
+                            >
                                 jQuery
-                            </a>
+                            </Link>
                         </BorderHover>
                     </div>
                 </NavCard>
@@ -148,25 +191,34 @@ function TechnologiesLinks({ children }: TechnologiesLinksProps) {
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.backend")}
+                                className="py-1 hover:text-black"
+                            >
                                 PHP/Laravel
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.backend")}
+                                className="py-1 hover:text-black"
+                            >
                                 Node.js
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.backend")}
+                                className="py-1 hover:text-black"
+                            >
                                 Python/Django
-                            </a>
+                            </Link>
                         </BorderHover>
                     </div>
                 </NavCard>
@@ -177,25 +229,34 @@ function TechnologiesLinks({ children }: TechnologiesLinksProps) {
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.fullstack")}
+                                className="py-1 hover:text-black"
+                            >
                                 MERN Stack
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.fullstack")}
+                                className="py-1 hover:text-black"
+                            >
                                 LAMP Stack
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-200"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("technologies.fullstack")}
+                                className="py-1 hover:text-black"
+                            >
                                 MEAN Stack
-                            </a>
+                            </Link>
                         </BorderHover>
                     </div>
                 </NavCard>

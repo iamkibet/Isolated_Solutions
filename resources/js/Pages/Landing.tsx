@@ -39,40 +39,52 @@ export default function Landing({ auth }: PageProps) {
                 </div>
             </div>
 
-            <div className="w-full bg-white">
-                <MaxWidthWrapper> 
-                    <div className="flex flex-col sm:flex-row justify-between">
-                        <div className="w-full md:w-1/4">
-                            <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold lg:font-extrabold">
+            <div className="w-full bg-white lg:py-16 ">
+                <MaxWidthWrapper >
+                    <div className="flex flex-col sm:flex-row justify-between items-start gap-8">
+                        <div className="w-full md:w-1/3">
+                            <h2 className="text-3xl  lg:text-4xl xl:text-5xl font-bold lg:font-extrabold bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent">
                                 Our Top Services
                             </h2>
-                            <p className="text-sm sm:text-base lg:text-lg text-slate-800 py-3">
-                                Top-Tier Digital Solutions
+                            <p className="text-base lg:text-lg text-slate-600 py-4">
+                                Empowering businesses with cutting-edge digital
+                                solutions
                             </p>
                         </div>
 
-                        <div className="flex overflow-x-scroll md:overflow-x-hidden gap-8 pb-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full md:w-2/3">
                             {[
                                 {
                                     title: "Website Development",
-                                    desc: "Web presence for your business.",
+                                    desc: "Create a powerful web presence for your business with modern, responsive designs.",
+                                    icon: "🌐",
                                 },
                                 {
                                     title: "App Development",
-                                    desc: "Your business on Android and iOS.",
+                                    desc: "Launch your business on Android and iOS with native mobile applications.",
+                                    icon: "📱",
                                 },
                                 {
                                     title: "eCommerce",
-                                    desc: "Take your shop online.",
+                                    desc: "Transform your business with a robust online shopping platform.",
+                                    icon: "🛍️",
                                 },
                             ].map((service, index) => (
-                                <div key={index} className="flex-shrink-0 ">
-                                    <p className="p-2 px-3 bg-black text-slate-200 font-medium text-lg sm:text-xl">
-                                        {service.title}
-                                    </p>
-                                    <p className="p-3 py-4 -mt-2 ml-3 -mr-3 border border-black text-xs sm:text-sm">
-                                        {service.desc}
-                                    </p>
+                                <div
+                                    key={index}
+                                    className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+                                >
+                                    <div className="p-6">
+                                        <div className="text-4xl mb-4">
+                                            {service.icon}
+                                        </div>
+                                        <h3 className="text-xl font-semibold mb-2 text-gray-900">
+                                            {service.title}
+                                        </h3>
+                                        <p className="text-gray-600 text-sm leading-relaxed">
+                                            {service.desc}
+                                        </p>
+                                    </div>
                                 </div>
                             ))}
                         </div>

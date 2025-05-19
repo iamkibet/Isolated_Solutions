@@ -45,6 +45,22 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function reactions(): HasMany
+    {
+        return $this->hasMany(PostReaction::class);
+    }
+
+    public function getLikesCountAttribute(): int
+    {
+        return $this->reactions()->where('reaction_type', 'like')->count();
+    }
+
+    public function getDislikesCountAttribute(): int
+    {
+        return $this->reactions()->where('reaction_type', 'dislike')->count();
+    }
+
     public function getRouteKeyName(): string
     {
         return 'slug';

@@ -7,6 +7,7 @@ type HeroImage = {
     tab: string;
     description: string;
     buttonText: string;
+    secondaryButtonText?: string;
 };
 
 const heroimages: HeroImage[] = [
@@ -74,23 +75,35 @@ const Hero: React.FC = () => {
                     {index === currentSlide && (
                         <div className="absolute inset-0 flex flex-col justify-center text-white">
                             <MaxWidthWrapper>
-                                <div className="space-y-5 md:space-y-7 max-w-2xl px-4 sm:px-6 md:px-8">
-                                    <h1 className="text-4xl font-extrabold leading-[1.15] tracking-tight md:text-5xl lg:text-6xl text-balance">
+                                <div className="space-y-6 md:space-y-8 max-w-3xl px-4 sm:px-6 md:px-8">
+                                    <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight md:text-5xl lg:text-7xl text-balance bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200 drop-shadow-lg">
                                         {hero.title}
                                     </h1>
 
-                                    <p className="text-lg md:text-xl leading-normal md:leading-relaxed max-w-[650px] text-gray-100/95">
+                                    <p className="text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-relaxed max-w-[650px] text-gray-100/90 font-medium drop-shadow-md">
                                         {hero.description}
                                     </p>
 
-                                    <button
-                                        className="w-fit rounded-lg bg-red-600 px-7 py-3.5 text-base font-semibold tracking-wide transition-colors 
-                hover:bg-red-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 
-                focus-visible:outline-red-500 md:px-9 md:py-4 md:text-lg"
-                                        aria-label={`Learn more about ${hero.tab}`}
-                                    >
-                                        {hero.buttonText}
-                                    </button>
+                                    <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                                        <button
+                                            className="w-fit rounded-lg bg-red-600 px-7 py-3.5 text-base font-semibold tracking-wide transition-all duration-300
+                                            hover:bg-red-700 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 
+                                            focus-visible:outline-red-500 md:px-9 md:py-4 md:text-lg shadow-lg hover:shadow-xl"
+                                            aria-label={`Learn more about ${hero.tab}`}
+                                        >
+                                            {hero.buttonText}
+                                        </button>
+                                        {hero.secondaryButtonText && (
+                                            <button
+                                                className="w-fit rounded-lg border-2 border-white/20 bg-white/10 backdrop-blur-sm px-7 py-3.5 text-base font-semibold tracking-wide transition-all duration-300
+                                                hover:bg-white/20 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 
+                                                focus-visible:outline-white/50 md:px-9 md:py-4 md:text-lg shadow-lg hover:shadow-xl"
+                                                aria-label={`View ${hero.tab} solutions`}
+                                            >
+                                                {hero.secondaryButtonText}
+                                            </button>
+                                        )}
+                                    </div>
                                 </div>
                             </MaxWidthWrapper>
                         </div>

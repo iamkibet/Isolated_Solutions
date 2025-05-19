@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import NavCard from "./NavCard";
 import BorderHover from "../Hover/BorderHover";
+import { Link } from "@inertiajs/react";
 
 interface ServicesLinksProps {
     children?: ReactNode;
@@ -16,33 +17,45 @@ function ServicesLinks({ children }: ServicesLinksProps) {
                             defBorderColor="bg-slate-100"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("services.web-development")}
+                                className="py-1 hover:text-black"
+                            >
                                 Website Development
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-100"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("services.web-development")}
+                                className="py-1 hover:text-black"
+                            >
                                 Web Application Development
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-100"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("services.web-development")}
+                                className="py-1 hover:text-black"
+                            >
                                 Website Design
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-100"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("services.web-development")}
+                                className="py-1 hover:text-black"
+                            >
                                 Website maintenance
-                            </a>
+                            </Link>
                         </BorderHover>
                     </div>
                 </NavCard>
@@ -53,17 +66,23 @@ function ServicesLinks({ children }: ServicesLinksProps) {
                             defBorderColor="bg-slate-100"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("services.ecommerce")}
+                                className="py-1 hover:text-black"
+                            >
                                 eCommerce Web App
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-100"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("services.ecommerce")}
+                                className="py-1 hover:text-black"
+                            >
                                 eCommerce Mobile App
-                            </a>
+                            </Link>
                         </BorderHover>
                     </div>
                 </NavCard>
@@ -74,25 +93,34 @@ function ServicesLinks({ children }: ServicesLinksProps) {
                             defBorderColor="bg-slate-100"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("services.app-development")}
+                                className="py-1 hover:text-black"
+                            >
                                 Mobile App
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-100"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("services.app-development")}
+                                className="py-1 hover:text-black"
+                            >
                                 Web App
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-100"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("services.app-development")}
+                                className="py-1 hover:text-black"
+                            >
                                 App maintenance
-                            </a>
+                            </Link>
                         </BorderHover>
                     </div>
                 </NavCard>
@@ -103,40 +131,96 @@ function ServicesLinks({ children }: ServicesLinksProps) {
                             defBorderColor="bg-slate-100"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("services.consulting")}
+                                className="py-1 hover:text-black"
+                            >
                                 Digital Transformation
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-100"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("services.consulting")}
+                                className="py-1 hover:text-black"
+                            >
                                 App Consulting
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-100"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("services.consulting")}
+                                className="py-1 hover:text-black"
+                            >
                                 Cloud migration
-                            </a>
+                            </Link>
                         </BorderHover>
                         <BorderHover
                             defBorderColor="bg-slate-100"
                             hovBorderColor="bg-black"
                         >
-                            <a href="#" className="py-1 hover:text-black">
+                            <Link
+                                href={route("services.consulting")}
+                                className="py-1 hover:text-black"
+                            >
                                 Web-hosting
-                            </a>
+                            </Link>
                         </BorderHover>
                     </div>
                 </NavCard>
 
-                <NavCard title="Software Testing" />
-                <NavCard title="DevOps" />
-                <NavCard title="Cloud Integration" />
+                <NavCard title="Software Testing">
+                    <div className="py-3 w-fit flex flex-col gap-y-4 text-black hover:text-slate-400">
+                        <BorderHover
+                            defBorderColor="bg-slate-100"
+                            hovBorderColor="bg-black"
+                        >
+                            <Link
+                                href={route("services.software-testing")}
+                                className="py-1 hover:text-black"
+                            >
+                                Learn More
+                            </Link>
+                        </BorderHover>
+                    </div>
+                </NavCard>
+
+                <NavCard title="DevOps">
+                    <div className="py-3 w-fit flex flex-col gap-y-4 text-black hover:text-slate-400">
+                        <BorderHover
+                            defBorderColor="bg-slate-100"
+                            hovBorderColor="bg-black"
+                        >
+                            <Link
+                                href={route("services.devops")}
+                                className="py-1 hover:text-black"
+                            >
+                                Learn More
+                            </Link>
+                        </BorderHover>
+                    </div>
+                </NavCard>
+
+                <NavCard title="Cloud Integration">
+                    <div className="py-3 w-fit flex flex-col gap-y-4 text-black hover:text-slate-400">
+                        <BorderHover
+                            defBorderColor="bg-slate-100"
+                            hovBorderColor="bg-black"
+                        >
+                            <Link
+                                href={route("services.cloud-integration")}
+                                className="py-1 hover:text-black"
+                            >
+                                Learn More
+                            </Link>
+                        </BorderHover>
+                    </div>
+                </NavCard>
             </div>
         </div>
     );

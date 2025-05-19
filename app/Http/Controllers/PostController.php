@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\PostReaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -95,9 +96,18 @@ class PostController extends Controller
     public function show(Post $post)
     {
         $post->increment('views');
+        $post->load(['category', 'tags', 'user']);
+
+        if (auth()->check()) {
+            $userReaction = PostReaction::where('user_id', auth()->id())
+                ->where('post_id', $post->id)
+                ->value('reaction_type');
+
+            $post->user_reaction = $userReaction;
+        }
 
         return inertia('Posts/Show', [
-            'post' => $post->load('category', 'tags', 'user'),
+            'post' => $post,
         ]);
     }
 
@@ -155,21 +165,69 @@ class PostController extends Controller
     }
 
     /**
-     * Increment thumbs-up for a post.
+     * Handle post reaction (like/dislike)
      */
     public function thumbsUp(Post $post)
     {
-        $post->increment('thumbs_up');
-        return response()->json(['success' => true, 'message' => 'You liked the post.']);
+        $user = auth()->user();
+
+        if (!$user) {
+            return redirect()->route('posts.show', $post->slug)
+                ->with('error', 'You must be logged in to react to posts.');
+        }
+
+        $existingReaction = PostReaction::where('user_id', $user->id)
+            ->where('post_id', $post->id)
+            ->first();
+
+        if ($existingReaction) {
+            if ($existingReaction->reaction_type === 'like') {
+                $existingReaction->delete();
+            } else {
+                $existingReaction->update(['reaction_type' => 'like']);
+            }
+        } else {
+            PostReaction::create([
+                'user_id' => $user->id,
+                'post_id' => $post->id,
+                'reaction_type' => 'like'
+            ]);
+        }
+
+        return redirect()->route('posts.show', $post->slug);
     }
 
     /**
-     * Increment thumbs-down for a post.
+     * Handle post reaction (like/dislike)
      */
     public function thumbsDown(Post $post)
     {
-        $post->increment('thumbs_down');
-        return response()->json(['success' => true, 'message' => 'You disliked the post.']);
+        $user = auth()->user();
+
+        if (!$user) {
+            return redirect()->route('posts.show', $post->slug)
+                ->with('error', 'You must be logged in to react to posts.');
+        }
+
+        $existingReaction = PostReaction::where('user_id', $user->id)
+            ->where('post_id', $post->id)
+            ->first();
+
+        if ($existingReaction) {
+            if ($existingReaction->reaction_type === 'dislike') {
+                $existingReaction->delete();
+            } else {
+                $existingReaction->update(['reaction_type' => 'dislike']);
+            }
+        } else {
+            PostReaction::create([
+                'user_id' => $user->id,
+                'post_id' => $post->id,
+                'reaction_type' => 'dislike'
+            ]);
+        }
+
+        return redirect()->route('posts.show', $post->slug);
     }
 
     public function incrementViews(Post $post)

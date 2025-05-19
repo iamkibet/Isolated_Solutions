@@ -20,9 +20,11 @@ const FooterLink: React.FC<{ href: string; children: React.ReactNode }> = ({
     href,
     children,
 }) => (
-    <li className="mb-4 hover:text-red-500">
+    <li className="mb-3 hover:text-red-600 transition-colors duration-200">
         <BorderHover>
-            <a href={href}>{children}</a>
+            <a href={href} className="text-gray-600 hover:text-red-600">
+                {children}
+            </a>
         </BorderHover>
     </li>
 );
@@ -31,7 +33,7 @@ const SocialIcon: React.FC<SocialLink> = ({ icon, href, label }) => (
     <BorderHover>
         <a
             href={href}
-            className="text-black hover:text-blue-900 hover:scale-125"
+            className="text-gray-600 hover:text-red-600 hover:scale-110 transition-all duration-200"
             aria-label={label}
         >
             {icon}
@@ -94,27 +96,30 @@ const MobileFooterAccordion: React.FC<FooterProps> = ({ title, children }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border-b pb-2 mb-2 last:border-0 last:pb-0">
+        <div className="border-b border-gray-200 pb-4 mb-4 last:border-0 last:pb-0">
             <button
                 type="button"
                 onClick={() => setIsOpen((prev) => !prev)}
-                className="flex justify-between items-center w-full text-left"
+                className="flex justify-between items-center w-full text-left py-2"
                 aria-expanded={isOpen}
             >
-                <h2 className="text-base font-semibold uppercase text-gray-400">
+                <h2 className="text-base font-semibold text-gray-800">
                     {title}
                 </h2>
                 <span
-                    className={classnames("text-xl transition-transform", {
-                        "rotate-0": isOpen,
-                        "rotate-180": !isOpen,
-                    })}
+                    className={classnames(
+                        "text-xl transition-transform duration-200",
+                        {
+                            "rotate-0": isOpen,
+                            "rotate-180": !isOpen,
+                        }
+                    )}
                 >
                     {isOpen ? "-" : "+"}
                 </span>
             </button>
             {isOpen && (
-                <ul className="pl-4 list-disc text-base font-normal">
+                <ul className="pl-4 space-y-2 text-base font-normal text-gray-600">
                     {children}
                 </ul>
             )}
@@ -122,11 +127,53 @@ const MobileFooterAccordion: React.FC<FooterProps> = ({ title, children }) => {
     );
 };
 
+// ==================== Newsletter Subscription Component ====================
+const NewsletterSubscription = () => {
+    const [email, setEmail] = useState("");
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        // Handle newsletter subscription here
+        console.log("Newsletter subscription:", email);
+        setEmail("");
+    };
+
+    return (
+        <form onSubmit={handleSubmit} className="space-y-3">
+            <div>
+                <label
+                    htmlFor="newsletter-email"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                    Subscribe to our newsletter
+                </label>
+                <div className="flex gap-2">
+                    <input
+                        type="email"
+                        id="newsletter-email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-red-600 outline-none transition-colors"
+                        placeholder="Enter your email"
+                        required
+                    />
+                    <button
+                        type="submit"
+                        className="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors duration-200 whitespace-nowrap"
+                    >
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </form>
+    );
+};
+
 // ==================== Main Footer Component ====================
 const Footer = () => {
     const renderDesktopSection = (section: FooterSection) => (
         <div key={section.title} className="col-span-1">
-            <h2 className="mb-6 text-sm font-semibold uppercase text-gray-400">
+            <h2 className="mb-6 text-sm font-semibold uppercase text-gray-800 tracking-wider">
                 {section.title}
             </h2>
             <ul className="text-sm font-medium">
@@ -143,7 +190,10 @@ const Footer = () => {
         <MobileFooterAccordion key={section.title} title={section.title}>
             {section.items.map((item, index) => (
                 <li key={index}>
-                    <a href={item.href} className="hover:text-black">
+                    <a
+                        href={item.href}
+                        className="hover:text-red-600 transition-colors duration-200"
+                    >
                         {item.label}
                     </a>
                 </li>
@@ -152,33 +202,36 @@ const Footer = () => {
     );
 
     return (
-        <footer className="text-[#14151b] border-t border-[#14151b]">
+        <footer className="bg-gray-50 text-gray-800 border-t border-gray-200">
             <MaxWidthWrapper>
                 {/* Desktop View */}
                 <div className="hidden md:block">
-                    <div className="grid grid-cols-2 gap-8 lg:py-8 md:grid-cols-4 border-b-2 border-black">
+                    <div className="grid grid-cols-2 gap-12 lg:py-12 md:grid-cols-5 border-b border-gray-200">
                         {FOOTER_SECTIONS.map(renderDesktopSection)}
                         <div className="col-span-1">
-                            <h2 className="mb-6 text-sm font-semibold uppercase text-gray-400">
-                                Contact
+                            <h2 className="mb-6 text-sm font-semibold uppercase text-gray-800 tracking-wider">
+                                Newsletter
                             </h2>
-                            <p className="text-sm font-medium">
-                                Eldoret Offices Daima Towers
+                            <p className="text-sm font-medium text-gray-600 mb-4">
+                                Stay updated with our latest news and updates.
                             </p>
+                            <NewsletterSubscription />
                         </div>
                     </div>
-
                     <FooterLegalSection />
                 </div>
 
                 {/* Mobile View */}
-                <div className="md:hidden">
+                <div className="md:hidden py-8">
                     {FOOTER_SECTIONS.map(renderMobileSection)}
-                    <MobileFooterAccordion title="Contact">
-                        <p>Eldoret Offices Daima Towers</p>
+                    <MobileFooterAccordion title="Newsletter">
+                        <p className="text-gray-600 mb-4">
+                            Stay updated with our latest news and updates.
+                        </p>
+                        <NewsletterSubscription />
                     </MobileFooterAccordion>
                     <MobileFooterAccordion title="Socials">
-                        <div className="flex gap-3 pt-4">
+                        <div className="flex gap-6 pt-4">
                             {SOCIAL_LINKS.map((props, index) => (
                                 <SocialIcon key={index} {...props} />
                             ))}
@@ -192,24 +245,32 @@ const Footer = () => {
 
 // ==================== Sub Components ====================
 const FooterLegalSection = () => (
-    <div className="py-6 md:flex items-center justify-between">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between w-1/2">
-            <span className="mb-4 md:mb-0 text-sm">
+    <div className="py-8 md:flex items-center justify-between">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full md:w-2/3">
+            <span className="mb-4 md:mb-0 text-sm text-gray-600">
                 © {new Date().getFullYear()}{" "}
-                <a href="https://isolatedsolutions.tech/">IsolatedSolutions™</a>
+                <a
+                    href="https://isolatedsolutions.org/"
+                    className="text-red-600 hover:text-red-700"
+                >
+                    IsolatedSolutions™
+                </a>
                 . All Rights Reserved.
             </span>
-            <div className="space-x-4">
+            <div className="space-x-6">
                 {["Terms of Use", "Privacy Policy"].map((text, index) => (
                     <BorderHover key={index}>
-                        <a href="#" className="hover:text-black">
+                        <a
+                            href="#"
+                            className="text-sm text-gray-600 hover:text-red-600 transition-colors duration-200"
+                        >
                             {text}
                         </a>
                     </BorderHover>
                 ))}
             </div>
         </div>
-        <div className="flex mt-4 md:mt-0 space-x-5">
+        <div className="flex mt-6 md:mt-0 space-x-6">
             {SOCIAL_LINKS.map((props, index) => (
                 <SocialIcon key={index} {...props} />
             ))}

@@ -34,7 +34,7 @@ const HoverCard: React.FC<CardProps> = ({
             {/* Default Content */}
             <div className="absolute inset-0 bg-white p-6 flex flex-col justify-between">
                 <div className="flex flex-col items-center text-center">
-                    <div className="w-12 h-12 my-6">
+                    <div className="w-12 h-12 my-5 md:my-6">
                         <img
                             {...imageProps}
                             src={image}

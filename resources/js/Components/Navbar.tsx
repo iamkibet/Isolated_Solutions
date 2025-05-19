@@ -18,6 +18,35 @@ interface DropdownMenuItemProps {
     show: boolean;
 }
 
+interface MobileMenuSectionProps {
+    title: string;
+    children: React.ReactNode;
+    isOpen: boolean;
+    onToggle: () => void;
+}
+
+const MobileMenuSection: React.FC<MobileMenuSectionProps> = ({
+    title,
+    children,
+    isOpen,
+    onToggle,
+}) => (
+    <div className="border-b border-gray-100">
+        <button
+            onClick={onToggle}
+            className="flex items-center justify-between w-full px-6 py-4 text-gray-700 hover:bg-gray-50"
+        >
+            <span className="font-medium">{title}</span>
+            <IoIosArrowForward
+                className={`text-red-600 h-5 w-5 transition-transform duration-200 ${
+                    isOpen ? "rotate-90" : ""
+                }`}
+            />
+        </button>
+        {isOpen && <div className="bg-gray-50">{children}</div>}
+    </div>
+);
+
 const DropdownMenuItem: React.FC<DropdownMenuItemProps> = ({
     title,
     children,
@@ -31,7 +60,7 @@ const DropdownMenuItem: React.FC<DropdownMenuItemProps> = ({
         onMouseLeave={onMouseLeave}
     >
         <BorderHover>
-            <span className=" hover:text-red-600 transition-colors duration-200">
+            <span className="hover:text-red-600 transition-colors duration-200">
                 {title}
             </span>
         </BorderHover>
@@ -49,12 +78,15 @@ export default function Navbar({ children }: PropsWithChildren) {
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
     const [showMobileNav, setShowMobileNav] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [openSections, setOpenSections] = useState<{
+        [key: string]: boolean;
+    }>({});
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
         const handleScroll = () => {
             const isScrolled = window.scrollY > 0;
-            setScrolled(isScrolled);16
+            setScrolled(isScrolled);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -65,6 +97,13 @@ export default function Navbar({ children }: PropsWithChildren) {
         setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
     };
 
+    const toggleSection = (section: string) => {
+        setOpenSections((prev) => ({
+            ...prev,
+            [section]: !prev[section],
+        }));
+    };
+
     const menuItems = [
         { title: "Services", Component: ServicesLinks },
         { title: "Technologies", Component: TechnologiesLinks },
@@ -73,12 +112,59 @@ export default function Navbar({ children }: PropsWithChildren) {
         { title: "About", Component: AboutLinks },
     ];
 
-    const mobileMenuItems = [
-        { title: "Services", route: "home" },
-        { title: "Technologies", route: "home" },
-        { title: "Industries", route: "products" },
-        
-        { title: "Our Products", route: "products" },
+    const mobileMenuSections = [
+        {
+            title: "Services",
+            items: [
+                { title: "Web Development", route: "services.web-development" },
+                { title: "App Development", route: "services.app-development" },
+                { title: "E-commerce", route: "services.ecommerce" },
+                { title: "Consulting", route: "services.consulting" },
+                {
+                    title: "Software Testing",
+                    route: "services.software-testing",
+                },
+                { title: "DevOps", route: "services.devops" },
+                {
+                    title: "Cloud Integration",
+                    route: "services.cloud-integration",
+                },
+            ],
+        },
+        {
+            title: "Technologies",
+            items: [
+                { title: "Mobile", route: "technologies.mobile" },
+                { title: "Cloud", route: "technologies.cloud" },
+                { title: "CMS", route: "technologies.cms" },
+                { title: "Frontend", route: "technologies.frontend" },
+                { title: "Backend", route: "technologies.backend" },
+                { title: "Full Stack", route: "technologies.fullstack" },
+            ],
+        },
+        {
+            title: "Industries",
+            items: [
+                { title: "eCommerce", route: "industries.ecommerce" },
+                { title: "SaaS", route: "industries.saas" },
+                { title: "FinTech", route: "industries.fintech" },
+                { title: "EdTech", route: "industries.edtech" },
+                { title: "Wellness", route: "industries.wellness" },
+                { title: "AgriTech", route: "industries.agritech" },
+                { title: "Insurance", route: "industries.insurance" },
+                { title: "Government", route: "industries.government" },
+            ],
+        },
+        {
+            title: "Other",
+            items: [
+                { title: "Our Work", route: "work.index" },
+                { title: "Portfolio", route: "work.portfolio" },
+                { title: "Case Studies", route: "work.case-studies" },
+                { title: "About Us", route: "about-us" },
+                { title: "Products", route: "products" },
+            ],
+        },
     ];
 
     return (
@@ -91,7 +177,7 @@ export default function Navbar({ children }: PropsWithChildren) {
                 }`}
             >
                 <MaxWidthWrapper>
-                    <div className="flex items-center justify-between h-16 ">
+                    <div className="flex items-center justify-between h-16">
                         <Link href="/" className="flex-shrink-0">
                             <ApplicationLogo />
                         </Link>
@@ -150,15 +236,26 @@ export default function Navbar({ children }: PropsWithChildren) {
                 } md:hidden z-40`}
             >
                 <div className="divide-y divide-gray-100">
-                    {mobileMenuItems.map(({ title, route }) => (
-                        <Link
-                            key={title}
-                            href={route}
-                            className="flex items-center justify-between px-6 py-4 text-gray-700 hover:bg-gray-50"
+                    {mobileMenuSections.map((section) => (
+                        <MobileMenuSection
+                            key={section.title}
+                            title={section.title}
+                            isOpen={openSections[section.title] || false}
+                            onToggle={() => toggleSection(section.title)}
                         >
-                            <span className="font-medium">{title}</span>
-                            <IoIosArrowForward className="text-red-600 h-5 w-5" />
-                        </Link>
+                            {section.items.map((item) => (
+                                <Link
+                                    key={item.title}
+                                    href={route(item.route)}
+                                    className="flex items-center justify-between px-8 py-3 text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                                >
+                                    <span className="font-medium">
+                                        {item.title}
+                                    </span>
+                                    <IoIosArrowForward className="text-red-600 h-4 w-4" />
+                                </Link>
+                            ))}
+                        </MobileMenuSection>
                     ))}
                     <div className="px-6 py-4">
                         <Link

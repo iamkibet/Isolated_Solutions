@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "@/Layouts/AdminLayout";
 import { router, usePage } from "@inertiajs/react";
 import { Editor } from "@tiptap/react";
@@ -15,24 +15,34 @@ const CreatePost: React.FC = () => {
     const [excerpt, setExcerpt] = useState("");
     const [content, setContent] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [editor, setEditor] = useState<Editor | null>(null);
 
-    // Configure rich text editor
-    const editor = new Editor({
-        extensions: [
-            StarterKit,
-            Image.configure({
-                inline: true,
-                allowBase64: true,
-            }),
-        ],
-        content: content,
-        onUpdate: ({ editor }) => {
-            setContent(editor.getHTML());
-        },
-    });
+    useEffect(() => {
+        const newEditor = new Editor({
+            extensions: [
+                StarterKit,
+                Image.configure({
+                    inline: true,
+                    allowBase64: true,
+                }),
+            ],
+            content: content,
+            onUpdate: ({ editor }) => {
+                setContent(editor.getHTML());
+            },
+        });
+
+        setEditor(newEditor);
+
+        return () => {
+            newEditor.destroy();
+        };
+    }, []);
 
     // Handle image uploads
     const handleImageUpload = async (file: File) => {
+        if (!editor) return;
+
         const formData = new FormData();
         formData.append("image", file);
 
@@ -92,21 +102,23 @@ const CreatePost: React.FC = () => {
 
                     {/* Rich Text Editor */}
                     <div className="border rounded-lg overflow-hidden">
-                        <TiptapEditor
-                            editor={editor}
-                            toolbarItems={[
-                                "heading",
-                                "bold",
-                                "italic",
-                                "bulletList",
-                                "orderedList",
-                                "blockquote",
-                                "horizontalRule",
-                                "image",
-                            ]}
-                            onImageUpload={handleImageUpload}
-                            className="min-h-[400px] p-4"
-                        />
+                        {editor && (
+                            <TiptapEditor
+                                editor={editor}
+                                toolbarItems={[
+                                    "heading",
+                                    "bold",
+                                    "italic",
+                                    "bulletList",
+                                    "orderedList",
+                                    "blockquote",
+                                    "horizontalRule",
+                                    "image",
+                                ]}
+                                onImageUpload={handleImageUpload}
+                                className="min-h-[400px] p-4"
+                            />
+                        )}
                     </div>
 
                     {/* Form Actions */}

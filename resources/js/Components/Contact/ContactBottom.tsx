@@ -5,207 +5,247 @@ import kenyaFlag from "../../assets/images/kenya.png";
 
 const ContactBottom = () => {
     return (
-        <div className="border-t-2 border-gray-300 border-dashed mt-3">
-            <div className="flex flex-col md:flex-row justify-around items-center lg:my-20 gap-x-4">
-                <div>
-                    <h1 className="text-lg md:text-2xl xl:text-3xl font-bold">
-                        Our Locations
-                    </h1>
-                    <div className="p-2 xl:p-4 flex flex-row gap-x-2 xl:gap-x-7">
-                        <span className="hidden md:block">
-                            <img src={kenyaFlag} alt="kenya" />
-                        </span>
-                        <div className="flex flex-col gap-y-1 font-normal text-sm">
-                            <h1 className="flex flex-col gap-y-2 font-bold text-lg xl:text-2xl">
-                                Kenya{" "}
-                                <span className="font-semibold text-sm md:text-base xl:text-lg">
-                                    Eldoret (HQ)
-                                </span>
-                            </h1>
-                            <p>
-                                <span>Address:</span> 2004-30100
-                            </p>
-                            <p>
-                                <span>Inquiries:</span>{" "}
-                                <BorderHover>
-                                    <a
-                                        className="text-blue-500"
-                                        href="tel:+254720449012"
-                                    >
-                                        +254 720 449 012
-                                    </a>
-                                </BorderHover>
-                            </p>
-                            <p>
-                                <span>Support:</span>{" "}
-                                <BorderHover>
-                                    <a
-                                        className="text-blue-500"
-                                        href="tel:+254720449012"
-                                    >
-                                        +254 777 449 012
-                                    </a>
-                                </BorderHover>
-                            </p>
-                            <p className="border-b-2 border-dotted border-black pb-8">
-                                <span>Email: </span>
-                                <BorderHover>
-                                    <a
-                                        href="mailto:info@isofeatures.tech"
-                                        className="text-blue-500 text-sm"
-                                    >
-                                        support@isolatedsolutions.com
-                                    </a>
-                                </BorderHover>
-                            </p>
-                            <p>Daima Towers 5th Floor</p>
+        <div className="border-t-2 border-gray-200 mt-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Contact Details Section - Full Width */}
+                <div className="bg-white rounded-xl shadow-sm p-6 mb-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                        {/* Location Info */}
+                        <div className="flex items-start space-x-4">
+                            <div className="hidden lg:block flex-shrink-0">
+                                <img
+                                    src={kenyaFlag}
+                                    alt="kenya"
+                                    className="w-16 h-16 object-contain"
+                                />
+                            </div>
+                            <div>
+                                <h2 className="text-xl font-bold text-gray-900 mb-4">
+                                    Our Location
+                                </h2>
+                                <div className="space-y-3">
+                                    <div>
+                                        <h3 className="text-lg font-semibold text-gray-900">
+                                            Kenya
+                                        </h3>
+                                        <p className="text-gray-600">
+                                            Eldoret (HQ)
+                                        </p>
+                                    </div>
+                                    <p className="text-gray-600">
+                                        <span className="font-medium">
+                                            Address:
+                                        </span>{" "}
+                                        2004-30100
+                                    </p>
+                                    <p className="text-gray-600">
+                                        <span className="font-medium">
+                                            Inquiries:
+                                        </span>{" "}
+                                        <BorderHover>
+                                            <a
+                                                href="tel:+254720449012"
+                                                className="text-[#02789e] hover:text-[#026a8a]"
+                                            >
+                                                +254 720 449 012
+                                            </a>
+                                        </BorderHover>
+                                    </p>
+                                    <p className="text-gray-600">
+                                        <span className="font-medium">
+                                            Support:
+                                        </span>{" "}
+                                        <BorderHover>
+                                            <a
+                                                href="tel:+254777449012"
+                                                className="text-[#02789e] hover:text-[#026a8a]"
+                                            >
+                                                +254 777 449 012
+                                            </a>
+                                        </BorderHover>
+                                    </p>
+                                    <p className="text-gray-600">
+                                        <span className="font-medium">
+                                            Email:
+                                        </span>{" "}
+                                        <BorderHover>
+                                            <a
+                                                href="mailto:support@isolatedsolutions.com"
+                                                className="text-[#02789e] hover:text-[#026a8a] break-all"
+                                            >
+                                                support@isolatedsolutions.com
+                                            </a>
+                                        </BorderHover>
+                                    </p>
+                                    <p className="text-gray-600">
+                                        Daima Towers 5th Floor
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Contact Person */}
+                        <div className="flex items-start space-x-4">
+                            <img
+                                src={profilePic}
+                                alt="Dennis Kibet"
+                                className="hidden lg:block w-16 h-16 rounded-full object-cover flex-shrink-0"
+                            />
+                            <div>
+                                <h2 className="text-xl font-bold text-gray-900 mb-4">
+                                    Contact Person
+                                </h2>
+                                <div className="space-y-3">
+                                    <div>
+                                        <h3 className="text-lg font-semibold text-gray-900">
+                                            Dennis Kibet
+                                        </h3>
+                                        <p className="text-gray-600">
+                                            Chief Technology Officer
+                                        </p>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <div className="flex items-center space-x-3">
+                                            <img
+                                                src="https://www.sparxitsolutions.com/assets-style/images/mail-ios.svg"
+                                                alt="Email"
+                                                className="w-5 h-5 flex-shrink-0"
+                                            />
+                                            <BorderHover>
+                                                <a
+                                                    href="mailto:info@isolatedsolutions.com"
+                                                    className="text-[#02789e] hover:text-[#026a8a] break-all"
+                                                >
+                                                    info@isolatedsolutions.org
+                                                </a>
+                                            </BorderHover>
+                                        </div>
+                                        <div className="flex items-center space-x-3">
+                                            <img
+                                                src="https://www.sparxitsolutions.com/assets-style/images/whatsapp.svg"
+                                                alt="WhatsApp"
+                                                className="w-5 h-5 flex-shrink-0"
+                                            />
+                                            <BorderHover>
+                                                <a
+                                                    href="https://api.whatsapp.com/send?phone=254720449012"
+                                                    className="text-[#02789e] hover:text-[#026a8a]"
+                                                >
+                                                    +254 720 449 012
+                                                </a>
+                                            </BorderHover>
+                                        </div>
+                                        <div className="flex items-center space-x-3">
+                                            <img
+                                                src="https://www.sparxitsolutions.com/assets-style/images/skype.svg"
+                                                alt="Skype"
+                                                className="w-5 h-5 flex-shrink-0"
+                                            />
+                                            <BorderHover>
+                                                <a
+                                                    href="https://api.whatsapp.com/send?phone=254720449012"
+                                                    className="text-[#02789e] hover:text-[#026a8a]"
+                                                >
+                                                    Dennis Kibet
+                                                </a>
+                                            </BorderHover>
+                                        </div>
+                                        <div className="flex items-center space-x-3">
+                                            <img
+                                                src="https://www.sparxitsolutions.com/assets-style/images/linkedin-icon.svg"
+                                                alt="LinkedIn"
+                                                className="w-5 h-5 flex-shrink-0"
+                                            />
+                                            <BorderHover>
+                                                <a
+                                                    href="https://www.linkedin.com/in/denniskibet/"
+                                                    className="text-[#02789e] hover:text-[#026a8a]"
+                                                >
+                                                    DennisKibet
+                                                </a>
+                                            </BorderHover>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Consultation */}
+                        <div>
+                            <h2 className="text-xl font-bold text-gray-900 mb-4">
+                                Get in Touch
+                            </h2>
+                            <div className="space-y-4">
+                                <p className="text-gray-600">
+                                    Looking to bring your great product to life?
+                                    But facing challenges and blockers along the
+                                    way?
+                                </p>
+                                <button className="w-full px-6 py-3 bg-[#02789e] text-white rounded-lg font-medium hover:bg-[#026a8a] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#02789e] focus:ring-offset-2">
+                                    Book a Free Consultation
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="my-4">
-                    <h1 className="text-xl font-bold">
-                        Looking to Bring Great <br /> Product to Life?{" "}
-                        <span>
-                            <p className="text-sm md:text-base font-normal mt-3">
-                                But, facing Challanges and blockers along the
-                                way?
-                            </p>
-                        </span>
-                    </h1>
-                    <button className="py-4 px-5 mt-5 text-sm font-medium text-center text-slate-50 hover:text-black rounded-lg sm:w-fit bg-[#02789e] hover:bg-slate-50 hover:border-2 border-[#02789e]">
-                        Book a Free Consultation
-                    </button>
-                </div>
-                <div className="flex flex-col md:flex-row xl:gap-10">
-                    <img
-                        src={profilePic}
-                        alt="Dennis Kibet"
-                        className="hidden h-32 w-32 md:h-48 md:w-48 rounded-full"
-                    />
-                    <div className="mb-4">
-                        <h1 className="font-bold text-xl">
-                            Dennis Kibet <br />
-                            <span className="font-normal text-sm">
-                                Chief Technology Officer
-                            </span>
-                        </h1>
-                        <div className="flex gap-x-4 items-center mt-2">
-                            <img
-                                src="https://www.sparxitsolutions.com/assets-style/images/mail-ios.svg"
-                                alt="Email"
-                                className="h-7"
-                            />
-                            <BorderHover>
-                                <a
-                                    href="mailto:info@isofeatures.tech"
-                                    className=" text-sm"
-                                >
-                                    info@isolatedsolutions.com
-                                </a>
-                            </BorderHover>
-                        </div>
-                        <div className="flex gap-x-4 items-center">
-                            <img
-                                src="https://www.sparxitsolutions.com/assets-style/images/whatsapp.svg"
-                                alt="Whatsapp"
-                                className="h-7"
-                            />
-                            <BorderHover>
-                                <a
-                                    href="https://api.whatsapp.com/send?phone=254720449012"
-                                    className=" text-sm"
-                                >
-                                    +254 720 449 012
-                                </a>
-                            </BorderHover>
-                        </div>
-                        <div className="flex gap-x-4 items-center">
-                            <img
-                                src="https://www.sparxitsolutions.com/assets-style/images/skype.svg"
-                                alt="SnapChat"
-                                className="h-7"
-                            />
-                            <BorderHover>
-                                <a
-                                    href="https://api.whatsapp.com/send?phone=254720449012"
-                                    className=" text-sm"
-                                >
-                                    Dennis Kibet
-                                </a>
-                            </BorderHover>
-                        </div>
-                        <div className="flex gap-x-4 items-center">
-                            <img
-                                src="https://www.sparxitsolutions.com/assets-style/images/linkedin-icon.svg"
-                                alt="LinkedIn"
-                                className="h-7"
-                            />
-                            <BorderHover>
-                                <a
-                                    href="https://www.linkedin.com/in/denniskibet/"
-                                    className=" text-sm"
-                                >
-                                    DennisKibet
-                                </a>
-                            </BorderHover>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="flex flex-col md:flex-row gap-y-5 md:gap-x-10 mb-5 lg:mb-20 ">
-                <div className=" md:border-r border-black border-dashed">
-                    <h1 className="text-xl md:text-2xl xl:text-3xl font-bold">
-                        What's The Project plan? <br />
-                        <span className="text-base font-normal">
-                            Let’s have a quick chat about your plans, ideas, and
+
+                {/* Additional Info Section */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
+                        <h2 className="text-xl font-bold text-gray-900 mb-4">
+                            What's The Project Plan?
+                        </h2>
+                        <p className="text-gray-600 mb-4">
+                            Let's have a quick chat about your plans, ideas, and
                             project requirements making it a job of seconds.
-                        </span>
-                    </h1>
-                    <BorderHover>
-                        <a
-                            href="https://api.whatsapp.com/send?phone=254720449012"
-                            className="text-sm text-red-500"
-                        >
-                            Click Here to LiveChat!
-                        </a>
-                    </BorderHover>
-                </div>
-                <div className="md:border-r border-black border-dashed">
-                    <h1 className="text-xl md:text-2xl xl:text-3xl font-bold">
-                        Got Documents? Share With Us <br />
-                        <span className="text-base font-normal">
+                        </p>
+                        <BorderHover>
+                            <a
+                                href="https://api.whatsapp.com/send?phone=254720449012"
+                                className="text-[#02789e] hover:text-[#026a8a] font-medium inline-flex items-center"
+                            >
+                                Click Here to LiveChat! →
+                            </a>
+                        </BorderHover>
+                    </div>
+
+                    <div className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
+                        <h2 className="text-xl font-bold text-gray-900 mb-4">
+                            Got Documents? Share With Us
+                        </h2>
+                        <p className="text-gray-600 mb-4">
                             Share your NDA, BRD & all project-related details
                             through email. We will reach out to you at the
-                            earliest. Here is our email:
-                        </span>
-                    </h1>
-                    <BorderHover>
-                        <a
-                            href="mailto:info@isofeatures.tech"
-                            className="text-sm text-red-500"
-                        >
-                            info@isofeatures.tech
-                        </a>
-                    </BorderHover>
-                </div>
-                <div>
-                    <h1 className="text-xl md:text-2xl xl:text-3xl font-bold">
-                        We Are{" "}
-                        <span className="text-red-500 text-base">Not</span>{" "}
-                        Hiring <br />
-                        <span className="text-base font-normal">
+                            earliest.
+                        </p>
+                        <BorderHover>
+                            <a
+                                href="mailto:info@isolatedsolutions.com"
+                                className="text-[#02789e] hover:text-[#026a8a] font-medium inline-flex items-center break-all"
+                            >
+                                info@isolatedsolutions.com →
+                            </a>
+                        </BorderHover>
+                    </div>
+
+                    <div className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
+                        <h2 className="text-xl font-bold text-gray-900 mb-4">
+                            We Are <span className="text-red-500">Not</span>{" "}
+                            Hiring
+                        </h2>
+                        <p className="text-gray-600 mb-4">
                             Become a part of our vision to delivering effective,
                             efficient & elegant solutions.
-                        </span>
-                    </h1>
-                    <BorderHover>
-                        <a
-                            href="https://api.whatsapp.com/send?phone=254720449012"
-                            className="text-sm text-red-500"
-                        >
-                            View Opportunities
-                        </a>
-                    </BorderHover>
+                        </p>
+                        <BorderHover>
+                            <a
+                                href="https://api.whatsapp.com/send?phone=254720449012"
+                                className="text-[#02789e] hover:text-[#026a8a] font-medium inline-flex items-center"
+                            >
+                                View Opportunities →
+                            </a>
+                        </BorderHover>
+                    </div>
                 </div>
             </div>
         </div>

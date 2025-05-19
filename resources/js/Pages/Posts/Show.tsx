@@ -1,6 +1,5 @@
 import React from "react";
 import { router } from "@inertiajs/react";
-import ReactMarkdown from "react-markdown";
 import {
     FaThumbsUp,
     FaThumbsDown,
@@ -15,17 +14,25 @@ import { usePage } from "@inertiajs/react";
 
 interface Props {
     post: Post;
+    likes_count: number;
+    dislikes_count: number;
+    user_reaction: string;
 }
 
-const Show: React.FC<Props> = ({ post }) => {
+const Show: React.FC<Props> = ({
+    post,
+    likes_count,
+    dislikes_count,
+    user_reaction,
+}) => {
     const { auth } = usePage<{ auth: PageProps["auth"] }>().props;
 
     const handleThumbsUp = () => {
-        router.post(route("posts.thumbsUp", post.id));
+        router.post(route("posts.thumbsUp", { post: post.slug }));
     };
 
     const handleThumbsDown = () => {
-        router.post(route("posts.thumbsDown", post.id));
+        router.post(route("posts.thumbsDown", { post: post.slug }));
     };
 
     return (
@@ -69,26 +76,39 @@ const Show: React.FC<Props> = ({ post }) => {
                     )}
                 </header>
 
-                <div className="prose max-w-none mb-8">
-                    <ReactMarkdown>{post.content}</ReactMarkdown>
-                </div>
+                <div
+                    className="prose prose-lg max-w-none mb-8"
+                    dangerouslySetInnerHTML={{ __html: post.content }}
+                />
 
-                <footer className="border-t border-gray-200 pt-4">
+                <footer className="border-t border-gray-200 pt-6">
                     <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-4">
+                        <div className="flex items-center space-x-6">
                             <button
                                 onClick={handleThumbsUp}
-                                className="flex items-center space-x-1 text-gray-600 hover:text-green-500 transition duration-150 ease-in-out"
+                                className={`flex items-center space-x-2 transition duration-150 ease-in-out ${
+                                    user_reaction === "like"
+                                        ? "text-green-500"
+                                        : "text-gray-600 hover:text-green-500"
+                                }`}
                             >
-                                <FaThumbsUp />
-                                <span>{post.thumbs_up}</span>
+                                <FaThumbsUp className="text-xl" />
+                                <span className="font-medium">
+                                    {likes_count}
+                                </span>
                             </button>
                             <button
                                 onClick={handleThumbsDown}
-                                className="flex items-center space-x-1 text-gray-600 hover:text-red-500 transition duration-150 ease-in-out"
+                                className={`flex items-center space-x-2 transition duration-150 ease-in-out ${
+                                    user_reaction === "dislike"
+                                        ? "text-red-500"
+                                        : "text-gray-600 hover:text-red-500"
+                                }`}
                             >
-                                <FaThumbsDown />
-                                <span>{post.thumbs_down}</span>
+                                <FaThumbsDown className="text-xl" />
+                                <span className="font-medium">
+                                    {dislikes_count}
+                                </span>
                             </button>
                         </div>
                         {auth.user && auth.user.id === post.user.id && (
