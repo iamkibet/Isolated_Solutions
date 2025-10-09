@@ -2,6 +2,7 @@ import ApplicationLogo from "@/Components/Nav/ApplicationLogo";
 import { Link } from "@inertiajs/react";
 import { PropsWithChildren, useEffect, useRef, useState } from "react";
 import { IoIosMenu, IoIosArrowForward, IoMdClose } from "react-icons/io";
+import { HiOutlineMail } from "react-icons/hi";
 import ServicesLinks from "@/Components/Nav/NavServicesLinks";
 import AboutLinks from "@/Components/Nav/NavAboutUsLinks";
 import TechnologiesLinks from "@/Components/Nav/NavTechnologiesLinks";
@@ -208,9 +209,17 @@ export default function Navbar({ children }: PropsWithChildren) {
 
                             <Link
                                 href={route("contact")}
-                                className="px-5 py-2.5 bg-red-600 text-white rounded-md font-medium hover:bg-red-700 transition-colors duration-200"
+                                className="p-2.5 bg-gray-100 text-gray-700 rounded-full hover:bg-red-600 hover:text-white transition-all duration-200"
+                                title="Contact Us"
                             >
-                                Contact Us
+                                <HiOutlineMail className="h-5 w-5" />
+                            </Link>
+
+                            <Link
+                                href={route("quotes.index")}
+                                className="px-5 py-2.5 bg-gradient-to-r from-purple-600 to-red-600 text-white rounded-md font-medium hover:from-purple-700 hover:to-red-700 transition-all duration-200 shadow-md hover:shadow-lg"
+                            >
+                                Get a Quote
                             </Link>
                         </div>
 
@@ -257,12 +266,19 @@ export default function Navbar({ children }: PropsWithChildren) {
                             ))}
                         </MobileMenuSection>
                     ))}
-                    <div className="px-6 py-4">
+                    <div className="px-6 py-4 space-y-3">
                         <Link
                             href={route("contact")}
-                            className="block w-full px-4 py-2.5 text-center bg-red-600 text-white rounded-md font-medium hover:bg-red-700 transition-colors"
+                            className="flex items-center justify-center gap-2 w-full px-4 py-2.5 text-center bg-gray-100 text-gray-700 rounded-md font-medium hover:bg-red-600 hover:text-white transition-all"
                         >
+                            <HiOutlineMail className="h-5 w-5" />
                             Contact Us
+                        </Link>
+                        <Link
+                            href={route("quotes.index")}
+                            className="block w-full px-4 py-2.5 text-center bg-gradient-to-r from-purple-600 to-red-600 text-white rounded-md font-medium hover:from-purple-700 hover:to-red-700 transition-all"
+                        >
+                            Get a Quote
                         </Link>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\QuoteController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -87,6 +88,15 @@ Route::prefix('posts')->group(function () {
     Route::post('/{post}/increment-views', [PostController::class, 'incrementViews'])->name('posts.incrementViews')->whereNumber('post');
 });
 
+// Quote routes
+Route::prefix('quotes')->group(function () {
+    Route::get('/', [QuoteController::class, 'index'])->name('quotes.index');
+    Route::post('/', [QuoteController::class, 'store'])->name('quotes.store');
+    Route::post('/preview', [QuoteController::class, 'preview'])->name('quotes.preview');
+    Route::get('/{quote}', [QuoteController::class, 'show'])->name('quotes.show');
+    Route::get('/{quote}/download', [QuoteController::class, 'download'])->name('quotes.download');
+});
+
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/about', fn() => Inertia::render('AboutUs'))->name('about-us');
@@ -118,6 +128,19 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::patch('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
     Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
     Route::post('/tags/store', [TagController::class, 'store'])->name('tags.store');
+
+    // Admin quotes management
+    Route::get('/quotes', [AdminController::class, 'quotes'])->name('admin.quotes.index');
+    Route::get('/quotes/create', [AdminController::class, 'createQuote'])->name('admin.quotes.create');
+    Route::delete('/quotes/{quote}', [AdminController::class, 'destroyQuote'])->name('admin.quotes.destroy');
+    Route::patch('/quotes/{quote}/status', [AdminController::class, 'updateQuoteStatus'])->name('admin.quotes.updateStatus');
+
+    // Admin services management
+    Route::get('/services', [AdminController::class, 'services'])->name('admin.services.index');
+    Route::post('/services', [AdminController::class, 'storeService'])->name('admin.services.store');
+    Route::patch('/services/{serviceKey}', [AdminController::class, 'updateService'])->name('admin.services.update');
+    Route::delete('/services/{serviceKey}', [AdminController::class, 'destroyService'])->name('admin.services.destroy');
+    Route::post('/currency-rates', [AdminController::class, 'updateCurrencyRates'])->name('admin.currency-rates.update');
 });
 
 require __DIR__ . '/auth.php';

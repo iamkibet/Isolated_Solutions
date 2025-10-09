@@ -22,30 +22,41 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        // Create Admin User
+        $admin = User::updateOrCreate(
+            ['email' => 'admin@isolatedsolutions.com'],
+            [
+                'name' => 'Dennis Kibet',
+                'email' => 'admin@isolatedsolutions.com',
+                'password' => Hash::make('Admin@2024!'),
+                'role' => 'A',
+                'email_verified_at' => now(),
+            ]
+        );
 
-        if (config('app.env') == 'local') {
-            // admin user
-            $admin = User::factory()->create([
-                'name' => 'Admin',
-                'email' => 'admin@example.com',
-                'password' => Hash::make($value = 'adminpassword'),
-            ])->first();
+        \Laravel\Prompts\info('✅ Admin user created successfully!');
+        \Laravel\Prompts\info('📧 Email: admin@isolatedsolutions.com');
+        \Laravel\Prompts\info('🔑 Password: Admin@2024!');
+        \Laravel\Prompts\warning('⚠️  Remember to change the password after first login!');
 
-            $admin->role = 'A';
-            $admin->save();
+        // Create additional test users in local/development environment
+        if (config('app.env') === 'local') {
+            // Regular test user
+            User::updateOrCreate(
+                ['email' => 'user@example.com'],
+                [
+                    'name' => 'Test User',
+                    'email' => 'user@example.com',
+                    'password' => Hash::make('password'),
+                    'role' => 'U',
+                    'email_verified_at' => now(),
+                ]
+            );
 
-            // random users
-
-
-            \Laravel\Prompts\info('Admin and users seeded.');
-            //  User::factory()->create([
-            //     'first_name' => 'Jane',
-            //     'last_name' => 'Doe',
-            //     'email' => 'test@example.com',
-            // ]);
-
-
+            \Laravel\Prompts\info('✅ Test user created (user@example.com / password)');
         }
+
+        // Seed services from config file
+        $this->call(ServicesSeeder::class);
     }
 }

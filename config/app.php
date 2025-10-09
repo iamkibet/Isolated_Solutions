@@ -185,6 +185,16 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Company Information
+    |--------------------------------------------------------------------------
+    |
+    | Company details used in PDFs, emails, and other documents
+    |
+    */
 
+    'company_address' => env('COMPANY_ADDRESS', 'Nairobi, Kenya'),
+    'company_phone' => env('COMPANY_PHONE', '+254 700 000 000'),
 
 ];

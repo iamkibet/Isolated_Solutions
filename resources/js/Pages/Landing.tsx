@@ -40,7 +40,7 @@ export default function Landing({ auth }: PageProps) {
             </div>
 
             <div className="w-full bg-white lg:py-16 ">
-                <MaxWidthWrapper >
+                <MaxWidthWrapper>
                     <div className="flex flex-col sm:flex-row justify-between items-start gap-8">
                         <div className="w-full md:w-1/3">
                             <h2 className="text-3xl  lg:text-4xl xl:text-5xl font-bold lg:font-extrabold bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent">

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
+import { FaEdit, FaTrash, FaEye, FaPlus } from "react-icons/fa";
 import AdminLayout from "@/Layouts/AdminLayout";
 import { PaginatedData, Post } from "@/types/types";
-import { Link, router, usePage } from "@inertiajs/react";
+import { Link, router, usePage, Head } from "@inertiajs/react";
 
 interface Props {
     posts: PaginatedData<Post>;
@@ -38,21 +38,38 @@ const Index: React.FC<Props> = ({ posts }) => {
     };
 
     return (
-        <AdminLayout title="Hello Admin">
-            <div className="container mx-auto py-6">
-                <div className="flex justify-between items-center mb-6">
-                    <h1 className="text-3xl font-bold text-gray-900">
-                        Manage Posts
-                    </h1>
-                    <Link
-                        href={route("posts.create")}
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                    >
-                        Create New Post
-                    </Link>
+        <AdminLayout title="Manage Posts">
+            <Head title="Manage Posts" />
+            <div className="max-w-7xl mx-auto">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+                    <div>
+                        <h1 className="text-3xl font-bold text-gray-900">
+                            Blog Posts
+                        </h1>
+                        <p className="text-gray-600 mt-1">
+                            Manage your blog content
+                        </p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                        <div className="bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200">
+                            <div className="text-2xl font-bold text-gray-900">
+                                {posts.total}
+                            </div>
+                            <div className="text-xs text-gray-500">
+                                Total Posts
+                            </div>
+                        </div>
+                        <Link
+                            href={route("posts.create")}
+                            className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+                        >
+                            <FaPlus className="w-5 h-5" />
+                            Create Post
+                        </Link>
+                    </div>
                 </div>
 
-                <div className="bg-white shadow-md rounded-lg overflow-hidden">
+                <div className="bg-white shadow-sm rounded-xl border border-gray-200 overflow-hidden">
                     <table className="min-w-full divide-y divide-gray-200">
                         <thead className="bg-gray-50">
                             <tr>
