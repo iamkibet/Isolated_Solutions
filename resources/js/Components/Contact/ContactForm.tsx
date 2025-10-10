@@ -4,6 +4,7 @@ import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import TextInput from "@/Components/TextInput";
 import axios from "axios";
+import { Mail, User, MessageSquare, Send, CheckCircle, AlertCircle } from "lucide-react";
 
 const ContactForm = () => {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -34,87 +35,151 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900">
-                Contact Us
-            </h2>
-            <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 sm:text-xl">
-                Got a technical issue? Want to send feedback about a beta
-                feature? Need details about our Business plan? Let us know.
-            </p>
-            <form onSubmit={handleSubmit} className="space-y-8">
-                <div>
-                    <InputLabel htmlFor="name" value="Your name" />
-                    <TextInput
-                        id="name"
-                        type="text"
-                        name="name"
-                        value={data.name}
-                        className="mt-1 block w-full"
-                        onChange={(e) => setData("name", e.target.value)}
-                        required
-                    />
-                    <InputError message={errors.name} className="mt-2" />
+        <div className="py-8 lg:py-16 px-4 mx-auto max-w-4xl">
+            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
+                {/* Header Section */}
+                <div className="bg-gradient-to-br from-red-600 to-red-700 px-6 md:px-12 py-10 md:py-12 text-white">
+                    <div className="text-center space-y-3">
+                        <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full mb-4">
+                            <Mail className="w-8 h-8" />
+                        </div>
+                        <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+                            Get In Touch
+                        </h2>
+                        <p className="text-red-50 text-base md:text-lg max-w-2xl mx-auto">
+                            Have a question or want to work together? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+                        </p>
+                    </div>
                 </div>
 
-                <div>
-                    <InputLabel htmlFor="email" value="Your email" />
-                    <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        onChange={(e) => setData("email", e.target.value)}
-                        required
-                    />
-                    <InputError message={errors.email} className="mt-2" />
-                </div>
+                {/* Form Section */}
+                <div className="px-6 md:px-12 py-8 md:py-10">
+                    {success ? (
+                        <div className="text-center py-12 space-y-4">
+                            <div className="inline-flex items-center justify-center w-20 h-20 bg-green-100 rounded-full mb-4">
+                                <CheckCircle className="w-12 h-12 text-green-600" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-gray-900">Message Sent Successfully!</h3>
+                            <p className="text-gray-600">
+                                Thank you for contacting us. We'll get back to you within 24 hours.
+                            </p>
+                            <button
+                                onClick={() => setSuccess(false)}
+                                className="mt-4 inline-flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold"
+                            >
+                                Send Another Message
+                            </button>
+                        </div>
+                    ) : (
+                        <form onSubmit={handleSubmit} className="space-y-6">
+                            {error && (
+                                <div className="flex items-center gap-3 bg-red-50 border border-red-200 rounded-lg p-4">
+                                    <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
+                                    <p className="text-red-800 text-sm">{error}</p>
+                                </div>
+                            )}
 
-                <div>
-                    <InputLabel htmlFor="subject" value="Subject" />
-                    <TextInput
-                        id="subject"
-                        type="text"
-                        name="subject"
-                        value={data.subject}
-                        className="mt-1 block w-full"
-                        onChange={(e) => setData("subject", e.target.value)}
-                        required
-                    />
-                    <InputError message={errors.subject} className="mt-2" />
-                </div>
+                            <div className="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
+                                        <User className="w-4 h-4 text-gray-500" />
+                                        Your Name *
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        value={data.name}
+                                        onChange={(e) => setData("name", e.target.value)}
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                                        placeholder="John Doe"
+                                        required
+                                    />
+                                    {errors.name && (
+                                        <p className="text-red-600 text-sm mt-1">{errors.name}</p>
+                                    )}
+                                </div>
 
-                <div className="sm:col-span-2">
-                    <InputLabel htmlFor="message" value="Your message" />
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows={6}
-                        value={data.message}
-                        onChange={(e) => setData("message", e.target.value)}
-                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                        required
-                    ></textarea>
-                    <InputError message={errors.message} className="mt-2" />
-                </div>
+                                <div>
+                                    <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
+                                        <Mail className="w-4 h-4 text-gray-500" />
+                                        Your Email *
+                                    </label>
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={data.email}
+                                        onChange={(e) => setData("email", e.target.value)}
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                                        placeholder="john@example.com"
+                                        required
+                                    />
+                                    {errors.email && (
+                                        <p className="text-red-600 text-sm mt-1">{errors.email}</p>
+                                    )}
+                                </div>
+                            </div>
 
-                <button
-                    type="submit"
-                    disabled={processing || submitting}
-                    className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-[#02789e] hover:bg-[#026a8a] focus:ring-4 focus:outline-none focus:ring-[#02789e] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                >
-                    {submitting ? "Sending..." : "Send message"}
-                </button>
-            </form>
-            {success && (
-                <div className="mt-4 text-center text-green-500">
-                    Message sent successfully!
+                            <div>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
+                                    <MessageSquare className="w-4 h-4 text-gray-500" />
+                                    Subject *
+                                </label>
+                                <input
+                                    type="text"
+                                    name="subject"
+                                    value={data.subject}
+                                    onChange={(e) => setData("subject", e.target.value)}
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                                    placeholder="How can we help you?"
+                                    required
+                                />
+                                {errors.subject && (
+                                    <p className="text-red-600 text-sm mt-1">{errors.subject}</p>
+                                )}
+                            </div>
+
+                            <div>
+                                <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
+                                    <MessageSquare className="w-4 h-4 text-gray-500" />
+                                    Your Message *
+                                </label>
+                                <textarea
+                                    name="message"
+                                    rows={6}
+                                    value={data.message}
+                                    onChange={(e) => setData("message", e.target.value)}
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all resize-none"
+                                    placeholder="Tell us more about your project or inquiry..."
+                                    required
+                                />
+                                {errors.message && (
+                                    <p className="text-red-600 text-sm mt-1">{errors.message}</p>
+                                )}
+                            </div>
+
+                            <div className="flex justify-center pt-2">
+                                <button
+                                    type="submit"
+                                    disabled={processing || submitting}
+                                    className="w-full md:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                >
+                                    {submitting ? (
+                                        <>
+                                            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                            Sending...
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Send className="w-5 h-5" />
+                                            Send Message
+                                        </>
+                                    )}
+                                </button>
+                            </div>
+                        </form>
+                    )}
                 </div>
-            )}
-            {error && (
-                <div className="mt-4 text-center text-red-500">{error}</div>
-            )}
+            </div>
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import { Head } from "@inertiajs/react";
 import Navbar from "@/Components/Navbar";
-import MaxWidthWrapper from "@/ui/MaxWidthWrapper";
+import MaxWidthWrapper from "../../../ui/MaxWidthWrapper";
 import { Link } from "@inertiajs/react";
 
 export default function WorkIndex() {
