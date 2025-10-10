@@ -233,7 +233,7 @@ export default function QuoteForm({ services, currencies }: Props) {
     return (
         <>
             {/* Currency Selector - Top Bar */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 mb-6 sticky top-4 z-20">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 mb-6 sticky top-20 z-20">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                     <div className="flex items-center gap-4">
                         <DollarSign className="w-5 h-5 text-gray-500" />

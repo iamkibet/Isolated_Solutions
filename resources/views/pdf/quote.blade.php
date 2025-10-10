@@ -15,15 +15,26 @@
             font-family: 'Helvetica', 'Arial', sans-serif;
             color: #374151;
             line-height: 1.5;
-            padding: 40px;
+            padding: 20px;
             background: #ffffff;
+            margin: 0;
+        }
+
+        @page {
+            margin: 10px;
+            padding: 0;
+        }
+
+        .page-container {
+            border: 1.5px solid #d1d5db;
+            padding: 25px;
         }
 
         .header {
             display: table;
             width: 100%;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
             border-bottom: 2px solid #e5e7eb;
         }
 
@@ -47,10 +58,10 @@
         }
 
         .company-name {
-            font-size: 20px;
-            font-weight: bold;
+            font-size: 12px;
+            font-weight: 600;
             color: #111827;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
 
         .company-info {
@@ -81,7 +92,7 @@
         }
 
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .section-title {
@@ -90,27 +101,13 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             color: #6b7280;
-            margin-bottom: 12px;
-        }
-
-        .estimate-notice {
-            background: #fef3c7;
-            border-left: 4px solid #f59e0b;
-            padding: 12px 15px;
-            margin-bottom: 30px;
-            border-radius: 4px;
-        }
-
-        .estimate-notice p {
-            font-size: 11px;
-            color: #92400e;
-            margin: 0;
+            margin-bottom: 8px;
         }
 
         .client-info-box {
             display: table;
             width: 100%;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .client-info-left {
@@ -217,7 +214,7 @@
         }
 
         .totals {
-            margin-top: 30px;
+            margin-top: 15px;
             float: right;
             width: 280px;
         }
@@ -260,8 +257,8 @@
 
         .notes-section {
             clear: both;
-            margin-top: 40px;
-            padding: 15px;
+            margin-top: 20px;
+            padding: 12px 15px;
             background: #f9fafb;
             border-left: 3px solid #dc2626;
             border-radius: 4px;
@@ -271,7 +268,7 @@
             font-size: 11px;
             font-weight: 600;
             color: #374151;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
@@ -283,8 +280,8 @@
         }
 
         .footer {
-            margin-top: 60px;
-            padding-top: 20px;
+            margin-top: 25px;
+            padding-top: 15px;
             border-top: 1px solid #e5e7eb;
             text-align: center;
             font-size: 9px;
@@ -295,8 +292,8 @@
         .validity-info {
             background: #eff6ff;
             border: 1px solid #dbeafe;
-            padding: 12px 15px;
-            margin: 25px 0;
+            padding: 10px 15px;
+            margin: 15px 0;
             border-radius: 4px;
         }
 
@@ -319,23 +316,26 @@
         hr {
             border: none;
             border-top: 1px solid #e5e7eb;
-            margin: 20px 0;
+            margin: 15px 0;
+        }
+
+        html, body {
+            height: auto;
         }
     </style>
 </head>
 <body>
+    <div class="page-container">
     <!-- Header -->
     <div class="header">
         <div class="header-left">
-            @if(file_exists(public_path('images/sokomagari.png')))
-                <img src="{{ public_path('images/sokomagari.png') }}" alt="{{ config('app.name') }}" class="logo">
+            @if(file_exists(public_path('logo.png')))
+                <img src="{{ public_path('logo.png') }}" alt="{{ config('app.name') }}" class="logo">
             @endif
-            <div class="company-name">{{ config('app.name', 'Isolated Solutions Ltd') }}</div>
+            <div class="company-name">Isolated Solutions LTD</div>
             <div class="company-info">
                 {{ $company['address'] }}<br>
-                {{ $company['email'] }}<br>
-                {{ $company['phone'] }}<br>
-                {{ config('app.url') }}
+                {{ $company['email'] }} | {{ $company['phone'] }}
             </div>
         </div>
         <div class="header-right">
@@ -343,11 +343,6 @@
             <div class="quote-number">{{ $quote->quote_number }}</div>
             <div class="quote-date">Date: {{ $quote->created_at->format('F d, Y') }}</div>
         </div>
-    </div>
-
-    <!-- Estimate Notice -->
-    <div class="estimate-notice">
-        <p><strong>This is an estimate.</strong> Final pricing may vary based on project scope and specific requirements. This quote is valid until {{ $quote->valid_until->format('F d, Y') }} ({{ $quote->created_at->diffInDays($quote->valid_until) }} days from issue date).</p>
     </div>
 
     <!-- Client Information -->
@@ -402,17 +397,14 @@
                         <div class="service-description">{{ $service['description'] }}</div>
                         @if(isset($service['features']) && count($service['features']) > 0)
                         <ul class="service-features">
-                            @foreach(array_slice($service['features'], 0, 8) as $feature)
+                            @foreach($service['features'] as $feature)
                                 <li>{{ $feature }}</li>
                             @endforeach
-                            @if(count($service['features']) > 8)
-                                <li style="font-style: italic; color: #9ca3af;">+ {{ count($service['features']) - 8 }} additional features</li>
-                            @endif
                         </ul>
                         @endif
                     </td>
                     <td class="text-right" style="font-weight: 600; color: #111827;">
-                        {{ $quote->currency_symbol }}{{ number_format($service['price'], 2) }}
+                        {{ $quote->currency }} {{ number_format($service['price'], 2) }}
                     </td>
                 </tr>
                 @endforeach
@@ -425,8 +417,8 @@
         <div class="totals">
             <table>
                 <tr class="total-row">
-                    <td>Estimated Total ({{ $quote->currency }})</td>
-                    <td>{{ $quote->currency_symbol }}{{ number_format($quote->total, 2) }}</td>
+                    <td>Estimated Total</td>
+                    <td>{{ $quote->currency }} {{ number_format($quote->total, 2) }}</td>
                 </tr>
             </table>
         </div>
@@ -447,10 +439,11 @@
 
     <!-- Footer -->
     <div class="footer">
-        <p>Thank you for considering {{ config('app.name', 'Isolated Solutions Ltd') }} for your project.</p>
+        <p>Thank you for considering Isolated Solutions LTD for your project.</p>
         <p>This estimate is provided for planning purposes. Final costs will be confirmed upon project scope review.</p>
         <p>For questions or to proceed, please contact us at {{ $company['email'] }} or {{ $company['phone'] }}.</p>
         <p style="margin-top: 12px; color: #d1d5db;">Document generated on {{ now()->format('F d, Y \a\t h:i A') }}</p>
+    </div>
     </div>
 </body>
 </html>

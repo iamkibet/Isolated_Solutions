@@ -26,7 +26,7 @@ export default function Guest({ children }: PropsWithChildren) {
                 <Navbar />
             </div>
 
-            <main className="flex-grow bg-[#f5f5f5]">{children}</main>
+            <main className="flex-grow bg-[#f5f5f5] pt-20">{children}</main>
 
             <Footer />
         </div>
