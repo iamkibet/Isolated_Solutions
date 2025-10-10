@@ -171,10 +171,10 @@ export default function Navbar({ children }: PropsWithChildren) {
     return (
         <div className="relative flex flex-col">
             <nav
-                className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+                className={`fixed top-0 w-full z-50 transition-all duration-300 border-b ${
                     scrolled
-                        ? "text-black bg-white shadow-md"
-                        : "bg-transparent"
+                        ? "text-black bg-white shadow-md border-gray-200"
+                        : "bg-transparent border-transparent"
                 }`}
             >
                 <MaxWidthWrapper>

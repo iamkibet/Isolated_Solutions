@@ -237,7 +237,7 @@ export default function QuoteForm({ services, currencies, exchangeRates: propExc
     return (
         <>
             {/* Currency Selector - Top Bar */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-3 md:p-4 mb-6 sticky top-20 z-20">
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-3 md:p-4 mb-6 sticky top-16 z-20">
                 <div className="flex flex-col gap-3 md:gap-4">
                     {/* Currency Selector - Full width on mobile */}
                     <div className="flex items-center gap-2 md:gap-4">
