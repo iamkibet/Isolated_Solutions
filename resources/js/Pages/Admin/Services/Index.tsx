@@ -23,14 +23,23 @@ interface ExchangeRates {
     GBP: number;
 }
 
+interface CurrencySymbols {
+    USD: string;
+    KES: string;
+    EUR: string;
+    GBP: string;
+}
+
 interface Props {
     services?: Record<string, Service>;
     exchangeRates?: ExchangeRates;
+    currencySymbols?: CurrencySymbols;
     errors?: Record<string, string>;
 }
 
-const Index: React.FC<Props> = ({ services, exchangeRates, errors: pageErrors }) => {
+const Index: React.FC<Props> = ({ services, exchangeRates, currencySymbols: propCurrencySymbols, errors: pageErrors }) => {
     const [selectedCategory, setSelectedCategory] = useState<string>("all");
+    const [selectedCurrency, setSelectedCurrency] = useState<keyof ExchangeRates>("USD");
     const [showAddModal, setShowAddModal] = useState(false);
     const [showRatesModal, setShowRatesModal] = useState(false);
     const [editingService, setEditingService] = useState<Service | null>(null);
@@ -82,6 +91,19 @@ const Index: React.FC<Props> = ({ services, exchangeRates, errors: pageErrors })
 
     const rates = exchangeRates || { USD: 1.0, KES: 129.50, EUR: 0.92, GBP: 0.79 };
 
+    // Currency conversion function
+    const convertPrice = (usdPrice: number): number => {
+        return usdPrice * (rates[selectedCurrency] || 1);
+    };
+
+    // Use currency symbols from props (database) or fallback to defaults
+    const currencySymbols: Record<keyof ExchangeRates, string> = propCurrencySymbols || {
+        USD: '$',
+        KES: 'KSh',
+        EUR: '€',
+        GBP: '£',
+    };
+
     const { data: ratesData, setData: setRatesData, post: postRates, processing: processingRates } = useForm({
         USD: rates.USD,
         KES: rates.KES,
@@ -94,6 +116,8 @@ const Index: React.FC<Props> = ({ services, exchangeRates, errors: pageErrors })
         postRates(route('admin.currency-rates.update'), {
             onSuccess: () => {
                 setShowRatesModal(false);
+                // Full page reload to ensure fresh data
+                window.location.reload();
             }
         });
     };
@@ -191,6 +215,19 @@ const Index: React.FC<Props> = ({ services, exchangeRates, errors: pageErrors })
                             <div className="text-xs text-gray-500">
                                 Total Services
                             </div>
+                        </div>
+                        <div className="bg-white rounded-lg shadow-sm border border-gray-200">
+                            <select
+                                value={selectedCurrency}
+                                onChange={(e) => setSelectedCurrency(e.target.value as keyof ExchangeRates)}
+                                className="px-4 py-3 border-0 rounded-lg focus:ring-2 focus:ring-red-500 font-semibold text-gray-900 cursor-pointer"
+                            >
+                                {Object.keys(rates).map((currency) => (
+                                    <option key={currency} value={currency}>
+                                        {currency} ({currencySymbols[currency as keyof ExchangeRates]})
+                                    </option>
+                                ))}
+                            </select>
                         </div>
                         <button
                             onClick={() => setShowRatesModal(true)}
@@ -299,11 +336,14 @@ const Index: React.FC<Props> = ({ services, exchangeRates, errors: pageErrors })
                                                     )}
                                                 </div>
                                                 <div className="flex items-baseline gap-1 mb-2">
-                                                    <FaDollarSign className="text-gray-400 text-sm mt-1" />
+                                                    <span className="text-gray-400 text-sm mt-1">{currencySymbols[selectedCurrency]}</span>
                                                     <span className="text-2xl font-bold text-gray-900">
-                                                        {pkg.price.toLocaleString()}
+                                                        {convertPrice(pkg.price).toLocaleString(undefined, {
+                                                            minimumFractionDigits: selectedCurrency === 'USD' || selectedCurrency === 'EUR' || selectedCurrency === 'GBP' ? 2 : 0,
+                                                            maximumFractionDigits: selectedCurrency === 'USD' || selectedCurrency === 'EUR' || selectedCurrency === 'GBP' ? 2 : 0,
+                                                        })}
                                                     </span>
-                                                    <span className="text-gray-500 text-sm">USD</span>
+                                                    <span className="text-gray-500 text-sm">{selectedCurrency}</span>
                                                 </div>
                                                 <p className="text-xs text-gray-600">
                                                     {pkg.description}

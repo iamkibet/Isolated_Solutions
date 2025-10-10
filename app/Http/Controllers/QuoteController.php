@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Quote;
 use App\Models\Service;
 use App\Models\ServiceCategory;
+use App\Models\CurrencyRate;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -26,11 +27,22 @@ class QuoteController extends Controller
         // Format services to match frontend expectations
         $services = $this->formatServicesForFrontend($servicesFromDb);
         
-        $currencies = array_keys(config('services_pricing.exchange_rates'));
+        // Get currencies and exchange rates from database
+        $currencyData = CurrencyRate::where('is_active', true)->get();
+        $currencies = $currencyData->pluck('currency_code')->toArray();
+        $exchangeRates = [];
+        $currencySymbols = [];
+        
+        foreach ($currencyData as $currency) {
+            $exchangeRates[$currency->currency_code] = (float) $currency->rate;
+            $currencySymbols[$currency->currency_code] = $currency->currency_symbol;
+        }
         
         return Inertia::render('Quote/Index', [
             'services' => $services,
             'currencies' => $currencies,
+            'exchangeRates' => $exchangeRates,
+            'currencySymbols' => $currencySymbols,
         ]);
     }
 
@@ -151,7 +163,7 @@ class QuoteController extends Controller
             \Log::info('Services formatted', ['count' => count($formattedServices)]);
             
             $servicesDetails = [];
-            $exchangeRate = config("services_pricing.exchange_rates.{$quote->currency}", 1);
+            $exchangeRate = CurrencyRate::where('currency_code', $quote->currency)->value('rate') ?? 1;
 
             foreach ($quote->selected_services as $selectedService) {
                 $serviceKey = $selectedService['service_key'];
@@ -217,7 +229,7 @@ class QuoteController extends Controller
         $formattedServices = $this->formatServicesForFrontend($servicesFromDb);
         
         $servicesDetails = [];
-        $exchangeRate = config("services_pricing.exchange_rates.{$quote->currency}", 1);
+        $exchangeRate = CurrencyRate::where('currency_code', $quote->currency)->value('rate') ?? 1;
 
         foreach ($quote->selected_services as $selectedService) {
             $serviceKey = $selectedService['service_key'];
@@ -254,7 +266,7 @@ class QuoteController extends Controller
         $servicesFromDb = Service::with(['category', 'options.values'])->get();
         $services = $this->formatServicesForFrontend($servicesFromDb);
         
-        $exchangeRate = config("services_pricing.exchange_rates.{$currency}", 1);
+        $exchangeRate = CurrencyRate::where('currency_code', $currency)->value('rate') ?? 1;
 
         $total = 0;
 

@@ -8,6 +8,7 @@ use App\Models\Service;
 use App\Models\ServiceCategory;
 use App\Models\ServiceOption;
 use App\Models\ServiceOptionValue;
+use App\Models\CurrencyRate;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -61,7 +62,7 @@ class AdminController extends Controller
             $formattedServices = $this->formatServicesForFrontend($servicesFromDb);
             
             $servicesDetails = [];
-            $exchangeRate = config("services_pricing.exchange_rates.{$quote->currency}", 1);
+            $exchangeRate = CurrencyRate::where('currency_code', $quote->currency)->value('rate') ?? 1;
 
             foreach ($quote->selected_services as $selectedService) {
                 $serviceKey = $selectedService['service_key'];
@@ -112,11 +113,23 @@ class AdminController extends Controller
 
         // Format for frontend
         $services = $this->formatServicesForFrontend($servicesFromDb);
-        $currencies = array_keys(config('services_pricing.exchange_rates'));
+        
+        // Get currencies and exchange rates from database
+        $currencyData = CurrencyRate::where('is_active', true)->get();
+        $currencies = $currencyData->pluck('currency_code')->toArray();
+        $exchangeRates = [];
+        $currencySymbols = [];
+        
+        foreach ($currencyData as $currency) {
+            $exchangeRates[$currency->currency_code] = (float) $currency->rate;
+            $currencySymbols[$currency->currency_code] = $currency->currency_symbol;
+        }
         
         return Inertia::render('Admin/Quotes/Create', [
             'services' => $services,
             'currencies' => $currencies,
+            'exchangeRates' => $exchangeRates,
+            'currencySymbols' => $currencySymbols,
         ]);
     }
 
@@ -151,11 +164,21 @@ class AdminController extends Controller
 
         // Format for frontend
         $services = $this->formatServicesForFrontend($servicesFromDb);
-        $exchangeRates = config('services_pricing.exchange_rates');
+        
+        // Get exchange rates from database
+        $currencyRates = CurrencyRate::where('is_active', true)->get();
+        $exchangeRates = [];
+        $currencySymbols = [];
+        
+        foreach ($currencyRates as $rate) {
+            $exchangeRates[$rate->currency_code] = (float) $rate->rate;
+            $currencySymbols[$rate->currency_code] = $rate->currency_symbol;
+        }
         
         return Inertia::render('Admin/Services/Index', [
             'services' => $services,
             'exchangeRates' => $exchangeRates,
+            'currencySymbols' => $currencySymbols,
         ]);
     }
 
@@ -321,15 +344,11 @@ class AdminController extends Controller
             'GBP' => 'required|numeric|min:0',
         ]);
 
-        // Update the exchange rates in config file
-        $configPath = config_path('services_pricing.php');
-        $config = include $configPath;
-        $config['exchange_rates'] = $validated;
-
-        $content = "<?php\n\nreturn " . var_export($config, true) . ";\n";
-        file_put_contents($configPath, $content);
-        
-        \Artisan::call('config:clear');
+        // Update exchange rates in database
+        foreach ($validated as $currencyCode => $rate) {
+            CurrencyRate::where('currency_code', $currencyCode)
+                ->update(['rate' => (float) $rate]);
+        }
 
         return redirect()->route('admin.services.index')
             ->with('success', 'Currency rates updated successfully!');

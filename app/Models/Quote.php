@@ -43,17 +43,11 @@ class Quote extends Model
     }
 
     /**
-     * Get the currency symbol
+     * Get the currency symbol from database
      */
     public function getCurrencySymbolAttribute(): string
     {
-        $symbols = [
-            'USD' => '$',
-            'KES' => 'KSh',
-            'EUR' => '€',
-            'GBP' => '£',
-        ];
-
-        return $symbols[$this->currency] ?? $this->currency;
+        $currencyRate = CurrencyRate::where('currency_code', $this->currency)->first();
+        return $currencyRate ? $currencyRate->currency_symbol : $this->currency;
     }
 }

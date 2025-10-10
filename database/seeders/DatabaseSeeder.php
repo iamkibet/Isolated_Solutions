@@ -56,7 +56,10 @@ class DatabaseSeeder extends Seeder
             \Laravel\Prompts\info('✅ Test user created (user@example.com / password)');
         }
 
-        // Seed services from config file
+        // Seed currency rates
+        $this->call(CurrencyRatesSeeder::class);
+        
+        // Seed services from database
         $this->call(ServicesSeeder::class);
     }
 }
