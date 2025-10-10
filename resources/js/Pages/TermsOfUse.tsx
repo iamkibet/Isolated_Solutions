@@ -1,5 +1,6 @@
 import React from "react";
-import MaxWidthWrapper from "../ui/MaxWidthWrapper";
+import MaxWidthWrapper from "../../ui/MaxWidthWrapper";
+
 
 const TermsOfUse = () => {
     return (

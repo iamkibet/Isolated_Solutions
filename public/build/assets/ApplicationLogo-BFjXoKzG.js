@@ -1,0 +1,1 @@
+import{j as o}from"./app-C0PBs2lY.js";const t=()=>o.jsx("div",{className:"flex items-center justify-center",children:o.jsx("img",{src:"/logo.png",alt:"Isolated Solutions Logo",className:"h-12 w-auto"})});export{t as A};

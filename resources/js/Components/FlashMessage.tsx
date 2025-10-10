@@ -10,7 +10,8 @@ interface FlashProps {
 }
 
 export default function FlashMessage() {
-    const { flash } = usePage().props as { flash: FlashProps };
+    const page = usePage<{ flash?: FlashProps }>();
+    const flash = page.props.flash;
     const [visible, setVisible] = useState(false);
     const [message, setMessage] = useState<{ type: 'success' | 'error' | 'info' | 'warning'; text: string } | null>(null);
 
