@@ -13,35 +13,35 @@ type HeroImage = {
 const heroimages: HeroImage[] = [
     {
         image: "/images/ai-banner.webp",
-        tab: "Ai-First approach",
-        title: "Shaping Futures With Our AI-first Approach",
+        tab: "AI-First Approach",
+        title: "Shaping Futures With Our AI-First Approach",
         description:
-            "We drive AI innovation through breakthrough engineering and design to enhance business performance. This helps you to make informed decisions.",
+            "We drive AI innovation through breakthrough engineering and design to enhance business performance and help you make informed decisions.",
         buttonText: "Learn More",
     },
     {
         image: "/images/data_and_Cloud.webp",
         tab: "Data Engineering",
-        title: "Engineer Data Into Actionable Decisions",
+        title: "Engineer Data Into Actionable Insights",
         description:
-            "We help businesses to harness the power of data to drive innovation and growth. Our data engineering services help you to make informed decisions.",
-        buttonText: "Explore",
+            "Harness the power of data to drive innovation and growth. Our data engineering services transform raw data into actionable business intelligence.",
+        buttonText: "Explore Solutions",
     },
     {
         image: "/images/cyber_security.webp",
         tab: "Product Engineering",
-        title: "Accelerate Time-To-Market with Product Engineering ",
+        title: "Accelerate Time-to-Market with Product Engineering",
         description:
-            "Reshaping the future of digital products with our expertise in product engineering by leveraging AI powered approaches",
-        buttonText: "Discover",
+            "Reshape the future of digital products with our expertise in product engineering, leveraging AI-powered approaches for innovation.",
+        buttonText: "Discover More",
     },
     {
         image: "/images/Software_modernization.webp",
-        tab: "Legacy Software",
+        tab: "Legacy Modernization",
         title: "Drive Agility Through Legacy System Modernization",
         description:
-            "Upgrade your legacy software to the modern, scalable architecture with automation and AI.",
-        buttonText: "Digitise your system",
+            "Upgrade your legacy software to modern, scalable architecture with automation and AI integration for enhanced performance.",
+        buttonText: "Digitize Your System",
     },
 ];
 
@@ -75,20 +75,20 @@ const Hero: React.FC = () => {
                     {index === currentSlide && (
                         <div className="absolute inset-0 flex flex-col justify-center text-white">
                             <MaxWidthWrapper>
-                                <div className="space-y-6 md:space-y-8 max-w-3xl px-4 sm:px-6 md:px-8">
-                                    <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight md:text-5xl lg:text-7xl text-balance bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200 drop-shadow-lg">
+                                <div className="space-y-6 md:space-y-10 max-w-3xl px-4 sm:px-6 md:px-8">
+                                    <h1 className="text-4xl font-extrabold leading-tight tracking-tight md:text-5xl lg:text-6xl md:leading-tight lg:leading-tight text-balance bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200 drop-shadow-lg">
                                         {hero.title}
                                     </h1>
 
-                                    <p className="text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-relaxed max-w-[650px] text-gray-100/90 font-medium drop-shadow-md">
+                                    <p className="text-lg md:text-xl lg:text-2xl leading-relaxed md:leading-relaxed lg:leading-relaxed max-w-[700px] text-gray-100/95 font-medium drop-shadow-md">
                                         {hero.description}
                                     </p>
 
-                                    <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                                    <div className="flex flex-col sm:flex-row gap-4 pt-4 md:pt-6">
                                         <button
                                             className="w-fit rounded-lg bg-red-600 px-7 py-3.5 text-base font-semibold tracking-wide transition-all duration-300
                                             hover:bg-red-700 hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 
-                                            focus-visible:outline-red-500 md:px-9 md:py-4 md:text-lg shadow-lg hover:shadow-xl"
+                                            focus-visible:outline-red-500 md:px-9 md:py-4 md:text-lg shadow-lg hover:shadow-xl whitespace-nowrap"
                                             aria-label={`Learn more about ${hero.tab}`}
                                         >
                                             {hero.buttonText}
