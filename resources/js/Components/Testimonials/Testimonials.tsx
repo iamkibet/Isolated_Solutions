@@ -1,86 +1,107 @@
 import MaxWidthWrapper from "../../../ui/MaxWidthWrapper";
+import { Star, Quote } from "lucide-react";
 
 // ==================== Component Constants ====================
-const TESTIMONIAL = {
-    quote: `"Their work was impeccable. Everything was done on time and they even let me share my ideas on the designs, colors and fonts to use on my website."`,
-    author: {
-        name: "Amos Wako",
-        role: "Customer",
-        avatar: "https://mwangikanothe.com/build/assets/profile-default-b1fa350e.jpg",
+const TESTIMONIALS = [
+    {
+        quote: "Their work was impeccable. Everything was done on time and they even let me share my ideas on the designs, colors and fonts to use on my website.",
+        author: "Amos Wako",
+        role: "Business Owner",
+        initials: "AW",
+        color: "red",
+        rating: 5,
     },
-};
-
-// ==================== Sub-Components ====================
-const QuoteIcon = () => (
-    <svg
-        className="h-12 mx-auto mb-6 text-red-500"
-        viewBox="0 0 24 27"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-    >
-        <path
-            d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
-            fill="currentColor"
-        />
-    </svg>
-);
-
-const TestimonialCard = () => (
-    <figure className="max-w-3xl mx-auto">
-        <QuoteIcon />
-        <blockquote>
-            <p className="text-2xl font-medium text-gray-900 leading-relaxed">
-                {TESTIMONIAL.quote}
-            </p>
-        </blockquote>
-        <figcaption className="flex items-center justify-center mt-8 space-x-4">
-            <img
-                className="w-10 h-10 rounded-full"
-                src={TESTIMONIAL.author.avatar}
-                alt={`${TESTIMONIAL.author.name} avatar`}
-            />
-            <div className="flex items-center divide-x divide-gray-300">
-                <div className="pr-4 font-medium text-gray-900">
-                    {TESTIMONIAL.author.name}
-                </div>
-                <div className="pl-4 text-sm font-light text-red-500">
-                    {TESTIMONIAL.author.role}
-                </div>
-            </div>
-        </figcaption>
-    </figure>
-);
-
-const SectionHeader = () => (
-    <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
-            What People Say About Us
-        </h2>
-        <button
-            type="button"
-            className="px-8 py-4 border-2 border-red-500 text-red-500 font-medium rounded-lg 
-               hover:bg-red-500 hover:text-white transition-all duration-300
-               focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-            aria-label="Explore our work portfolio"
-        >
-            Explore Our Work
-        </button>
-    </div>
-);
+    {
+        quote: "Exceptional service! The team delivered a robust inventory system that streamlined our operations. Highly professional and responsive.",
+        author: "Sarah Mwangi",
+        role: "Operations Manager",
+        initials: "SM",
+        color: "blue",
+        rating: 5,
+    },
+    {
+        quote: "Working with Isolated Solutions was a game-changer. They transformed our outdated systems into modern, efficient solutions.",
+        author: "David Omondi",
+        role: "IT Director",
+        initials: "DO",
+        color: "purple",
+        rating: 5,
+    },
+    {
+        quote: "Their mobile app development expertise is outstanding. PesaPlan has helped us manage our finances effortlessly.",
+        author: "Grace Chebet",
+        role: "Small Business Owner",
+        initials: "GC",
+        color: "green",
+        rating: 5,
+    },
+];
 
 // ==================== Main Component ====================
 const Testimonials = () => {
     return (
-        <section
-            aria-labelledby="testimonials-heading"
-            className="py-16 md:py-24"
-        >
+        <section className="py-16 md:py-20 bg-gray-50">
             <MaxWidthWrapper>
-                <div className="w-full">
-                    <SectionHeader />
-                    <div className="px-4 py-12 md:py-16 bg-gray-50 rounded-2xl">
-                        <TestimonialCard />
+                <div className="px-4 md:px-0">
+                    {/* Header */}
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center gap-2 bg-red-100 text-red-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                            <Star className="w-4 h-4" />
+                            Client Testimonials
+                        </div>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                            What Our Clients Say
+                        </h2>
+                        <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+                            Don't just take our word for it. Here's what our clients have to say about working with us.
+                        </p>
+                    </div>
+
+                    {/* Testimonials Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                        {TESTIMONIALS.map((testimonial, index) => (
+                            <div
+                                key={index}
+                                className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 p-6 md:p-8"
+                            >
+                                {/* Quote Icon */}
+                                <Quote className="w-8 h-8 text-red-500 mb-4" />
+                                
+                                {/* Rating Stars */}
+                                <div className="flex gap-1 mb-4">
+                                    {[...Array(testimonial.rating)].map((_, i) => (
+                                        <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                                    ))}
+                                </div>
+
+                                {/* Quote */}
+                                <blockquote className="mb-6">
+                                    <p className="text-gray-700 leading-relaxed text-base">
+                                        "{testimonial.quote}"
+                                    </p>
+                                </blockquote>
+
+                                {/* Author */}
+                                <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
+                                    <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-lg ${
+                                        testimonial.color === 'red' ? 'bg-red-600' :
+                                        testimonial.color === 'blue' ? 'bg-blue-600' :
+                                        testimonial.color === 'purple' ? 'bg-purple-600' :
+                                        'bg-green-600'
+                                    }`}>
+                                        {testimonial.initials}
+                                    </div>
+                                    <div>
+                                        <div className="font-semibold text-gray-900">
+                                            {testimonial.author}
+                                        </div>
+                                        <div className="text-sm text-gray-500">
+                                            {testimonial.role}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </MaxWidthWrapper>

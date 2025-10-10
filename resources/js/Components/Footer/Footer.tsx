@@ -44,33 +44,40 @@ const SocialIcon: React.FC<SocialLink> = ({ icon, href, label }) => (
 // ==================== Footer Data Config ====================
 const FOOTER_SECTIONS: FooterSection[] = [
     {
-        title: "Who we are",
+        title: "Company",
         items: [
-            { label: "About Us", href: "/about" },
-            { label: "Founder", href: "#" },
-            { label: "FAQs", href: "#" },
+            { label: "About Us", href: "/about-us" },
+            { label: "Products", href: "/products" },
+            { label: "Contact", href: "/contact" },
             { label: "Careers", href: "#" },
-        ],
-    },
-    {
-        title: "Resources",
-        items: [
-            { label: "Blog", href: "#" },
-            { label: "Guides", href: "#" },
-            { label: "Portfolio", href: "#" },
         ],
     },
     {
         title: "Services",
         items: [
-            { label: "Mobile App Development", href: "#" },
-            { label: "iOS App Development", href: "#" },
-            { label: "Android App Development", href: "#" },
-            { label: "Web Design", href: "#" },
-            { label: "Web Development", href: "#" },
+            { label: "Web Development", href: "/services/web-development" },
+            { label: "Mobile App Development", href: "/services/app-development" },
             { label: "UI/UX Design", href: "#" },
-            { label: "QA & Testing", href: "#" },
-            { label: "WordPress Development", href: "#" },
+            { label: "Cloud Migration", href: "#" },
+            { label: "DevOps & CI/CD", href: "#" },
+            { label: "Digital Transformation", href: "#" },
+        ],
+    },
+    {
+        title: "Resources",
+        items: [
+            { label: "Get a Quote", href: "/quotes" },
+            { label: "Blog", href: "#" },
+            { label: "Case Studies", href: "#" },
+            { label: "Portfolio", href: "#" },
+        ],
+    },
+    {
+        title: "Legal",
+        items: [
+            { label: "Privacy Policy", href: "/privacy-policy" },
+            { label: "Terms of Use", href: "/terms-of-use" },
+            { label: "Cookie Policy", href: "/privacy-policy#cookies" },
         ],
     },
 ];
@@ -130,12 +137,49 @@ const MobileFooterAccordion: React.FC<FooterProps> = ({ title, children }) => {
 // ==================== Newsletter Subscription Component ====================
 const NewsletterSubscription = () => {
     const [email, setEmail] = useState("");
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+    const [message, setMessage] = useState("");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle newsletter subscription here
-        console.log("Newsletter subscription:", email);
-        setEmail("");
+        setStatus('loading');
+        
+        try {
+            const response = await fetch('/api/newsletter/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setStatus('success');
+                setMessage('🎉 Successfully subscribed! Check your email.');
+                setEmail("");
+                setTimeout(() => {
+                    setStatus('idle');
+                    setMessage('');
+                }, 5000);
+            } else {
+                setStatus('error');
+                setMessage(data.message || 'Failed to subscribe. Please try again.');
+                setTimeout(() => {
+                    setStatus('idle');
+                    setMessage('');
+                }, 5000);
+            }
+        } catch (error) {
+            setStatus('error');
+            setMessage('An error occurred. Please try again later.');
+            setTimeout(() => {
+                setStatus('idle');
+                setMessage('');
+            }, 5000);
+        }
     };
 
     return (
@@ -153,17 +197,24 @@ const NewsletterSubscription = () => {
                         id="newsletter-email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-red-600 outline-none transition-colors"
+                        className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-red-600 focus:border-red-600 outline-none transition-colors text-sm"
                         placeholder="Enter your email"
                         required
+                        disabled={status === 'loading'}
                     />
                     <button
                         type="submit"
-                        className="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors duration-200 whitespace-nowrap"
+                        disabled={status === 'loading'}
+                        className="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors duration-200 whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed text-sm"
                     >
-                        Subscribe
+                        {status === 'loading' ? 'Sending...' : 'Subscribe'}
                     </button>
                 </div>
+                {message && (
+                    <p className={`text-xs mt-2 ${status === 'success' ? 'text-green-600' : 'text-red-600'}`}>
+                        {message}
+                    </p>
+                )}
             </div>
         </form>
     );
@@ -206,7 +257,7 @@ const Footer = () => {
             <MaxWidthWrapper>
                 {/* Desktop View */}
                 <div className="hidden md:block">
-                    <div className="grid grid-cols-2 gap-12 lg:py-12 md:grid-cols-5 border-b border-gray-200">
+                    <div className="grid grid-cols-2 gap-8 lg:gap-12 py-12 md:grid-cols-5 border-b border-gray-200">
                         {FOOTER_SECTIONS.map(renderDesktopSection)}
                         <div className="col-span-1">
                             <h2 className="mb-6 text-sm font-semibold uppercase text-gray-800 tracking-wider">
@@ -258,16 +309,30 @@ const FooterLegalSection = () => (
                 . All Rights Reserved.
             </span>
             <div className="space-x-6">
-                {["Terms of Use", "Privacy Policy"].map((text, index) => (
-                    <BorderHover key={index}>
-                        <a
-                            href="#"
-                            className="text-sm text-gray-600 hover:text-red-600 transition-colors duration-200"
-                        >
-                            {text}
-                        </a>
-                    </BorderHover>
-                ))}
+                <BorderHover>
+                    <a
+                        href="/privacy-policy"
+                        className="text-sm text-gray-600 hover:text-red-600 transition-colors duration-200"
+                    >
+                        Privacy Policy
+                    </a>
+                </BorderHover>
+                <BorderHover>
+                    <a
+                        href="/terms-of-use"
+                        className="text-sm text-gray-600 hover:text-red-600 transition-colors duration-200"
+                    >
+                        Terms of Use
+                    </a>
+                </BorderHover>
+                <BorderHover>
+                    <a
+                        href="/privacy-policy#cookies"
+                        className="text-sm text-gray-600 hover:text-red-600 transition-colors duration-200"
+                    >
+                        Cookie Policy
+                    </a>
+                </BorderHover>
             </div>
         </div>
         <div className="flex mt-6 md:mt-0 space-x-6">
