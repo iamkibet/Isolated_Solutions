@@ -12,14 +12,16 @@ import {
     Car,
     Sparkles,
     TrendingUp,
-    ExternalLink
+    ExternalLink,
+    Layers
 } from "lucide-react";
 import MaxWidthWrapper from "../../ui/MaxWidthWrapper";
-import { Head } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 
 const products = [
     {
         name: "Soko Magari",
+        slug: "soko-magari",
         description: "Enterprise automotive commerce platform for buying and selling vehicles",
         category: "E-commerce Platform",
         highlights: [
@@ -28,13 +30,14 @@ const products = [
             "Virtual showrooms & 360° tours",
             "Real-time market analytics",
         ],
-        link: "https://sokomagari.isolatedsolutions.org/",
+        externalLink: "https://sokomagari.isolatedsolutions.org/",
         icon: Car,
         color: "red",
         badge: "Live Platform",
     },
     {
         name: "StockSync",
+        slug: "stocksync",
         description: "Complete inventory management system for businesses of all sizes",
         category: "Business Management",
         highlights: [
@@ -43,13 +46,14 @@ const products = [
             "Automated reorder alerts",
             "Detailed analytics & reports",
         ],
-        link: "http://stocksync.isolatedsolutions.org/",
+        externalLink: "http://stocksync.isolatedsolutions.org/",
         icon: Package,
         color: "blue",
         badge: "Enterprise Ready",
     },
     {
         name: "AI Resume Builder",
+        slug: "ai-resume-builder",
         description: "Intelligent resume creation powered by artificial intelligence",
         category: "AI-Powered Tool",
         highlights: [
@@ -58,13 +62,14 @@ const products = [
             "ATS-optimized formatting",
             "Real-time preview & editing",
         ],
-        link: "#",
+        externalLink: null,
         icon: Brain,
         color: "purple",
         badge: "AI-Powered",
     },
     {
         name: "PesaPlan",
+        slug: "pesaplan",
         description: "Smart expense management mobile app for personal and business finances",
         category: "Mobile App",
         highlights: [
@@ -73,13 +78,14 @@ const products = [
             "Multi-currency support",
             "Financial insights & reports",
         ],
-        link: "#",
+        externalLink: null,
         icon: Wallet,
         color: "green",
         badge: "Mobile App",
     },
     {
         name: "Fashion Store",
+        slug: "fashion-store",
         description: "Modern e-commerce platform designed for fashion retailers",
         category: "E-commerce Platform",
         highlights: [
@@ -88,7 +94,7 @@ const products = [
             "Secure checkout & payments",
             "Order tracking & management",
         ],
-        link: "#",
+        externalLink: null,
         icon: ShoppingBag,
         color: "pink",
         badge: "E-commerce",
@@ -99,39 +105,34 @@ const Products = () => {
     const getColorClasses = (color: string) => {
         const colors = {
             red: {
-                badge: 'bg-red-100 text-red-600',
-                icon: 'bg-red-100 text-red-600',
-                border: 'border-red-600',
-                button: 'bg-red-600 hover:bg-red-700',
-                link: 'text-red-600 hover:text-red-700'
+                accent: 'from-red-500 to-red-600',
+                iconHover: 'group-hover:text-red-600',
+                badgeHover: 'group-hover:bg-red-50 group-hover:text-red-600',
+                textHover: 'group-hover:text-red-600'
             },
             blue: {
-                badge: 'bg-blue-100 text-blue-600',
-                icon: 'bg-blue-100 text-blue-600',
-                border: 'border-blue-600',
-                button: 'bg-blue-600 hover:bg-blue-700',
-                link: 'text-blue-600 hover:text-blue-700'
+                accent: 'from-blue-500 to-blue-600',
+                iconHover: 'group-hover:text-blue-600',
+                badgeHover: 'group-hover:bg-blue-50 group-hover:text-blue-600',
+                textHover: 'group-hover:text-blue-600'
             },
             purple: {
-                badge: 'bg-purple-100 text-purple-600',
-                icon: 'bg-purple-100 text-purple-600',
-                border: 'border-purple-600',
-                button: 'bg-purple-600 hover:bg-purple-700',
-                link: 'text-purple-600 hover:text-purple-700'
+                accent: 'from-purple-500 to-purple-600',
+                iconHover: 'group-hover:text-purple-600',
+                badgeHover: 'group-hover:bg-purple-50 group-hover:text-purple-600',
+                textHover: 'group-hover:text-purple-600'
             },
             green: {
-                badge: 'bg-green-100 text-green-600',
-                icon: 'bg-green-100 text-green-600',
-                border: 'border-green-600',
-                button: 'bg-green-600 hover:bg-green-700',
-                link: 'text-green-600 hover:text-green-700'
+                accent: 'from-green-500 to-green-600',
+                iconHover: 'group-hover:text-green-600',
+                badgeHover: 'group-hover:bg-green-50 group-hover:text-green-600',
+                textHover: 'group-hover:text-green-600'
             },
             pink: {
-                badge: 'bg-pink-100 text-pink-600',
-                icon: 'bg-pink-100 text-pink-600',
-                border: 'border-pink-600',
-                button: 'bg-pink-600 hover:bg-pink-700',
-                link: 'text-pink-600 hover:text-pink-700'
+                accent: 'from-pink-500 to-pink-600',
+                iconHover: 'group-hover:text-pink-600',
+                badgeHover: 'group-hover:bg-pink-50 group-hover:text-pink-600',
+                textHover: 'group-hover:text-pink-600'
             },
         };
         return colors[color as keyof typeof colors] || colors.red;
@@ -179,45 +180,49 @@ const Products = () => {
             {/* Products Grid */}
             <div className="bg-white py-16 md:py-24">
                 <MaxWidthWrapper>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4 md:px-0">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-0">
                         {products.map((product, index) => {
                             const Icon = product.icon;
                             const colors = getColorClasses(product.color);
                             
                             return (
-                                <div
+                                <Link
                                     key={index}
-                                    className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 overflow-hidden flex flex-col"
+                                    href={`/products/${product.slug}`}
+                                    className="group bg-white rounded-lg hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-gray-300 overflow-hidden flex flex-col relative"
                                 >
+                                    {/* Hover color accent line */}
+                                    <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r ${colors.accent} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                                    
                                     {/* Header */}
-                                    <div className="p-6 md:p-8 bg-gradient-to-br from-gray-50 to-white border-b border-gray-100">
-                                        <div className={`inline-flex items-center gap-2 ${colors.badge} px-3 py-1 rounded-full text-xs font-semibold mb-4`}>
-                                            {product.badge}
+                                    <div className="p-8 pb-6">
+                                        <div className="flex items-start justify-between mb-6">
+                                            <Icon className={`w-10 h-10 text-gray-400 ${colors.iconHover} transition-colors duration-300`} strokeWidth={1.5} />
+                                            <span className={`text-xs font-medium text-gray-500 bg-gray-50 px-2.5 py-1 rounded ${colors.badgeHover} transition-colors duration-300`}>
+                                                {product.badge}
+                                            </span>
                                         </div>
-                                        <div className={`w-16 h-16 ${colors.icon} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                                            <Icon className="w-8 h-8" />
-                                        </div>
-                                        <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                                        
+                                        <h3 className="text-lg font-semibold text-gray-900 mb-1.5">
                                             {product.name}
                                         </h3>
-                                        <p className="text-sm text-gray-500 font-medium mb-3">
+                                        
+                                        <p className="text-xs text-gray-500 mb-4">
                                             {product.category}
                                         </p>
-                                        <p className="text-gray-600 leading-relaxed">
+                                        
+                                        <p className="text-gray-600 text-sm leading-relaxed">
                                             {product.description}
                                         </p>
                                     </div>
 
                                     {/* Features */}
-                                    <div className="p-6 md:p-8 flex-1">
-                                        <h4 className="text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wider">
-                                            Key Features
-                                        </h4>
-                                        <ul className="space-y-3">
+                                    <div className="px-8 pb-8 flex-1">
+                                        <ul className="space-y-2">
                                             {product.highlights.map((highlight, idx) => (
-                                                <li key={idx} className="flex items-start gap-2">
-                                                    <ShieldCheck className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                                                    <span className="text-sm text-gray-700">
+                                                <li key={idx} className="flex items-start gap-2 text-sm text-gray-500">
+                                                    <span className="text-gray-400 mt-0.5">•</span>
+                                                    <span className="leading-relaxed">
                                                         {highlight}
                                                     </span>
                                                 </li>
@@ -226,16 +231,13 @@ const Products = () => {
                                     </div>
 
                                     {/* CTA */}
-                                    <div className="p-6 md:p-8 pt-0">
-                                        <a
-                                            href={product.link}
-                                            className={`w-full inline-flex items-center justify-center gap-2 ${colors.button} text-white px-6 py-3 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg group`}
-                                        >
-                                            Explore {product.name}
+                                    <div className="px-8 pb-8 pt-4 border-t border-gray-100">
+                                        <div className={`flex items-center justify-between text-sm font-medium text-gray-900 ${colors.textHover} transition-colors duration-300`}>
+                                            <span>View details</span>
                                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                        </a>
+                                        </div>
                                     </div>
-                                </div>
+                                </Link>
                             );
                         })}
                     </div>
@@ -255,20 +257,20 @@ const Products = () => {
                             Let's bring your vision to life. We build custom products tailored to your specific needs.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                            <a
+                            <Link
                                 href="/quotes"
                                 className="inline-flex items-center justify-center gap-2 bg-white text-red-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all"
                             >
                                 <Rocket className="w-5 h-5" />
                                 Get a Quote
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 href="/contact"
                                 className="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-lg font-bold text-lg transition-all"
                             >
                                 Contact Us
                                 <ArrowRight className="w-5 h-5" />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </MaxWidthWrapper>

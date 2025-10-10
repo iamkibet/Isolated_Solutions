@@ -7,6 +7,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\PortfolioController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -27,6 +29,9 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/products', fn() => Inertia::render('Products'))->name('products');
+Route::get('/products/services', [ServiceController::class, 'index'])->name('products.showcase');
+Route::get('/products/services/{slug}', [ServiceController::class, 'show'])->name('products.services.show');
+Route::get('/products/{slug}', [PortfolioController::class, 'show'])->name('products.show');
 Route::get("/sokomagari", fn() => Inertia::render('SokoMagari'))->name('sokomagari');
 // Legal pages
 Route::get('/terms-of-use', function () {
